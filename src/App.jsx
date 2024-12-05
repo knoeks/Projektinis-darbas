@@ -1,14 +1,8 @@
-import {Outlet} from "react-router";
-import NavBar from "./components/items/Navbar.jsx";
 
+import Trending from "./components/Trending.jsx"
 function App() {
 
-  return <main className="grid justify-center gap-4">
-    <div className="justify-self-center">
-      <NavBar />
-    </div>
-    <Outlet />
-  </main>
+  return <Trending/>
 }
 
 export default App
