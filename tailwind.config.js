@@ -29,6 +29,8 @@ export default {
         "body-m": ["15px", { lineHeight: "24px", fontWeight: "300" }], // Light
         "body-s": ["15px", { lineHeight: "24px", fontWeight: "300" }], // Light
       },
+
+      
     },
   },
   plugins: [daisyui],
