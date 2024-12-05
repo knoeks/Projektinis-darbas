@@ -1,14 +1,9 @@
-import {Outlet} from "react-router";
-import NavBar from "./components/items/Navbar.jsx";
-
 function App() {
-
-  return <main className="grid justify-center gap-4">
-    <div className="justify-self-center">
-      <NavBar />
-    </div>
-    <Outlet />
-  </main>
+  return (
+    <>
+      <h1 className="text-3xl font-outfit text-heading-xs">test</h1>
+    </>
+  )
 }
 
 export default App
