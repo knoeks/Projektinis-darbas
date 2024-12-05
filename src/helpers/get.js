@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:5000/items"
+const url = "http://localhost:5000/data"
 
 export const getAll = async () => {
   const response = await axios.get(url);
@@ -8,8 +8,8 @@ export const getAll = async () => {
   return response.data;
 }
 
-export const getOne = async (id) => {
-  const response = await axios.get(`${url}/${id}`);
+export const getTrending = async (isTrending) => {
+  const response = await axios.get(`${url}/${isTrending}`);
 
   return response.data;
 }

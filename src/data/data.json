@@ -1,4 +1,5 @@
-[
+{
+  "data":[
   {
     "title": "Beyond Earth",
     "thumbnail": {
@@ -455,3 +456,4 @@
     "isTrending": false
   }
 ]
+}

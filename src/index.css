@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.trending--main--container{
+    width: 157rem;
+    height: 18.4rem;
+    background-color: #10141E;
+}
+.trending--heading--text{
+    font-family: Outfit;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.03125rem;
+}
