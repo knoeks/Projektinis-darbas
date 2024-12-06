@@ -1,15 +1,24 @@
 import { filterItems } from "../helpers/searchBar";
 import { useLocation } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import search from "../assets/icon-search.svg";
 
 function SearchBar({ itemArray, onFilter }) {
   const [searchResults, setSearchResults] = useState("");
   const [filteredItems, setFilteredItems] = useState(itemArray);
   const location = useLocation();
 
+  useEffect(() => {
+    if (searchResults.trim() === "") { // Only reset if the search bar is empty
+      setFilteredItems(itemArray);
+      onFilter(itemArray);
+    }
+  }, [itemArray, onFilter, searchResults]);
+
   const handleInputChange = (e) => {
     const value = e.target.value;
-    const filtered = filterItems(value, itemArray);
+    const filtered =
+      value.trim() === "" ? itemArray : filterItems(value, itemArray);
 
     setSearchResults(value);
     setFilteredItems(filtered);
@@ -32,6 +41,9 @@ function SearchBar({ itemArray, onFilter }) {
 
   return (
     <div>
+      <figure>
+        <img src={search} alt="Search Icon" className="w-10" />
+      </figure>
       <input
         className="font-outfit input-field"
         type="text"
@@ -39,9 +51,13 @@ function SearchBar({ itemArray, onFilter }) {
         onChange={handleInputChange}
         placeholder={getPlaceholder()}
       />
-      <h2>
-        Found {filteredItems.length} results for {"'" + searchResults + "'"}
-      </h2>
+      {searchResults === "" ? (
+        ""
+      ) : (
+        <h2>
+          Found {filteredItems.length} results for {"'" + searchResults + "'"}
+        </h2>
+      )}
     </div>
   );
 }

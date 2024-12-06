@@ -16,6 +16,16 @@
 }
 
 @layer components {
+  .search-bar {
+    @apply text-specific_search md:text-heading-m caret-red text-white pb-[0.87rem] md:pb-[0.94rem] focus:outline-none bg-transparent ml-[1rem] md:ml-[1.5rem];
+
+    &:focus {
+      @apply border-b border-white
+    }
+  }
+  .search-results {
+    @apply text-specific_search-results text-white
+  }
 }
 
 @layer utilities {
