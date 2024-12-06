@@ -1,29 +1,32 @@
 import { filterItems } from "../helpers/searchBar";
-import { useLocation } from "react-router";
+import { useLocation, useSearchParams } from "react-router";
 import { useState, useEffect } from "react";
 import search from "../assets/icon-search.svg";
 
 function SearchBar({ itemArray, onFilter }) {
-  const [searchResults, setSearchResults] = useState("");
-  const [filteredItems, setFilteredItems] = useState(itemArray);
+  const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
 
+  const searchQuery = searchParams.get("search") || "";
+
+  const [searchResults, setSearchResults] = useState(searchQuery);
+  const [filteredItems, setFilteredItems] = useState(itemArray);
+
   useEffect(() => {
-    if (searchResults.trim() === "") {
-      setFilteredItems(itemArray);
-      onFilter(itemArray);
+    const filtered =
+      searchResults.trim() === ""
+        ? itemArray
+        : filterItems(searchResults, itemArray);
+    {
+      setFilteredItems(filtered);
+      onFilter(filtered);
     }
   }, [itemArray, onFilter, searchResults]);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    const filtered =
-      value.trim() === "" ? itemArray : filterItems(value, itemArray);
-
     setSearchResults(value);
-    setFilteredItems(filtered);
-
-    onFilter(filtered);
+    setSearchParams(value ? { search: value } : {});
   };
 
   const getPlaceholder = () => {
@@ -57,7 +60,9 @@ function SearchBar({ itemArray, onFilter }) {
         <h2>Found no results for {"'" + searchResults + "'"}</h2>
       ) : (
         <h2>
-          Found {filteredItems.length} {filteredItems.length === 1 ? "result" : "results"} for {"'" + searchResults + "'"}
+          Found {filteredItems.length}{" "}
+          {filteredItems.length === 1 ? "result" : "results"} for{" "}
+          {"'" + searchResults + "'"}
         </h2>
       )}
     </div>
