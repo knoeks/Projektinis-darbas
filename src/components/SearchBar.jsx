@@ -9,7 +9,7 @@ function SearchBar({ itemArray, onFilter }) {
   const location = useLocation();
 
   useEffect(() => {
-    if (searchResults.trim() === "") { // Only reset if the search bar is empty
+    if (searchResults.trim() === "") {
       setFilteredItems(itemArray);
       onFilter(itemArray);
     }
@@ -53,9 +53,13 @@ function SearchBar({ itemArray, onFilter }) {
       />
       {searchResults === "" ? (
         ""
+      ) : filteredItems.length === 0 ? (
+        <h2>Found no results for {"'" + searchResults + "'"}</h2>
       ) : (
         <h2>
-          Found {filteredItems.length} results for {"'" + searchResults + "'"}
+          Found {filteredItems.length}{" "}
+          {filterItems.length === 1 ? "result" : "results"}{" for "}
+          {"'" + searchResults + "'"}
         </h2>
       )}
     </div>
