@@ -1,15 +1,20 @@
-import { useState } from "react";
 import { filterItems } from "../helpers/searchBar";
 import { useLocation } from "react-router";
+import { useState } from "react";
 
-function SearchBar({ itemArray }) {
-  const [filteredItems, setFilteredItems] = useState({ itemArray });
+function SearchBar({ itemArray, onFilter }) {
+  const [searchResults, setSearchResults] = useState("");
+  const [filteredItems, setFilteredItems] = useState(itemArray);
   const location = useLocation();
 
   const handleInputChange = (e) => {
-    const searchRobots = filterItems(e.target.value, itemArray);
+    const value = e.target.value;
+    const filtered = filterItems(value, itemArray);
 
-    setFilteredItems(searchRobots);
+    setSearchResults(value);
+    setFilteredItems(filtered);
+
+    onFilter(filtered);
   };
 
   const getPlaceholder = () => {
@@ -18,7 +23,7 @@ function SearchBar({ itemArray }) {
         return "Search for movies";
       case "/series":
         return "Search for TV series";
-      case "bookmarked":
+      case "/bookmarked":
         return "Search for bookmarked shows";
       default:
         return "Search for movies or TV series";
@@ -30,9 +35,13 @@ function SearchBar({ itemArray }) {
       <input
         className="font-outfit input-field"
         type="text"
+        id="search"
         onChange={handleInputChange}
-        placeholder={getPlaceholder}
+        placeholder={getPlaceholder()}
       />
+      <h2>
+        Found {filteredItems.length} results for {"'" + searchResults + "'"}
+      </h2>
     </div>
   );
 }
