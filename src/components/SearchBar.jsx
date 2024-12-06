@@ -57,9 +57,7 @@ function SearchBar({ itemArray, onFilter }) {
         <h2>Found no results for {"'" + searchResults + "'"}</h2>
       ) : (
         <h2>
-          Found {filteredItems.length}{" "}
-          {filterItems.length === 1 ? "result" : "results"}{" for "}
-          {"'" + searchResults + "'"}
+          Found {filteredItems.length} {filteredItems.length === 1 ? "result" : "results"} for {"'" + searchResults + "'"}
         </h2>
       )}
     </div>
