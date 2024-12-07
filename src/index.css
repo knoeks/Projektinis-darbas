@@ -3,20 +3,42 @@
 @tailwind utilities;
 
 @layer base {
-  .input-field {
-    @apply caret-red text-white border-b border-accent pb-[1.13rem] focus:outline-none bg-transparent;
-
-    &:focus {
-      @apply border-white;
-    }
-  }
-  .input-error-custom {
-    @apply border-red caret-red text-white border-b pb-[1.13rem] focus:outline-none bg-transparent;
+  body {
+    @apply bg-light;
   }
 }
 
 @layer components {
+  .films-row {
+    @apply grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 m-4 sm:m-4;
+  }
+
+  .film-card {
+    @apply text-white w-[10.25rem] sm:w-[13.75rem] xl:w-[17.5rem];
+  }
+  .card-description-top {
+    @apply flex gap-2 text-body-s;
+  }
+
+  .card-description-bottom {
+    @apply text-heading-xs;
+  }
+
+  .film-thumbnail {
+    @apply rounded-lg;
+  }
+
+  .bookmark-button {
+    @apply absolute  right-2 top-2 sm:right-4 sm:top-4;
+  }
 }
 
 @layer utilities {
+  .film-container {
+    @apply relative;
+  }
+
+  .circle-icon {
+    @apply w-8 h-8 bg-light z-10 opacity-75 rounded-full flex justify-center items-center;
+  }
 }

@@ -6,6 +6,14 @@ export default {
   theme: {
     extend: {
 
+      // naudojimas xl:grid-cols-3
+      screens: {
+        'xl': '1440px',
+        // => @media (min-width: 1440px) { ... }
+      },
+
+
+
       // pavyzdys: bg-red text-red
       colors: {
         red: "#FC4747", // Red

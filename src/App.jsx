@@ -4,8 +4,9 @@ import { getAll } from "./helpers/get";
 
 function App() {
   const [allFilms, setAllFilms] = useState([]);
+  const [update, setUpdate] = useState(0);
   //const [filteredFilms, setFilteredFilms] = useState({});
-  const [category, setCategory] = useState("Movies");
+  const [category, setCategory] = useState("Movie");
   const [error, setError] = useState("");
   
   const fetchData = async () => {
@@ -17,8 +18,6 @@ function App() {
     }
   };
 
-  console.log(allFilms);
-  
   useEffect(() => {
     fetchData();
   }, []);
