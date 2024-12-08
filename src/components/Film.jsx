@@ -1,6 +1,7 @@
 import oval from "../assets/oval.svg";
 import Bookmark from "./Bookmark";
 import Category from "./Category";
+import PlayButton from "./PlayButton";
 
 function Film({ film, setUpdate }) {
   const { title, year, category, rating, thumbnail } = film;
@@ -12,6 +13,7 @@ function Film({ film, setUpdate }) {
       <div className="film-container">
         <Bookmark film={film} setUpdate={setUpdate}/>
         <img className="film-thumbnail" src={str} alt={title} />
+        <PlayButton/>
       </div>
 
       <div className="card-description-top">

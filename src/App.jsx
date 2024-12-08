@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Films from "./components/Films";
 import { getAll } from "./helpers/get";
-import { assignIDs } from "./helpers/assignIds";
 
 function App() {
   const [allFilms, setAllFilms] = useState([]);
