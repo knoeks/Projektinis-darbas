@@ -10,14 +10,15 @@
 
 @layer components {
   .films-row {
-    @apply grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 m-4 sm:m-4;
+    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-4 md:p-8 xl:px-9 justify-items-center dynamic-film-gap dynamic-film-padding;
   }
 
   .film-card {
-    @apply text-white w-[10.25rem] sm:w-[13.75rem] xl:w-[17.5rem];
+    @apply text-white w-fit;
   }
+
   .card-description-top {
-    @apply flex gap-2 text-body-s;
+    @apply flex gap-2 text-body-s opacity-75 pt-2 pb-1 md:pb-[0.3125rem];
   }
 
   .card-description-bottom {
@@ -29,7 +30,7 @@
   }
 
   .bookmark-button {
-    @apply absolute  right-2 top-2 sm:right-4 sm:top-4;
+    @apply absolute right-2 top-2 sm:right-4 md:top-4;
   }
 }
 
@@ -37,6 +38,16 @@
   .film-container {
     @apply relative;
   }
+
+  .dynamic-film-gap {
+    @apply gap-x-sm md:gap-x-md xl:gap-x-10 gap-y-4 md:gap-y-6 xl:gap-y-8;
+  }
+
+  .dynamic-film-padding {
+    @apply px-4 pt-6 pb-xl md:px-6 md:pt-6 md:pb-14 xl:px-9 xl:pt-8 xl:pb-13;
+  }
+
+
 
   .circle-icon {
     @apply w-8 h-8 bg-light z-10 opacity-75 rounded-full flex justify-center items-center;

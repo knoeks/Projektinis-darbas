@@ -5,14 +5,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-
       // naudojimas xl:grid-cols-3
       screens: {
-        'xl': '1440px',
+        xl: "1440px",
         // => @media (min-width: 1440px) { ... }
       },
-
-
 
       // pavyzdys: bg-red text-red
       colors: {
@@ -38,7 +35,12 @@ export default {
         "body-s": ["15px", { lineHeight: "24px", fontWeight: "300" }], // Light
       },
 
-      
+      spacing: {
+        sm: "0.9375rem", // 15px
+        md: "1.8125rem", // 29px
+        xl: "3.8125rem", // 61px
+        13: "3.25", // 52px
+      },
     },
   },
   plugins: [daisyui],

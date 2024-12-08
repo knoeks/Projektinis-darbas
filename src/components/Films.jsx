@@ -2,19 +2,15 @@ import { useParams } from "react-router";
 import Film from "./Film";
 import { v4 as uuidv4 } from "uuid";
 
-function Films({ category, allFilms }) {
+function Films({ category, allFilms, setUpdate }) {
   let newFilteredFilms = allFilms.filter((film) =>
     category ? film.category === category : true
   );
 
-  const { postID } = useParams();
-
-  console.log(postID);
-  
   return (
-    <div className="films-row justify-items-center">
+    <div className="films-row">
       {newFilteredFilms.map((film) => {
-        return <Film key={uuidv4()} film={film} />;
+        return <Film key={uuidv4()} film={film} setUpdate={setUpdate}/>;
       })}
     </div>
   );
