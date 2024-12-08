@@ -15,7 +15,7 @@ function Bookmark({ film, setUpdate }) {
 
   const bookmarkButton = isBookmarked ? bookmarkFull : bookmarkEmpty;
   return (
-    <div className="bookmark-button hover:circle-icon-hover">
+    <div className="bookmark-button">
       <button onClick={bookmarkHandler} className="circle-icon">
         <img src={bookmarkButton} alt={bookmarkButton} />
       </button>
