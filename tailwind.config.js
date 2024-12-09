@@ -5,6 +5,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      // naudojimas xl:grid-cols-3
+      screens: {
+        xl: "1440px",
+        // => @media (min-width: 1440px) { ... }
+      },
       // naudojimas:
       // 1) grid-cols-2 -maziems ekranams
       // 2) md:grid-cols-3 -vidutiniams ekranams
@@ -39,6 +44,13 @@ export default {
         "body-s": ["15px", { lineHeight: "24px", fontWeight: "300" }], // Light
         "specific_search": ["16px", {lineHeight: "24px", fontWeight: "300" }], // Text for mobile search bar
         "specific_search-results": ["20px", {lineHeight: "24px", fontWeight: "300" }], // Text for mobile search results
+      },
+
+      spacing: {
+        sm: "0.9375rem", // 15px
+        md: "1.8125rem", // 29px
+        xl: "3.8125rem", // 61px
+        13: "3.25", // 52px
       },
     },
   },

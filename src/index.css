@@ -3,19 +3,55 @@
 @tailwind utilities;
 
 @layer base {
-  .input-field {
-    @apply caret-red text-white border-b border-accent pb-[1.13rem] focus:outline-none bg-transparent;
-
-    &:focus {
-      @apply border-white;
-    }
-  }
-  .input-error-custom {
-    @apply border-red caret-red text-white border-b pb-[1.13rem] focus:outline-none bg-transparent;
+  body {
+    @apply bg-light;
   }
 }
 
 @layer components {
+  .films-row {
+    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-4 md:p-8 xl:px-9 justify-items-center dynamic-film-gap dynamic-film-padding;
+  }
+
+  .film-card {
+    @apply text-white w-fit;
+  }
+
+  .card-description-top {
+    @apply flex gap-2 text-body-s opacity-75 pt-2 pb-1 md:pb-[0.3125rem];
+  }
+
+  .card-description-bottom {
+    @apply text-heading-xs;
+  }
+
+  .film-thumbnail {
+    @apply rounded-lg;
+  }
+
+  .bookmark-button {
+    @apply absolute right-2 top-2 sm:right-4 md:top-4 z-50;
+  }
+
+  .play-button-bg {
+    @apply absolute w-full h-full top-0 bg-black bg-opacity-50 z-10 transition-opacity duration-200 rounded-lg;
+  }
+
+  .inner-play-button {
+    @apply absolute w-[7.3125rem] h-12 bg-white bg-opacity-25 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-[1.78125rem];
+  }
+
+  .inner-play-button-content {
+    @apply relative text-heading-xs opacity-100 z-30 text-white flex items-center
+  }
+
+  .inner-play-button-icon {
+    @apply absolute top-[0.5625rem] left-[0.5625rem]
+  }
+
+  .inner-play-button-text {
+    @apply absolute top-3 right-6
+  }
   .search-bar {
     @apply text-specific_search md:text-heading-m caret-red text-white pb-[0.87rem] md:pb-[0.94rem] focus:outline-none bg-transparent ml-[1rem] md:ml-[1.5rem];
 
@@ -29,4 +65,27 @@
 }
 
 @layer utilities {
+  .film-container {
+    @apply relative w-full;
+  }
+
+  .dynamic-film-gap {
+    @apply gap-x-sm md:gap-x-md xl:gap-x-10 gap-y-4 md:gap-y-6 xl:gap-y-8;
+  }
+
+  .dynamic-film-padding {
+    @apply px-4 pt-6 pb-xl md:px-6 md:pt-6 md:pb-14 xl:px-9 xl:pt-8 xl:pb-13;
+  }
+
+  .circle-icon {
+    @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-opacity-100 hover:invert;
+  }
+
+  .hover-opacity-0 {
+    @apply opacity-0 transition-opacity duration-200;
+  }
+
+  .hover-opacity-100 {
+    @apply opacity-100 transition-opacity duration-300;
+  }
 }
