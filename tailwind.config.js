@@ -5,11 +5,6 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      // naudojimas xl:grid-cols-3
-      screens: {
-        xl: "1440px",
-        // => @media (min-width: 1440px) { ... }
-      },
       // naudojimas:
       // 1) grid-cols-2 -maziems ekranams
       // 2) md:grid-cols-3 -vidutiniams ekranams
