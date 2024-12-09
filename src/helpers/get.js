@@ -8,8 +8,8 @@ export const getAll = async () => {
   return response.data;
 }
 
-export const getTrending = async (isTrending) => {
-  const response = await axios.get(`${url}/${isTrending}`);
+export const getOne = async (id) => {
+  const response = await axios.get(`${url}/${id}`);
 
   return response.data;
 }

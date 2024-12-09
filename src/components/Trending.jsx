@@ -69,14 +69,14 @@ const Trending = () => {
   return (
     <section>
       <div className="trending--main--container">
-        <h1 className="trending--heading--text">Trending</h1>
+        <h1 className="trending--heading--text flex-row">Trending</h1>
         {error && <div className="error">{error}</div>}
 
         <div
           ref={carouselRef}
           className="carousel overflow-hidden whitespace-nowrap"
         >
-          <TrendingMap trending={trending} />
+          <TrendingMap trending={trending}/>
         </div>
       </div>
     </section>

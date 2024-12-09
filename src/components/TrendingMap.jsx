@@ -9,3 +9,4 @@ const TrendingMap = ({ trending }) => {
 };
 
 export default TrendingMap;
+
