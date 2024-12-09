@@ -68,8 +68,9 @@ const Trending = () => {
 
   return (
     <section>
+      <h1 className="trending--heading--text flex-row">Trending</h1>
       <div className="trending--main--container">
-        <h1 className="trending--heading--text flex-row">Trending</h1>
+        
         {error && <div className="error">{error}</div>}
 
         <div

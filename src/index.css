@@ -81,9 +81,10 @@
 }
 .trending--main--container {
   max-width: 157rem;
-  height: 18.4rem;
+  max-height: 18.4rem;
   background-color: #10141e;
   display: flex;
+  position: relative;
 }
 .trending--heading--text {
   font-family: Outfit;
@@ -92,21 +93,22 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.03125rem;
+  padding-bottom: 1.56rem;
 }
-.trending--main--container {
-  position: relative;
-} 
  .trending--thumbnail {
   width: 29.375rem;
   height: 14.375rem;
 }
 .trending--text--image {
+  display: flex;
   font-family: Outfit;
   font-size: 0.9375rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   opacity: 0.75;
+  align-items: center;
+  gap: 0.56rem;
 }
 .trending--title--image {
   font-family: Outfit;
