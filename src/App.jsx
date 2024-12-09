@@ -1,3 +1,7 @@
+
+import { useState } from "react"
+import Trending from "./components/Trending.jsx"
+
 import { useEffect, useState } from "react";
 import Films from "./components/Films";
 import { getAll } from "./helpers/get";
@@ -33,6 +37,9 @@ function App() {
       )}
     </>
   );
+  const [update, setUpdate] = useState()
+
+  return <Trending setUpdate={setUpdate}/>
 }
 
 export default App;
