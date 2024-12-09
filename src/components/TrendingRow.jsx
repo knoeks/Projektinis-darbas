@@ -5,18 +5,15 @@ const TrendingRow = ({ trending }) => {
   const { title, thumbnail, year, category, rating } = trending;
   const [update, setUpdate] = useState(0);
 
-  const str = thumbnail?.trending?.large?.startsWith("/")
-  ? thumbnail.trending.large.slice(1) 
-  : thumbnail?.trending?.large || "";
-    
+ let str = "/src" + thumbnail.trending.large.slice(2) 
 
   return (
 <div className="inline-block mx-2">
-    <div className="">
+    <div className=" ">
       <div className="trending--thumbnail relative">
         <Bookmark setUpdate={setUpdate} film={trending} />
         {str ? (
-          <img className="w-full" src={str} alt={title} />
+          <img className="w-full" src={str} />
         ) : (
           <p>No Cover</p>
         )}
