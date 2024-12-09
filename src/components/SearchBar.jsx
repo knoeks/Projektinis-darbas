@@ -10,7 +10,7 @@ function SearchBar({ itemArray, onFilter }) {
   const searchQuery = searchParams.get("search") || "";
 
   const [searchResults, setSearchResults] = useState(searchQuery);
-  //const [filteredItems, setFilteredItems] = useState(itemArray);
+  const [filteredItems, setFilteredItems] = useState(itemArray);
 
   useEffect(() => {
     const filtered =
@@ -18,7 +18,7 @@ function SearchBar({ itemArray, onFilter }) {
         ? itemArray
         : filterItems(searchResults, itemArray);
     {
-      //setFilteredItems(filtered);
+      setFilteredItems(filtered);
       onFilter(filtered);
     }
   }, [itemArray, onFilter, searchResults]);
@@ -43,16 +43,18 @@ function SearchBar({ itemArray, onFilter }) {
   };
 
   return (
-    <div className="search-container">
-      <img src={search} alt="Search Icon" className="search-icon" />
-      <input
-        className="font-outfit search-bar"
-        type="text"
-        id="search"
-        onChange={handleInputChange}
-        placeholder={getPlaceholder()}
-      />
-      {/* {searchResults === "" ? (
+    <div>
+      <div className="search-container">
+        <img src={search} alt="Search Icon" className="search-icon" />
+        <input
+          className="font-outfit search-bar"
+          type="text"
+          id="search"
+          onChange={handleInputChange}
+          placeholder={getPlaceholder()}
+        />
+      </div>
+      {searchResults === "" ? (
         ""
       ) : filteredItems.length === 0 ? (
         <h2>Found no results for {"'" + searchResults + "'"}</h2>
@@ -62,7 +64,7 @@ function SearchBar({ itemArray, onFilter }) {
           {filteredItems.length === 1 ? "result" : "results"} for{" "}
           {"'" + searchResults + "'"}
         </h2>
-      )} */}
+      )}
     </div>
   );
 }
