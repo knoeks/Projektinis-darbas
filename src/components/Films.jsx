@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import Film from "./Film";
 import { v4 as uuidv4 } from "uuid";
 
-function Films({ category, filteredFilms, setUpdate }) {
+function Films({ category, filteredFilms, setAllFilms }) {
   let newFilteredFilms = filteredFilms.filter((film) =>
     category ? film.category === category : true
   );
@@ -10,7 +10,7 @@ function Films({ category, filteredFilms, setUpdate }) {
   return (
     <div className="films-row">
       {newFilteredFilms.map((film) => {
-        return <Film key={uuidv4()} film={film} setUpdate={setUpdate}/>;
+        return <Film key={uuidv4()} film={film} setAllFilms={setAllFilms}/>;
       })}
     </div>
   );

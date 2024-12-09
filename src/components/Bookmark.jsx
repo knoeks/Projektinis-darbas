@@ -1,21 +1,21 @@
 import { useState } from "react";
-import bookmarkEmpty from "../assets/icon-bookmark-empty.svg";
-import bookmarkFull from "../assets/icon-bookmark-full.svg";
+import BookmarkEmpty from "../assets/icon-bookmark-empty.svg";
+import BookmarkFull from "../assets/icon-bookmark-full.svg";
 import { getOne } from "../helpers/get";
 import { updateOne } from "../helpers/update";
 
 // reusable component meant for Povilas and Jaroslav
-function Bookmark({ film }) {
-  const [isBookmarkedState, setIsBookmarkedState] = useState(true);
-  const { id } = film;
+function Bookmark({ film, setAllFilms }) {
+
+  const { id, isBookmarked } = film;
 
   const bookmarkHandler = async () => {
     const { isBookmarked } = await getOne(id);
     await updateOne(id, { isBookmarked: !isBookmarked });
-    setIsBookmarkedState(isBookmarked);
+    setAllFilms((prevState) => prevState.map((film) => film.id === id ? {...film, isBookmarked: !isBookmarked} : film ));
   };
 
-  const bookmarkButton = isBookmarkedState ? bookmarkFull : bookmarkEmpty;
+  const bookmarkButton = isBookmarked ? BookmarkFull : BookmarkEmpty;
 
   return (
     <div className="bookmark-button hover:circle-icon-hover">
