@@ -42,31 +42,15 @@
   }
 
   .inner-play-button-content {
-    @apply relative text-heading-xs opacity-100 z-30 text-white flex items-center;
+    @apply relative text-heading-xs opacity-100 z-30 text-white flex items-center
   }
 
   .inner-play-button-icon {
-    @apply absolute top-[0.5625rem] left-[0.5625rem];
+    @apply absolute top-[0.5625rem] left-[0.5625rem]
   }
 
   .inner-play-button-text {
-    @apply absolute top-3 right-6;
-  }
-  .search-bar {
-    @apply text-specific_search md:text-heading-m caret-red text-white pb-[0.87rem] md:pb-[0.94rem] focus:outline-none bg-transparent w-full;
-
-    &:focus {
-      @apply border-b border-white;
-    }
-  }
-  .search-icon {
-    @apply w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem]
-  }
-  .search-container {
-    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center p-4 md:p-8 xl:px-9
-  }
-  .search-results {
-    @apply text-specific_search-results text-white;
+    @apply absolute top-3 right-6
   }
 }
 
@@ -84,13 +68,8 @@
   }
 
   .circle-icon {
-    @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center 
+    @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:invert hover:bg-opacity-100 transition-all duration-500;
   }
-
-  .circle-icon-hover {
-    @apply bg-opacity-100 bg-white
-  }
-
 
   .hover-opacity-0 {
     @apply opacity-0 transition-opacity duration-200;
