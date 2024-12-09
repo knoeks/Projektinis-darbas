@@ -84,8 +84,13 @@
   }
 
   .circle-icon {
-    @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-opacity-100 hover:invert;
+    @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center 
   }
+
+  .circle-icon-hover {
+    @apply bg-opacity-100 bg-white
+  }
+
 
   .hover-opacity-0 {
     @apply opacity-0 transition-opacity duration-200;
