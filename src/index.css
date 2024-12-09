@@ -42,25 +42,25 @@
   }
 
   .inner-play-button-content {
-    @apply relative text-heading-xs opacity-100 z-30 text-white flex items-center
+    @apply relative text-heading-xs opacity-100 z-30 text-white flex items-center;
   }
 
   .inner-play-button-icon {
-    @apply absolute top-[0.5625rem] left-[0.5625rem]
+    @apply absolute top-[0.5625rem] left-[0.5625rem];
   }
 
   .inner-play-button-text {
-    @apply absolute top-3 right-6
+    @apply absolute top-3 right-6;
   }
   .search-bar {
     @apply text-specific_search md:text-heading-m caret-red text-white pb-[0.87rem] md:pb-[0.94rem] focus:outline-none bg-transparent ml-[1rem] md:ml-[1.5rem];
 
     &:focus {
-      @apply border-b border-white
+      @apply border-b border-white;
     }
   }
   .search-results {
-    @apply text-specific_search-results text-white
+    @apply text-specific_search-results text-white;
   }
 }
 

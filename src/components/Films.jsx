@@ -2,8 +2,8 @@ import { useParams } from "react-router";
 import Film from "./Film";
 import { v4 as uuidv4 } from "uuid";
 
-function Films({ category, allFilms, setUpdate }) {
-  let newFilteredFilms = allFilms.filter((film) =>
+function Films({ category, filteredFilms, setUpdate }) {
+  let newFilteredFilms = filteredFilms.filter((film) =>
     category ? film.category === category : true
   );
 

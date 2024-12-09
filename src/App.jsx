@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import Films from "./components/Films";
 import { getAll } from "./helpers/get";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [allFilms, setAllFilms] = useState([]);
   const [update, setUpdate] = useState(0);
-  //const [filteredFilms, setFilteredFilms] = useState({});
+  const [filteredFilms, setFilteredFilms] = useState([]);
   const [category, setCategory] = useState("");
   const [error, setError] = useState("");
 
@@ -24,10 +25,11 @@ function App() {
 
   return (
     <>
+      <SearchBar itemArray={allFilms} onFilter={setFilteredFilms}/>
       {error ? (
         <p>{error}</p>
       ) : (
-        <Films category={category} allFilms={allFilms} setUpdate={setUpdate}/>
+        <Films category={category} filteredFilms={filteredFilms} setUpdate={setUpdate} />
       )}
     </>
   );
