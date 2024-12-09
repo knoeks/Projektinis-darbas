@@ -11,6 +11,7 @@ function Bookmark({ film, setAllFilms }) {
 
   const bookmarkHandler = async () => {
     const { isBookmarked } = await getOne(id);
+    
     await updateOne(id, { isBookmarked: !isBookmarked });
     setAllFilms((prevState) => prevState.map((film) => film.id === id ? {...film, isBookmarked: !isBookmarked} : film ));
   };
@@ -18,7 +19,7 @@ function Bookmark({ film, setAllFilms }) {
   const bookmarkButton = isBookmarked ? BookmarkFull : BookmarkEmpty;
 
   return (
-    <div className="bookmark-button hover:circle-icon-hover">
+    <div className="bookmark-button">
       <button onClick={bookmarkHandler} className="circle-icon">
         <img src={bookmarkButton} alt={bookmarkButton} />
       </button>
