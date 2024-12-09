@@ -43,12 +43,10 @@ function SearchBar({ itemArray, onFilter }) {
   };
 
   return (
-    <div>
-      <figure>
-        <img src={search} alt="Search Icon" className="w-10" />
-      </figure>
+    <div className="search-container">
+      <img src={search} alt="Search Icon" className="search-icon" />
       <input
-        className="font-outfit input-field"
+        className="font-outfit search-bar"
         type="text"
         id="search"
         onChange={handleInputChange}
