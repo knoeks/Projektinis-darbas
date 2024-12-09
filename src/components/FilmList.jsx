@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import Film from "./Film";
 import { v4 as uuidv4 } from "uuid";
 
-function Films({ category, filteredFilms, setUpdate }) {
+function FilmList({ category, filteredFilms, setUpdate }) {
   let newFilteredFilms = filteredFilms.filter((film) =>
     category ? film.category === category : true
   );
@@ -16,4 +16,4 @@ function Films({ category, filteredFilms, setUpdate }) {
   );
 }
 
-export default Films;
+export default FilmList;
