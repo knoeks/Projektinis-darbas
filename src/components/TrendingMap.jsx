@@ -1,17 +1,11 @@
-import Trending from "./Trending";
+import TrendingRow from "./TrendingRow";
 
-const TrendingMap = ({ trending, setTrending }) => {
-
-
-  const trendElements = trending.map(trend => (
-    <Trending key={trending.isTrending} trend={trend} setTrending={setTrending} />
+const TrendingMap = ({ trending }) => {
+  const trendElements = trending.map((data, index) => (
+    <TrendingRow key={index} trending={data} />
   ));
 
-  return (
-    <>
-{trendElements}
-        </>
-  );
+  return <>{trendElements}</>;
 };
 
 export default TrendingMap;

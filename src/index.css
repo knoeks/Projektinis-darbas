@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 .trending--main--container{
-    width: 157rem;
+    max-width: 157rem;
     height: 18.4rem;
     background-color: #10141E;
+    display: flex;
 }
 .trending--heading--text{
     font-family: Outfit;
@@ -15,3 +16,32 @@
     line-height: normal;
     letter-spacing: -0.03125rem;
 }
+.trending--main--container {
+    position: relative;
+    padding: 20px;
+  }
+.trending--thumbnail{
+    width: 29.375rem;
+    height: 14.375rem;
+}
+  
+  .carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    cursor: grab;
+  }
+  
+  .carousel-item {
+    flex: 0 0 auto;
+    width: 29.375rem; 
+  }
+  
+  .carousel-item img {
+    display: block;
+    width: 100%;
+  }
+  
+  .carousel::-webkit-scrollbar {
+    display: none; 
+  }
