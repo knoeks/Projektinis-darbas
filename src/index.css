@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .input-field {
+    @apply caret-red text-white border-b border-accent pb-[1.13rem] focus:outline-none bg-transparent;
+
+    &:focus {
+      @apply border-white;
+    }
+  }
+  .input-error-custom {
+    @apply border-red caret-red text-white border-b pb-[1.13rem] focus:outline-none bg-transparent;
+  }
+}
+
+@layer components {
+}
+
+@layer utilities {
+}

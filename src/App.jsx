@@ -1,14 +1,30 @@
-import {Outlet} from "react-router";
-import NavBar from "./components/items/Navbar.jsx";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import SignUpForm from "./components/SignUpForm";
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
 
-function App() {
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        {/* Default route */}
+        <Route path="/" element={<SignUpForm />} />
 
-  return <main className="grid justify-center gap-4">
-    <div className="justify-self-center">
-      <NavBar />
-    </div>
-    <Outlet />
-  </main>
-}
+        {/* Route for Sign Up */}
+        <Route path="/signup" element={<SignUpForm />} />
 
-export default App
+        {/* Route for Login */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Route for Dashboard */}
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        {/* Fallback route */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
