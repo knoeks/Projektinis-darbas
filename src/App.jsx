@@ -1,7 +1,5 @@
 
-import { useState } from "react"
 import Trending from "./components/Trending.jsx"
-
 import { useEffect, useState } from "react";
 import Films from "./components/Films";
 import { getAll } from "./helpers/get";
@@ -30,16 +28,16 @@ function App() {
   return (
     <>
       <SearchBar itemArray={allFilms} onFilter={setFilteredFilms}/>
+      <Trending setUpdate={setUpdate}/>
       {error ? (
         <p>{error}</p>
       ) : (
+        
         <Films category={category} filteredFilms={filteredFilms} setUpdate={setUpdate} />
       )}
     </>
   );
-  const [update, setUpdate] = useState()
 
-  return <Trending setUpdate={setUpdate}/>
 }
 
 export default App;
