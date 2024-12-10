@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, [update]);
+  }, []);
 
   return (
     <>
@@ -32,8 +32,7 @@ function App() {
       {error ? (
         <p>{error}</p>
       ) : (
-        
-        <Films category={category} filteredFilms={filteredFilms} setUpdate={setUpdate} />
+        <Films category={category} filteredFilms={filteredFilms} setAllFilms={setAllFilms} />
       )}
     </>
   );
