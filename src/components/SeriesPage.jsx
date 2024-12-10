@@ -1,8 +1,10 @@
 import FilmList from "./FilmList";
+import SearchBar from "./SearchBar";
 
 function SeriesPage(){
     return (
         <>
+        <SearchBar />
         <FilmList category={"TV Series"}/>
         </>
     )

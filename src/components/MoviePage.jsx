@@ -1,10 +1,11 @@
 import FilmList from "./FilmList";
-
+import SearchBar from "./SearchBar";
 
 function MoviePage(){
     return (
         <>
-        <FilmList category={"movie"}/>
+        <SearchBar />
+        <FilmList category={"Movie"}/>
         </>
     )
 }

@@ -6,7 +6,6 @@ import { Route, Routes, Outlet } from "react-router";
 import NotFound from "./components/NotFound";
 import { useEffect, useState } from "react";
 import { getAll } from "./helpers/get";
-import SearchBar from "./components/SearchBar";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -25,27 +24,30 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, [allFilms]);
+  }, []);
 
 
 
   return (
     <>
       <Routes>
-        <Route path="/" />
-        <Route path="login" />
+        {/* <Route path="/" />
+        <Route path="login" /> */}
         <Route
-          path="/main"
+          path="/"
           element={
             <LayoutContext
               context={{
                 allFilms,
+                setAllFilms,
                 filteredFilms,
                 setFilteredFilms,
               }}
             />
+            
           }
         >
+          
           <Route path="home" element={<HomePage />} />
           <Route path="movies" element={<MoviePage />} />
           <Route path="series" element={<SeriesPage />} />
@@ -61,9 +63,9 @@ function App() {
 function LayoutContext({ context }) {
   return (
     <div>
-      <SearchBar />
       <Navbar />
       <Outlet context={context} />
+      
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useOutletContext } from "react-router";
 import BookmarkEmpty from "../assets/icon-bookmark-empty.svg";
 import BookmarkFull from "../assets/icon-bookmark-full.svg";
 import { getOne } from "../helpers/get";
@@ -6,6 +6,7 @@ import { updateOne } from "../helpers/update";
 
 // reusable component meant for Povilas and Jaroslav
 function Bookmark({ film }) {
+  const {setAllFilms} = useOutletContext();
   const { id, isBookmarked } = film;
 
   const bookmarkHandler = async () => {

@@ -52,6 +52,22 @@
   .inner-play-button-text {
     @apply absolute top-3 right-6
   }
+  .search-bar {
+    @apply text-specific_search md:text-heading-m caret-red text-white pb-[0.87rem] md:pb-[0.94rem] focus:outline-none bg-transparent w-full;
+
+    &:focus {
+      @apply border-b border-white;
+    }
+  }
+  .search-icon {
+    @apply w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem]
+  }
+  .search-container {
+    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center p-4 md:p-8 xl:px-9
+  }
+  .search-results {
+    @apply text-specific_search-results text-white;
+  }
 }
 
 @layer utilities {
