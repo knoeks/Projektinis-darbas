@@ -66,10 +66,10 @@
     @apply w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem]
   }
   .search-container {
-    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center p-4 md:p-8 xl:px-9
+    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center
   }
   .search-results {
-    @apply text-specific_search-results text-white;
+    @apply pb-[1.5rem] md:pb-[2.06rem] xl:pb-[2.13rem];
   }
 }
 
@@ -140,11 +140,11 @@
   font-family: Outfit;
   font-size: 2rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: normal;
   letter-spacing: -0.03125rem;
   padding-bottom: 1.56rem;
-  
+  color: white;
 }
  .trending--thumbnail {
   width: 29.375rem;

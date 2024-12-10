@@ -68,7 +68,7 @@ const Trending = () => {
 
   return (
     <section className="trending-full">
-      <h1 className="trending--heading--text flex-row">Trending</h1>
+      <h1 className="trending--heading--text flex-row pt-4 md:pt-8 xl:pt-">Trending</h1>
       <div>
         
         {error && <div className="error">{error}</div>}

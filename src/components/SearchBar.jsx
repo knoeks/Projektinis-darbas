@@ -42,8 +42,8 @@ function SearchBar() {
   };
 
   return (
-    <div>
-      <div className="search-container">
+    <div className="p-4 md:p-8 xl:px-9">
+      <div className={`search-container ${location.search && `search-results`}`}>
         <img src={search} alt="Search Icon" className="search-icon" />
         <input
           className="font-outfit search-bar"
@@ -56,9 +56,9 @@ function SearchBar() {
       {searchResults === "" ? (
         ""
       ) : filteredFilms.length === 0 ? (
-        <h2>Found no results for {"'" + searchResults + "'"}</h2>
+        <h2 className="trending--heading--text">Found no results for {"'" + searchResults + "'"}</h2>
       ) : (
-        <h2>
+        <h2 className="trending--heading--text">
           Found {filteredFilms.length}{" "}
           {filteredFilms.length === 1 ? "result" : "results"} for{" "}
           {"'" + searchResults + "'"}
