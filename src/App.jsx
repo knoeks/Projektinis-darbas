@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import SignUpForm from "./components/SignUpForm";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import './index.css';
 
 const App = () => {
   return (

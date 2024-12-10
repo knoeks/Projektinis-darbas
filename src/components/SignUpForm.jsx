@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
+
 const SignUp = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -50,7 +51,7 @@ const SignUp = () => {
       const userExists = users.some((user) => user.email === email);
 
       if (userExists) {
-        setErrors({ email: "This email is already registered" });
+        setErrors({ email: "Email is already registered" });
         return;
       }
 
@@ -90,19 +91,19 @@ const SignUp = () => {
 
         <div>
           <div className="relative ">
-            <input
-              autoComplete="off"
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={`md:w-[21rem] w-[17.4rem] mx-[1.5rem] h-[2.31rem]  mb-[1.5rem] bg-transparent border-b ${
-                errors.email ? "border-red" : "border-accent"
-              } focus:outline-none focus:border-red text-white placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
-              placeholder="Email Address"
-            />
+          <input
+  autoComplete="off"
+  type="email"
+  name="email"
+  value={formData.email}
+  onChange={handleChange}
+  className={`md:w-[21rem] w-[17.4rem] mx-[1.5rem] h-[2.31rem] mb-[1.5rem] bg-transparent border-b ${
+    errors.email ? "border-red" : "border-accent"
+  } focus:outline-none focus:border-red text-white placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
+  placeholder="Email Address"
+/>
             {errors.email && (
-              <span className="text-red text-xs sm:text-sm absolute right-0 top-3 ">
+              <span className=" text-red sm:text-sm absolute right-10 top-3 ">
                 {errors.email}
               </span>
             )}
@@ -122,7 +123,7 @@ const SignUp = () => {
               placeholder="Password"
             />
             {errors.password && (
-              <span className="text-red text-xs sm:text-sm absolute right-0 top-3">
+              <span className="text-red text-xs sm:text-sm absolute right-10 top-3">
                 {errors.password}
               </span>
             )}
@@ -142,7 +143,7 @@ const SignUp = () => {
               placeholder="Repeat Password"
             />
             {errors.repeatPassword && (
-              <span className="text-red text-xs sm:text-sm absolute right-0 top-3">
+              <span className="text-red text-xs sm:text-sm absolute right-10 top-3">
                 {errors.repeatPassword}
               </span>
             )}

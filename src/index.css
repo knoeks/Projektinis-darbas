@@ -21,3 +21,10 @@
 
 @layer utilities {
 }
+
+@layer base {
+  input {
+    @apply cursor-pointer;
+    caret-color: #FC4747;
+  }
+}
