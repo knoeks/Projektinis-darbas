@@ -1,3 +1,5 @@
+
+import Trending from "./components/Trending.jsx"
 import HomePage from "./components/HomePage";
 import MoviePage from "./components/MoviePage";
 import SeriesPage from "./components/SeriesPage";
@@ -30,6 +32,7 @@ function App() {
 
   return (
     <>
+      <Trending/>
       <Routes>
         {/* <Route path="/" />
         <Route path="login" /> */}
@@ -58,6 +61,7 @@ function App() {
       {error && <p>{error}</p>}
     </>
   );
+
 }
 
 function LayoutContext({ context }) {
