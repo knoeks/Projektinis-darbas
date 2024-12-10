@@ -70,7 +70,7 @@ const SignUp = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="33"
-          height="27"
+          height="26.5"
           viewBox="0 0 33 27"
           className="w-10 sm:w-12 h-10 sm:h-12"
         >

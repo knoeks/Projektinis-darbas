@@ -21,7 +21,7 @@ const Login = () => {
   };
 
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.(com|org|net|edu|gov|io|info)$/i.test(email);
-  const isValidPassword = (password) => /^(?=.*[A-Z])(?=.*\d).{6,}$/.test(password);
+  const isValidPassword = (password) => /^(?=.*[A-Z])(?=.*\d).{6,30}$/.test(password);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,14 +33,18 @@ const Login = () => {
 
     if (!email) {
       newErrors.email = "Can't be empty";
+    } else if (email.length > 20) {
+      newErrors.email = "Email must be 20 characters or fewer";
     } else if (!isValidEmail(email)) {
       newErrors.email = "Invalid email format";
     }
 
     if (!password) {
       newErrors.password = "Can't be empty";
+    } else if (password.length < 6 || password.length > 30) {
+      newErrors.password = "Password must be between 6 and 30 characters";
     } else if (!isValidPassword(password)) {
-      newErrors.password = "Capital letter, number & 6+ characters";
+      newErrors.password = "Password must include at least one uppercase letter and one number";
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -75,13 +79,13 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-light font-outfit px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-dark font-outfit px-4 sm:px-6 lg:px-8">
       {/* Logo */}
       <div className="absolute top-16 sm:top-20 left-1/2 transform -translate-x-1/2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="33"
-          height="27"
+          width="32"
+          height="25.6"
           viewBox="0 0 33 27"
           className="w-10 sm:w-12 h-10 sm:h-12"
         >
@@ -96,7 +100,7 @@ const Login = () => {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="bg-gray-800 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-lg w-[90%] max-w-[350px] sm:max-w-[400px] lg:max-w-[500px] text-white form-gap 16px"
+        className="bg-gray-800 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-lg w-[90%] max-w-[350px] sm:max-w-[474px] lg:max-w-[510px] text-white form-gap 20px"
       >
         <h2 className="text-left Outfit sans-serif text-2xl sm:text-3xl mb-4 sm:mb-6">Log in</h2>
 
