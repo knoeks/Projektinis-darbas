@@ -7,12 +7,8 @@ function MoviePage() {
   return (
     <>
       <SearchBar />
-      {!location.search && (
-        <div>
-          <h1>MOVIES</h1>
-          <FilmList category={"Movie"} />
-        </div>
-      )}
+      {!location.search && <h1>MOVIES</h1>}
+      <FilmList category={"Movie"} />
     </>
   );
 }

@@ -12,9 +12,9 @@ function HomePage() {
         <div>
           <Trending />
           <h1>RECCOMENDED FOR YOU</h1>
-          <FilmList category={""} />
         </div>
       )}
+      <FilmList category={""} />
     </>
   );
 }
