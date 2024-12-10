@@ -1,13 +1,9 @@
-import SearchBar from "./SearchBar";
-import Navbar from "./Navbar";
 import FilmList from "./FilmList";
 
 
-function MoviePage({ allFilms, setUpdate }){
+function MoviePage(){
     return (
         <>
-        <Navbar />
-        <SearchBar />
         <FilmList />
         </>
     )

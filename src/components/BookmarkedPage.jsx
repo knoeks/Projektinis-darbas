@@ -1,12 +1,8 @@
-import SearchBar from "./SearchBar";
-import Navbar from "./Navbar";
 import FilmList from "./FilmList";
 
-function BookmarkedPage({ allFilms, setUpdate }) {
+function BookmarkedPage() {
   return (
     <div>
-      <Navbar />
-      <SearchBar />
       <FilmList category={"movie"}/>
       <FilmList category={"tv series"}/>
     </div>

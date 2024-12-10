@@ -4,13 +4,12 @@ import { getOne } from "../helpers/get";
 import { updateOne } from "../helpers/update";
 
 // reusable component meant for Povilas and Jaroslav
-function Bookmark({ film, setUpdate }) {
+function Bookmark({ film }) {
   const { isBookmarked, id } = film;
 
   const bookmarkHandler = async () => {
     const { isBookmarked } = await getOne(id);
     await updateOne(id, { isBookmarked: !isBookmarked });
-    setUpdate((prevState) => prevState + 1);
   };
 
   const bookmarkButton = isBookmarked ? bookmarkFull : bookmarkEmpty;

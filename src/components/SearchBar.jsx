@@ -1,27 +1,26 @@
 import { filterItems } from "../helpers/searchBar";
-import { useLocation, useSearchParams } from "react-router";
+import { useLocation, useSearchParams, useOutletContext } from "react-router";
 import { useState, useEffect } from "react";
 import search from "../assets/icon-search.svg";
 
-function SearchBar({ itemArray, onFilter }) {
+function SearchBar() {
+  const { allFilms, filteredFilms, setFilteredFilms } = useOutletContext();
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
 
   const searchQuery = searchParams.get("search") || "";
 
   const [searchResults, setSearchResults] = useState(searchQuery);
-  const [filteredItems, setFilteredItems] = useState(itemArray);
 
   useEffect(() => {
     const filtered =
       searchResults.trim() === ""
-        ? itemArray
-        : filterItems(searchResults, itemArray);
+        ? allFilms
+        : filterItems(searchResults, allFilms);
     {
-      setFilteredItems(filtered);
-      onFilter(filtered);
+      setFilteredFilms(filtered);
     }
-  }, [itemArray, onFilter, searchResults]);
+  }, [allFilms, setFilteredFilms, searchResults]);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -56,12 +55,12 @@ function SearchBar({ itemArray, onFilter }) {
       </div>
       {searchResults === "" ? (
         ""
-      ) : filteredItems.length === 0 ? (
+      ) : filteredFilms.length === 0 ? (
         <h2>Found no results for {"'" + searchResults + "'"}</h2>
       ) : (
         <h2>
-          Found {filteredItems.length}{" "}
-          {filteredItems.length === 1 ? "result" : "results"} for{" "}
+          Found {filteredFilms.length}{" "}
+          {filteredFilms.length === 1 ? "result" : "results"} for{" "}
           {"'" + searchResults + "'"}
         </h2>
       )}
