@@ -1,8 +1,9 @@
-//import { useParams } from "react-router";
+import { useOutletContext } from "react-router";
 import Film from "./Film";
 import { v4 as uuidv4 } from "uuid";
 
-function FilmList({ category, filteredFilms}) {
+function FilmList({ category }) {
+  const { filteredFilms } = useOutletContext();
   let newFilteredFilms = filteredFilms.filter((film) =>
     category ? film.category === category : true
   );
@@ -10,7 +11,7 @@ function FilmList({ category, filteredFilms}) {
   return (
     <div className="films-row">
       {newFilteredFilms.map((film) => {
-        return <Film key={uuidv4()} film={film}/>;
+        return <Film key={uuidv4()} film={film} />;
       })}
     </div>
   );

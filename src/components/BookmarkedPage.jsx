@@ -1,6 +1,7 @@
 import FilmList from "./FilmList";
 
 function BookmarkedPage() {
+  
   return (
     <div>
       <FilmList category={"movie"}/>

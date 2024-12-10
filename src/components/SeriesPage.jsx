@@ -3,7 +3,7 @@ import FilmList from "./FilmList";
 function SeriesPage(){
     return (
         <>
-        <FilmList />
+        <FilmList category={"TV Series"}/>
         </>
     )
 }
