@@ -2,7 +2,7 @@ import { useOutletContext } from "react-router";
 import Film from "./Film";
 import { v4 as uuidv4 } from "uuid";
 
-function FilmList({ category }) {
+function FilmList({ category, isBookmarked = false }) {
   const { filteredFilms } = useOutletContext();
   let newFilteredFilms = filteredFilms.filter((film) =>
     category ? film.category === category : true

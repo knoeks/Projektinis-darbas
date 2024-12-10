@@ -8,7 +8,6 @@ import { updateOne } from "../helpers/update";
 
 const TrendingRow = ({ trending }) => {
   const { title, thumbnail, year, category, rating, id, isBookmarked: initialIsBookmarked } = trending;
-  const [update, setUpdate] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isBookmarked, setIsBookmarked] = useState(initialIsBookmarked); 
 
@@ -45,15 +44,14 @@ const TrendingRow = ({ trending }) => {
     setIsBookmarked(newIsBookmarked); 
 
     
-    await updateOne(id, { isBookmarked: newIsBookmarked });
-    setUpdate((prev) => prev + 1); 
+    await updateOne(id, { isBookmarked: newIsBookmarked }); 
   };
 
   return (
     <div className="inline-block trending--main--container">
       <div className="">
         <div className="trending--thumbnail rounded-full">
-          <Bookmark film={{ ...trending, isBookmarked }} setUpdate={setUpdate} />
+          <Bookmark film={{ ...trending, isBookmarked }} />
           <div className="bookmark-button group">
             <button onClick={bookmarkHandler} className="circle-icon">
               <img 
@@ -71,7 +69,7 @@ const TrendingRow = ({ trending }) => {
         </div>
         <div className="trending--absolute">
           <div className="trending--text--image text-white">
-            {year} {oval} <span className="flex"><Category setUpdate={setUpdate} film={trending} />{category}</span> {oval} {rating}
+            {year} {oval} <span className="flex"><Category film={trending} />{category}</span> {oval} {rating}
           </div>
           <h3 className="trending--title--image">{title}</h3>
         </div>

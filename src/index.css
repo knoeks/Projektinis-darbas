@@ -97,29 +97,6 @@
   .hover-opacity-100 {
     @apply opacity-100 transition-opacity duration-300;
   }
-  .film-container {
-    @apply relative w-full;
-  }
-
-  .dynamic-film-gap {
-    @apply gap-x-sm md:gap-x-md xl:gap-x-10 gap-y-4 md:gap-y-6 xl:gap-y-8;
-  }
-
-  .dynamic-film-padding {
-    @apply px-4 pt-6 pb-xl md:px-6 md:pt-6 md:pb-14 xl:px-9 xl:pt-8 xl:pb-13;
-  }
-
-  .circle-icon {
-    @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center  hover:bg-opacity-100 transition-all duration-500;
-  }
-
-  .hover-opacity-0 {
-    @apply opacity-0 transition-opacity duration-200;
-  }
-
-  .hover-opacity-100 {
-    @apply opacity-100 transition-opacity duration-300;
-  }
 }
 @media (max-width: 768px) {
   .trending-full .trending--thumbnail {

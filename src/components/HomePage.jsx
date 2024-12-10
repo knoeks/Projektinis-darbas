@@ -3,15 +3,20 @@ import Trending from "./Trending";
 import SearchBar from "./SearchBar";
 import { useLocation } from "react-router";
 
-function HomePage(){
-    const location = useLocation(); 
-    return (
-        <>
-        <SearchBar />
-        {!location.search && <Trending />}
-        <FilmList category={""}/>
-        </>
-    )
+function HomePage() {
+  const location = useLocation();
+  return (
+    <>
+      <SearchBar />
+      {!location.search && (
+        <div>
+          <Trending />
+          <h1>RECCOMENDED FOR YOU</h1>
+          <FilmList category={""} />
+        </div>
+      )}
+    </>
+  );
 }
 
 export default HomePage;

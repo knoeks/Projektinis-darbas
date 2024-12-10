@@ -24,7 +24,7 @@ const Trending = () => {
   }, []);
 
 
-  const handleMouseDrag = (e) => {
+  const handleMouseDrag = () => {
     const carousel = carouselRef.current;
     let isDown = false;
     let startX;
