@@ -81,7 +81,7 @@ const Login = () => {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-dark font-outfit px-4 sm:px-6 lg:px-8">
       {/* Logo */}
-      <div className="absolute top-16 sm:top-20 left-1/2 transform -translate-x-1/2">
+      <div className="absolute top-16 md:top-[4.9rem] left-1/2 transform -translate-x-1/2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
