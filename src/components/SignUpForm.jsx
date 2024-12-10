@@ -65,14 +65,14 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-light font-outfit px-4 sm:px-6 lg:px-8 form-gap 16px">
-      <div className="absolute top-16 sm:top-20 left-1/2 transform -translate-x-1/2">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-light font-outfit form-gap 16px">
+      <div className="absolute top-[4.9rem] left-1/2 transform -translate-x-1/2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="33"
           height="26.5"
           viewBox="0 0 33 27"
-          className="w-10 sm:w-12 h-10 sm:h-12"
+          className="h-[1.6rem] w-[2rem]"
         >
           <path
             d="m26.463.408 3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-1.6a3.186 3.186 0 0 0-3.184 3.2l-.016 19.2a3.2 3.2 0 0 0 3.2 3.2h25.6a3.2 3.2 0 0 0 3.2-3.2V.408h-6.4Z"
@@ -84,21 +84,21 @@ const SignUp = () => {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="bg-gray-800 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-lg w-[90%] max-w-[400px] lg:max-w-[500px] text-white"
+        className="bg-dark shadow-lg md:w-[25rem] md:h-[26.1rem] w-[20.4rem] h-[26.3rem] rounded-[0.625rem] md:rounded-[1.25rem] border-dark text-white"
       >
-        <h2 className="text-left font-bold text-2xl sm:text-3xl mb-4 sm:mb-6">Sign Up</h2>
+        <h2 className="ml-[1.5rem] mt-[1.5rem] mb-[2.5rem] text-[2rem] heading-l md:tracking-[-0.03125rem] font-outfit font-normal md:ml-[2rem] md:mt-[2rem] md:text-[2rem] md:mb-[2.5rem] h-[2.5rem]">Sign Up</h2>
 
-        <div className="mb-4 sm:mb-6">
-          <div className="relative">
+        <div>
+          <div className="relative ">
             <input
               autoComplete="off"
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full p-2 bg-transparent border-b ${
+              className={`md:w-[21rem] w-[17.4rem] mx-[1.5rem] h-[2.31rem]  mb-[1.5rem] bg-transparent border-b ${
                 errors.email ? "border-red" : "border-accent"
-              } focus:outline-none focus:border-red text-white`}
+              } focus:outline-none focus:border-red text-white placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
               placeholder="Email Address"
             />
             {errors.email && (
@@ -109,16 +109,16 @@ const SignUp = () => {
           </div>
         </div>
 
-        <div className="mb-4 sm:mb-6">
-          <div className="relative">
+        <div>
+          <div className="relative ">
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className={`w-full p-2 bg-transparent border-b ${
-                errors.password ? "border-red" : "border-accent"
-              } focus:outline-none focus:border-red text-white`}
+              className={`md:w-[21rem] w-[17.4rem] mx-[1.5rem] h-[2.31rem] mb-[1.5rem] bg-transparent border-b ${
+                errors.password ? "border-red text-opacity-0" : "border-accent"
+              } focus:outline-none focus:border-red text-white placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
               placeholder="Password"
             />
             {errors.password && (
@@ -129,16 +129,16 @@ const SignUp = () => {
           </div>
         </div>
 
-        <div className="mb-4 sm:mb-6">
-          <div className="relative">
+        <div>
+          <div className="relative  ">
             <input
               type="password"
               name="repeatPassword"
               value={formData.repeatPassword}
               onChange={handleChange}
-              className={`w-full p-2 bg-transparent border-b ${
+              className={`md:w-[21rem] w-[17.4rem] mx-[1.5rem] h-[2.31rem] mb-[1.5rem] bg-transparent border-b ${
                 errors.repeatPassword ? "border-red" : "border-accent"
-              } focus:outline-none focus:border-red text-white`}
+              } focus:outline-none focus:border-red text-white placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
               placeholder="Repeat Password"
             />
             {errors.repeatPassword && (
@@ -151,15 +151,15 @@ const SignUp = () => {
 
         <button
           type="submit"
-          className="w-full bg-red text-white py-2 sm:py-3 rounded-lg hover:bg-white/90 hover:text-black transition"
+          className="md:ml-[2rem] bg-red text-white rounded-[0.375rem]  mb-[1.5rem] md:w-[21rem] w-[17.4rem] h-[3rem] hover:bg-white/90 hover:text-black transition font-outfit ml-[1.5rem]"
         >
-          Create Account
+          Create an account
         </button>
 
-        <p className="text-center text-gray-400 mt-4 sm:mt-6">
+        <p className="text-center text-white body-m font-outfit">
           Already have an account?{" "}
-          <a href="/login" className="text-red hover:underline">
-            Log in
+          <a href="/login" className="text-red body-m hover:underline font-outfit">
+            Login
           </a>
         </p>
       </form>

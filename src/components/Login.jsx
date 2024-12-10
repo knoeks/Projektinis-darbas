@@ -102,7 +102,9 @@ const Login = () => {
         noValidate
         className="bg-gray-800 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-lg w-[90%] max-w-[350px] sm:max-w-[474px] lg:max-w-[510px] text-white form-gap 20px"
       >
-        <h2 className="text-left Outfit sans-serif text-2xl sm:text-3xl mb-4 sm:mb-6">Log in</h2>
+        <h2 className="text-left Outfit sans-serif text-2xl sm:text-3xl mb-4 sm:mb-6">
+          Log in
+        </h2>
 
         {/* Email Field */}
         <div className="mb-4 sm:mb-6">
