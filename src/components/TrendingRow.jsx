@@ -50,7 +50,7 @@ const TrendingRow = ({ trending }) => {
   };
 
   return (
-    <div className="inline-block mx-2 trending--main--container">
+    <div className="inline-block trending--main--container">
       <div className="">
         <div className="trending--thumbnail rounded-full">
           <Bookmark film={{ ...trending, isBookmarked }} setUpdate={setUpdate} />

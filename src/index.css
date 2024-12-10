@@ -119,6 +119,7 @@
   .trending-full .trending--heading--text {
     font-size: 1.25rem;
     letter-spacing: -0.0195rem;
+    padding-bottom: 1rem;
   }
   .trending-full {
     padding-left: 1rem !important;
@@ -127,6 +128,9 @@
   .trending-full .trending--absolute{
     bottom: 1rem;
     left: 1rem;
+  }
+  .trending-full .carousel {
+    gap: 1rem
   }
 }
 .trending--main--container {
@@ -184,6 +188,7 @@
   overflow-x: scroll;
   scroll-behavior: smooth;
   cursor: grab;
+  gap: 2.5rem
 }
 
 .carousel-item {
