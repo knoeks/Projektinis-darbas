@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 import Bookmark from "./Bookmark";
 import Category from "./Category";
 import PlayButton from "./PlayButton";
-import bookmarkEmpty from "../assets/icon-bookmark-empty.svg"; // Import empty bookmark icon
-import bookmarkFull from "../assets/icon-bookmark-full.svg"; // Import full bookmark icon
-import { updateOne } from "../helpers/update"; // make sure to import update function
+import bookmarkEmpty from "../assets/icon-bookmark-empty.svg"; 
+import bookmarkFull from "../assets/icon-bookmark-full.svg"; 
+import { updateOne } from "../helpers/update"; 
 
 const TrendingRow = ({ trending }) => {
   const { title, thumbnail, year, category, rating, id, isBookmarked: initialIsBookmarked } = trending;
   const [update, setUpdate] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [isBookmarked, setIsBookmarked] = useState(initialIsBookmarked); // Track the bookmark state
+  const [isBookmarked, setIsBookmarked] = useState(initialIsBookmarked); 
 
   let oval = (
     <svg
@@ -41,13 +41,12 @@ const TrendingRow = ({ trending }) => {
   }, []);
 
   const bookmarkHandler = async () => {
-    // Toggle the bookmark state
     const newIsBookmarked = !isBookmarked;
-    setIsBookmarked(newIsBookmarked); // Update local state immediately
+    setIsBookmarked(newIsBookmarked); 
 
-    // Update on the server
+    
     await updateOne(id, { isBookmarked: newIsBookmarked });
-    setUpdate((prev) => prev + 1); // Trigger a re-render
+    setUpdate((prev) => prev + 1); 
   };
 
   return (
@@ -64,7 +63,7 @@ const TrendingRow = ({ trending }) => {
             </button>
           </div>
           {getThumbnailSrc() ? (
-            <img className="w-full rounded" src={getThumbnailSrc()} alt={title} />
+            <img className="w-full rounded-[0.5rem]" src={getThumbnailSrc()} alt={title} />
           ) : (
             <p>No Cover</p>
           )}
