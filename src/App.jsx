@@ -13,7 +13,6 @@ function App() {
   const [error, setError] = useState("");
   const [allFilms, setAllFilms] = useState([]);
   const [filteredFilms, setFilteredFilms] = useState([]);
-  const [category, setCategory] = useState("");
 
   const fetchData = async () => {
     try {
@@ -28,7 +27,7 @@ function App() {
     fetchData();
   }, [allFilms]);
 
-  
+
 
   return (
     <>
@@ -43,8 +42,6 @@ function App() {
                 allFilms,
                 filteredFilms,
                 setFilteredFilms,
-                category,
-                setCategory,
               }}
             />
           }
