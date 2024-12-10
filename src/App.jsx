@@ -27,13 +27,7 @@ function App() {
 
   return (
     <>
-      <SearchBar itemArray={allFilms} onFilter={setFilteredFilms}/>
       <Trending setUpdate={setUpdate}/>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <Films category={category} filteredFilms={filteredFilms} setAllFilms={setAllFilms} />
-      )}
     </>
   );
 

@@ -111,17 +111,17 @@
     max-height: 8.75rem; 
   }
   .trending-full .trending--title--image {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
   .trending-full .trending--text--image {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   .trending-full .trending--heading--text {
     font-size: 1.25rem;
     letter-spacing: -0.0195rem;
   }
   .trending-full {
-    padding-left: 16px !important;
+    padding-left: 1rem !important;
     box-sizing: border-box;
   }
   .trending-full .trending--absolute{
@@ -137,7 +137,7 @@
   position: relative;
 }
 .trending-full{
-  padding-left: 32px;
+  padding-left: 2.25rem;
 }
 .trending--heading--text {
   font-family: Outfit;
