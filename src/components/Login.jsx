@@ -20,8 +20,10 @@ const Login = () => {
     setErrors((prev) => ({ ...prev, [name]: "" })); // Clear error as user types
   };
 
-  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.(com|org|net|edu|gov|io|info)$/i.test(email);
-  const isValidPassword = (password) => /^(?=.*[A-Z])(?=.*\d).{6,}$/.test(password);
+  const isValidEmail = (email) =>
+    /^[^\s@]+@[^\s@]+\.(com|org|net|edu|gov|io|info)$/i.test(email);
+  const isValidPassword = (password) =>
+    /^(?=.*[A-Z])(?=.*\d).{6,}$/.test(password);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -96,9 +98,11 @@ const Login = () => {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="bg-gray-800 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-lg w-[90%] max-w-[350px] sm:max-w-[400px] lg:max-w-[500px] text-white form-gap 16px"
+        className="bg-gray-800 rounded-2xl shadow-lg max-w-[350px] sm:max-w-[400px] lg:max-w-[500px] text-white form-gap 16px"
       >
-        <h2 className="text-left Outfit sans-serif text-2xl sm:text-3xl mb-4 sm:mb-6">Log in</h2>
+        <h2 className="text-left Outfit sans-serif text-2xl sm:text-3xl mb-4 sm:mb-6">
+          Log in
+        </h2>
 
         {/* Email Field */}
         <div className="mb-4 sm:mb-6">
