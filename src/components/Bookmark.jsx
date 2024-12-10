@@ -10,7 +10,6 @@ function Bookmark({ film }) {
 
   const bookmarkHandler = async () => {
     const { isBookmarked } = await getOne(id);
-    
     await updateOne(id, { isBookmarked: !isBookmarked });
     setAllFilms((prevState) => prevState.map((film) => film.id === id ? {...film, isBookmarked: !isBookmarked} : film ));
   };

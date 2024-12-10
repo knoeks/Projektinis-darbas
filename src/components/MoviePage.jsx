@@ -4,7 +4,7 @@ import FilmList from "./FilmList";
 function MoviePage(){
     return (
         <>
-        <FilmList />
+        <FilmList category={"movie"}/>
         </>
     )
 }
