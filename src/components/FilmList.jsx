@@ -4,8 +4,11 @@ import { v4 as uuidv4 } from "uuid";
 
 function FilmList({ category, isBookmarked = false }) {
   const { filteredFilms } = useOutletContext();
-  let newFilteredFilms = filteredFilms.filter((film) =>
-    category ? film.category === category : true
+
+  let newFilteredFilms = filteredFilms.filter((film) => isBookmarked ? film.isBookmarked : true)
+
+  newFilteredFilms = newFilteredFilms.filter((film) =>
+    category ? film.category === category : film.isTrending === false
   );
 
   return (

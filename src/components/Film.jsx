@@ -6,7 +6,7 @@ import PlayButton from "./PlayButton";
 function Film({ film }) {
   const { title, year, category, rating, thumbnail } = film;
 
-  let str = "src/" + thumbnail.regular.small.slice(2);
+  let str = "src/" + thumbnail.regular.large.slice(2);
 
   return (
     <div className="film-card">
