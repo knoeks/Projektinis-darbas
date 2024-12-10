@@ -8,13 +8,13 @@ function BookmarkedPage() {
     <div>
       <SearchBar />
       {location.search ? (
-        <FilmList category={""} isBookmarked={true} />
+        <FilmList category={""} />
       ) : (
         <div>
           <h1 className="trending--heading--text p-4 md:p-8 xl:px-9">Movies</h1>
-          <FilmList category={"Movie"} isBookmarked={true} />
+          <FilmList category={"Movie"} />
           <h1 className="trending--heading--text p-4 md:p-8 xl:px-9">TV Series</h1>
-          <FilmList category={"TV Series"} isBookmarked={true} />
+          <FilmList category={"TV Series"} />
         </div>
       )}
     </div>

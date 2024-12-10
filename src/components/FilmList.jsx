@@ -1,15 +1,52 @@
-import { useOutletContext } from "react-router";
+import { useLocation, useOutletContext } from "react-router";
 import Film from "./Film";
 import { v4 as uuidv4 } from "uuid";
 
-function FilmList({ category, isBookmarked = false }) {
+function FilmList({ category}) {
+  const location = useLocation();
   const { filteredFilms } = useOutletContext();
 
-  let newFilteredFilms = filteredFilms.filter((film) => isBookmarked ? film.isBookmarked : true)
+  //console.log(location.search);
 
-  newFilteredFilms = newFilteredFilms.filter((film) =>
-    category ? film.category === category : film.isTrending === false
-  );
+  let newFilteredFilms;
+
+  switch (location.pathname) {
+    case "/home":
+      newFilteredFilms = filteredFilms.filter((film) =>
+        location.search ? true : !film.isTrending
+      );
+
+      break;
+    case "/movies":
+      newFilteredFilms = filteredFilms.filter((film) =>
+        category ? film.category === category : true
+      );
+      break;
+    case "/series":
+      newFilteredFilms = filteredFilms.filter((film) =>
+        category ? film.category === category : true
+      );
+      break;
+    case "/bookmarked":
+      newFilteredFilms = filteredFilms.filter((film) => {
+        if (film.isBookmarked && !location.search) {
+          return film.category === category
+        } else if ((film.isBookmarked && location.search)) {
+          return true; 
+        }
+      });
+      break;
+    default:
+      break;
+  }
+
+  // newFilteredFilms = filteredFilms.filter((film) =>
+  //   isBookmarked ? film.isBookmarked : true
+  // );
+
+  // newFilteredFilms = newFilteredFilms.filter((film) =>
+  //   category ? film.category === category : film.isTrending === false
+  // );
 
   return (
     <div className="films-row">
