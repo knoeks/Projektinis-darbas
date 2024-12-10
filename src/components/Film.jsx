@@ -3,7 +3,7 @@ import Bookmark from "./Bookmark";
 import Category from "./Category";
 import PlayButton from "./PlayButton";
 
-function Film({ film, setAllFilms }) {
+function Film({ film }) {
   const { title, year, category, rating, thumbnail } = film;
 
   let str = "src/" + thumbnail.regular.small.slice(2);
@@ -11,7 +11,7 @@ function Film({ film, setAllFilms }) {
   return (
     <div className="film-card">
       <div className="film-container">
-        <Bookmark film={film} setAllFilms={setAllFilms}/>
+        <Bookmark film={film}/>
         <img className="film-thumbnail" src={str} alt={title} />
         <PlayButton/>
       </div>

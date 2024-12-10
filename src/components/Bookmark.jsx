@@ -5,8 +5,7 @@ import { getOne } from "../helpers/get";
 import { updateOne } from "../helpers/update";
 
 // reusable component meant for Povilas and Jaroslav
-function Bookmark({ film, setAllFilms }) {
-
+function Bookmark({ film }) {
   const { id, isBookmarked } = film;
 
   const bookmarkHandler = async () => {

@@ -1,8 +1,8 @@
-import { useParams } from "react-router";
+//import { useParams } from "react-router";
 import Film from "./Film";
 import { v4 as uuidv4 } from "uuid";
 
-function FilmList({ category, filteredFilms, setUpdate }) {
+function FilmList({ category, filteredFilms}) {
   let newFilteredFilms = filteredFilms.filter((film) =>
     category ? film.category === category : true
   );
@@ -10,7 +10,7 @@ function FilmList({ category, filteredFilms, setUpdate }) {
   return (
     <div className="films-row">
       {newFilteredFilms.map((film) => {
-        return <Film key={uuidv4()} film={film} setUpdate={setUpdate}/>;
+        return <Film key={uuidv4()} film={film}/>;
       })}
     </div>
   );
