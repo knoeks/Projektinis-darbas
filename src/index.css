@@ -2,6 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .button-primary { */
-  /* @apply bg-buttonRed text-white py-3 px-12 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400; */
-/* } */
+@layer base {
+  .input-field {
+    @apply caret-red text-white border-b border-accent pb-[1.13rem] focus:outline-none bg-transparent;
+
+    &:focus {
+      @apply border-white;
+    }
+  }
+  .input-error-custom {
+    @apply border-red caret-red text-white border-b pb-[1.13rem] focus:outline-none bg-transparent;
+  }
+
+  body {
+    @apply font-outfit;
+  }
+  .text-at-the-bottom {
+    @apply text-center mt-6 text-white;
+  }
+  .title {
+    @apply text-white text-3xl font-bold absolute top-6 left-12;
+  }
+}
+
+@layer components {
+  .submit-button-style {
+    @apply w-[calc(100%-12px)] py-4 bg-red text-white font-bold text-body-m rounded-xl transition-all duration-300 hover:bg-white hover:text-dark focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50;
+  }
+  .sign-up-button {
+    @apply text-red hover:underline;
+  }
+  .logo {
+    @apply absolute top-20 left-1/2 transform -translate-x-1/2;
+  }
+
+  .menu {
+    @apply w-[480px] bg-dark p-12 rounded-2xl shadow-lg relative mt-1;
+  }
+
+  .password-field {
+    @apply mb-6 relative;
+  }
+
+  .password-error {
+    @apply absolute right-9 top-2 text-sm text-red;
+  }
+
+  .email-field {
+    @apply mb-12 relative;
+  }
+
+  .email-error {
+    @apply absolute right-9 top-2 text-sm text-red;
+  }
+
+  .on-submit {
+    @apply mt-12;
+  }
+
+  .menu-position {
+    @apply flex justify-center items-center min-h-screen bg-light relative;
+  }
+}
+
+@layer utilities {
+}

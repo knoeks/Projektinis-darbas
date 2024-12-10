@@ -18,10 +18,10 @@ const LoginForm = () => {
       setEmailError("Can't be empty");
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      setEmailError("Invalid email format.");
+      setEmailError("Invalid email format");
       isValid = false;
     } else {
-      setEmailError("");
+      setEmailError("Email is not registered");
     }
 
     // pass validation
@@ -29,13 +29,13 @@ const LoginForm = () => {
       setPasswordError("Can't be empty");
       isValid = false;
     } else {
-      setPasswordError("");
+      setPasswordError("Invalid password");
     }
 
     if (!isValid) return;
 
     try {
-      const response = await fetch("http://localhost:5000/users", {
+      const response = await fetch("http://localhost:5001/users", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -46,93 +46,82 @@ const LoginForm = () => {
       const user = users.find((u) => u.email === email);
 
       if (!user) {
-        setEmailError("This email is not registered.");
+        setEmailError("This email is not registered");
       } else if (user.password !== password) {
         setPasswordError("Invalid password.");
       } else {
         navigate("/home");
       }
     } catch (err) {
-      setEmailError("An error occurred. Please try again later.");
+      setEmailError("An error occurred. Please try again later");
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#10141E] relative">
+    <div className="menu-position">
       {/* logo */}
-      <div className="absolute top-6 left-1/2 transform -translate-x-1/2">
+      <div className="logo">
         <img
           src="/logo.svg" // cia reikia pakeist
           alt="Logo"
-          className="w-12 h-12"
+          className="w-12 h-10"
         />
       </div>
 
       {/* menu */}
-      <div className="w-[480px] bg-[#161D2F] p-12 rounded-2xl shadow-lg relative mt-28">
+      <div className="menu">
         {/* title */}
-        <h1 className="text-white text-3xl font-bold absolute top-6 left-6">
-          Login
-        </h1>
+        <h1 className="title">Login</h1>
 
-        <form onSubmit={handleSubmit} className="mt-12">
+        <form onSubmit={handleSubmit} className="on-submit" noValidate>
           {/* mail field */}
-          <div className="mb-6 relative">
+          <div className="email-field">
             <input
               id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoComplete="off"
-              className={`w-[calc(100%-12px)] bg-transparent border-0 border-b text-white pb-3 text-lg focus:outline-none focus:ring-0 ${
+              className={`w-[calc(100%-12px)] pl-4 bg-transparent border-0 border-b text-white pb-5 text-lg focus:outline-none focus:ring-0 ${
                 emailError
-                  ? "border-b-red-500"
-                  : "border-b-[#5A698F] focus:border-b-white"
+                  ? "border-b-red"
+                  : "border-b-accent focus:border-b-white"
               }`}
               placeholder="Email address"
             />
-            {emailError && (
-              <span className="absolute right-0 top-2 text-sm text-red-500">
-                {emailError}
-              </span>
-            )}
+            {emailError && <span className="email-error">{emailError}</span>}
           </div>
 
-          {/* pass field */}
-          <div className="mb-6 relative">
+          {/* password field */}
+          <div className="password-field">
             <input
               id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="off"
-              className={`w-[calc(100%-12px)] bg-transparent border-0 border-b text-white pb-3 text-lg focus:outline-none focus:ring-0 ${
+              className={`w-[calc(100%-12px)] pl-4 bg-transparent border-0 border-b text-white pb-5 text-lg focus:outline-none focus:ring-0 ${
                 passwordError
-                  ? "border-b-red-500"
-                  : "border-b-[#5A698F] focus:border-b-white"
+                  ? "border-b-red"
+                  : "border-b-accent focus:border-b-white"
               }`}
               placeholder="Password"
             />
             {passwordError && (
-              <span className="absolute right-0 top-2 text-sm text-red-500">
-                {passwordError}
-              </span>
+              <span className="password-error">{passwordError}</span>
             )}
           </div>
 
           {/* button */}
-          <button
-            type="submit"
-            className="w-[calc(100%-12px)] py-5 bg-[#FC4747] text-white font-bold text-lg rounded-xl transition-all duration-300 hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-          >
+          <button type="submit" className="submit-button-style">
             Login to your account
           </button>
         </form>
 
         {/* apacioje tekstas */}
-        <p className="text-center mt-6 text-white">
+        <p className="text-at-the-bottom">
           Don’t have an account?{" "}
-          <a href="/signup" className="text-[#FC4747] hover:underline">
+          <a href="/signup" className="sign-up-button">
             Sign Up
           </a>
         </p>
