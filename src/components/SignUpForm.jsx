@@ -24,8 +24,7 @@ const SignUp = () => {
   const isValidEmail = (email) =>
     /^[^\s@]+@[^\s@]+\.(com|org|net|edu|gov|io|info)$/i.test(email);
   const isValidPassword = (password) =>
-    /^(?=.*[A-Z])(?=.*\d).{6,}$/.test(password);
-
+    /^(?=.*[A-Z])(?=.*\d).{6,18}$/.test(password);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
@@ -38,7 +37,7 @@ const SignUp = () => {
 
     if (!password) newErrors.password = "Can't be empty";
     else if (!isValidPassword(password))
-      newErrors.password = "Capital letter, number & 6+ characters";
+      newErrors.password = "Capital letter, number, 6-18 characters";
 
     if (password !== repeatPassword)
       newErrors.repeatPassword = "Passwords do not match";
@@ -116,9 +115,10 @@ const SignUp = () => {
             type="password"
             name="password"
             value={formData.password}
+            maxLength={16}
             onChange={handleChange}
             className={`signup--input ${
-              errors.password ? "border-red text-opacity-0" : "border-accent"
+              errors.password ? "border-red" : "border-accent"
             } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
             placeholder="Password"
           />

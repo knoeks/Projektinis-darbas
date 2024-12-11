@@ -8,7 +8,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
     if (name === "email") setEmail(value);
     if (name === "password") setPassword(value);
 
@@ -33,7 +33,11 @@ const LoginForm = () => {
     if (!password) {
       newErrors.password = "Can't be empty";
       isValid = false;
-    } else if (password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+    } else if (
+      password.length < 8 ||
+      !/[A-Z]/.test(password) ||
+      !/[0-9]/.test(password)
+    ) {
       newErrors.password = "Invalid password";
       isValid = false;
     }
@@ -50,7 +54,9 @@ const LoginForm = () => {
       });
 
       const users = await response.json();
-      const user = users.find((u) => u.email === email);
+      const user = users.find(
+        (u) => u.email.toLowerCase() === email.toLowerCase()
+      );
 
       if (!user) {
         setErrors({ email: "This email is not registered" });
@@ -58,7 +64,7 @@ const LoginForm = () => {
         setErrors({ password: "Invalid password" });
       } else {
         // Redirect to dashboard upon successful login
-        navigate("/dashboard");
+        navigate("/home");
       }
     } catch (err) {
       setErrors({ general: "An error occurred. Please try again later." });
@@ -102,9 +108,7 @@ const LoginForm = () => {
             placeholder="Email Address"
           />
           {errors.email && (
-            <span className="signup--error">
-              {errors.email}
-            </span>
+            <span className="signup--error">{errors.email}</span>
           )}
         </div>
 
@@ -120,22 +124,17 @@ const LoginForm = () => {
             placeholder="Password"
           />
           {errors.password && (
-            <span className="signup--error">
-              {errors.password}
-            </span>
+            <span className="signup--error">{errors.password}</span>
           )}
         </div>
 
-        <button
-          type="submit"
-          className="signup--button"
-        >
+        <button type="submit" className="signup--button">
           Login to your account
         </button>
 
         <p className="text-center text-white body-m font-outfit">
           Don’t have an account?{" "}
-          <a href="/signup" className="text-red body-m hover:underline font-outfit">
+          <a href="/" className="text-red body-m hover:underline font-outfit">
             Sign Up
           </a>
         </p>

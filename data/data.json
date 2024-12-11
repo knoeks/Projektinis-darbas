@@ -484,5 +484,42 @@
       "isTrending": false,
       "id": "84fa"
     }
+  ],
+  "users": [
+    {
+      "id": "7a0b",
+      "email": "tomas@gmail.com",
+      "password": "Antanas12"
+    },
+    {
+      "id": "762b",
+      "email": "lola@gmail.com",
+      "password": "Lola123"
+    },
+    {
+      "id": "3df1",
+      "email": "amanda@gmail.com",
+      "password": "Amanda12"
+    },
+    {
+      "id": "c3ec",
+      "email": "quatrox99@gmail.com",
+      "password": "Qweqweqwe123"
+    },
+    {
+      "id": "e72a",
+      "email": "Jaronimo@gmail.com",
+      "password": "Qweqweqwe123"
+    },
+    {
+      "id": "9b33",
+      "email": "Jaro@gmail.com",
+      "password": "Qweqweqwe1"
+    },
+    {
+      "id": "218c",
+      "email": "jaron@gmail.com",
+      "password": "Qweqweqwe1"
+    }
   ]
 }
