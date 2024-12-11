@@ -19,7 +19,7 @@ const LoginForm = () => {
     e.preventDefault();
     const newErrors = {};
     let isValid = true;
-
+  
     // Email validation
     if (!email) {
       newErrors.email = "Can't be empty";
@@ -28,49 +28,51 @@ const LoginForm = () => {
       newErrors.email = "Invalid email format";
       isValid = false;
     }
-
-    // Password validation
+  
+    const isValidPassword = (password) => {
+      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,18}$/; // 6 to 18 characters allowed
+      return passwordRegex.test(password);
+    };
+  
+    // Password validation Password must be between 6 and 18 characters, include at least one uppercase letter and one digit
     if (!password) {
       newErrors.password = "Can't be empty";
       isValid = false;
-    } else if (
-      password.length < 8 ||
-      !/[A-Z]/.test(password) ||
-      !/[0-9]/.test(password)
-    ) {
-      newErrors.password = "Invalid password";
+    } else if (!isValidPassword(password)) {
+      newErrors.password =
+        "Invalid password.";
       isValid = false;
     }
-
+  
     if (!isValid) {
       setErrors(newErrors);
       return;
     }
-
+  
     try {
       const response = await fetch("http://localhost:5001/users", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
-
+  
       const users = await response.json();
       const user = users.find(
         (u) => u.email.toLowerCase() === email.toLowerCase()
       );
-
+  
       if (!user) {
         setErrors({ email: "This email is not registered" });
       } else if (user.password !== password) {
         setErrors({ password: "Invalid password" });
       } else {
-        // Redirect to dashboard upon successful login
+        // Redirect to Home upon successful login
         navigate("/home");
       }
     } catch (err) {
       setErrors({ general: "An error occurred. Please try again later." });
     }
   };
-
+  
   return (
     <div className="login--main--container">
       <div className="signup--icon">
