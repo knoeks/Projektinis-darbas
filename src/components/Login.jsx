@@ -20,6 +20,7 @@ const LoginForm = () => {
     const newErrors = {};
     let isValid = true;
 
+    // Email validation
     if (!email) {
       newErrors.email = "Can't be empty";
       isValid = false;
@@ -28,8 +29,12 @@ const LoginForm = () => {
       isValid = false;
     }
 
+    // Password validation
     if (!password) {
       newErrors.password = "Can't be empty";
+      isValid = false;
+    } else if (password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+      newErrors.password = "Invalid password";
       isValid = false;
     }
 
@@ -61,7 +66,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-light font-outfit form-gap 16px">
+    <div className=" flex flex-col justify-center items-center min-h-screen bg-light font-outfit form-gap 16px">
       <div className="absolute top-[4.9rem] left-1/2 transform -translate-x-1/2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
