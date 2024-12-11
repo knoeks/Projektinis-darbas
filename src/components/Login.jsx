@@ -66,8 +66,8 @@ const LoginForm = () => {
   };
 
   return (
-    <div className=" flex flex-col justify-center items-center min-h-screen bg-light font-outfit form-gap 16px">
-      <div className="absolute top-[4.9rem] left-1/2 transform -translate-x-1/2">
+    <div className="signup--main--container">
+      <div className="signup--icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="33"
@@ -85,9 +85,9 @@ const LoginForm = () => {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="bg-dark shadow-lg md:w-[25rem] md:h-[26.1rem] w-[20.4rem] h-[26.3rem] rounded-[0.625rem] md:rounded-[1.25rem] border-dark text-white"
+        className="login--form--container"
       >
-        <h2 className="ml-[1.5rem] mt-[1.5rem] mb-[2.5rem] text-[2rem] heading-l md:tracking-[-0.03125rem] font-outfit font-normal md:ml-[2rem] md:mt-[2rem] md:text-[2rem] md:mb-[2.5rem] h-[2.5rem]">Login</h2>
+        <h2 className="signup--heading--text">Login</h2>
 
         <div className="relative">
           <input
@@ -96,13 +96,13 @@ const LoginForm = () => {
             name="email"
             value={email}
             onChange={handleChange}
-            className={`md:w-[21rem] w-[17.4rem] mx-[1.5rem] h-[2.31rem] mb-[1.5rem] bg-transparent border-b ${
+            className={`login--input ${
               errors.email ? "border-red" : "border-accent"
-            } focus:outline-none focus:border-red text-white placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
             placeholder="Email Address"
           />
           {errors.email && (
-            <span className="text-red text-xs sm:text-sm absolute right-10 top-3">
+            <span className="signup--error">
               {errors.email}
             </span>
           )}
@@ -114,13 +114,13 @@ const LoginForm = () => {
             name="password"
             value={password}
             onChange={handleChange}
-            className={`md:w-[21rem] w-[17.4rem] mx-[1.5rem] h-[2.31rem] mb-[1.5rem] bg-transparent border-b ${
+            className={`login--input mb-[2.5rem] ${
               errors.password ? "border-red" : "border-accent"
-            } focus:outline-none focus:border-red text-white placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
             placeholder="Password"
           />
           {errors.password && (
-            <span className="text-red text-xs sm:text-sm absolute right-10 top-3">
+            <span className="signup--error">
               {errors.password}
             </span>
           )}
@@ -128,7 +128,7 @@ const LoginForm = () => {
 
         <button
           type="submit"
-          className="md:ml-[2rem] bg-red text-white rounded-[0.375rem] mb-[1.5rem] md:w-[21rem] w-[17.4rem] h-[3rem] hover:bg-white/90 hover:text-black transition font-outfit ml-[1.5rem]"
+          className="signup--button"
         >
           Login to your account
         </button>
