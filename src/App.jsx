@@ -41,6 +41,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SignUpForm/>}/>
         <Route path="login"  element={<Login/>}/> 
+        <Route path="*" element={<NotFound />} />
         <Route
           path="/"
           element={
@@ -61,7 +62,6 @@ function App() {
           <Route path="movies" element={<MoviePage />} />
           <Route path="series" element={<SeriesPage />} />
           <Route path="bookmarked" element={<BookmarkedPage />} />
-          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
       {error && <p>{error}</p>}
@@ -74,7 +74,6 @@ function LayoutContext({ context }) {
     <div>
       <Navbar />
       <Outlet context={context} />
-      
     </div>
   );
 }
