@@ -51,6 +51,7 @@ function SearchBar() {
         id="search"
         onChange={handleInputChange}
         placeholder={getPlaceholder()}
+        value={searchResults}
       />
     </div>
   );

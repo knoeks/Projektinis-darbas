@@ -1,4 +1,3 @@
-
 import HomePage from "./components/HomePage";
 import MoviePage from "./components/MoviePage";
 import SeriesPage from "./components/SeriesPage";
@@ -31,11 +30,12 @@ function App() {
     fetchData();
   }, []);
 
-
+  useEffect(() => {
+    setSearchResults(searchQuery);
+  }, [searchQuery]);
 
   return (
     <>
-      
       <Routes>
         {/* <Route path="/" />
         <Route path="login" /> */}
@@ -52,11 +52,9 @@ function App() {
                 searchResults,
                 setSearchResults,
               }}
-            />
-            
+            /> 
           }
         >
-          
           <Route path="home" element={<HomePage />} />
           <Route path="movies" element={<MoviePage />} />
           <Route path="series" element={<SeriesPage />} />
@@ -67,7 +65,6 @@ function App() {
       {error && <p>{error}</p>}
     </>
   );
-
 }
 
 function LayoutContext({ context }) {
