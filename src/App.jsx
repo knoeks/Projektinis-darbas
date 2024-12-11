@@ -7,6 +7,8 @@ import NotFound from "./components/NotFound";
 import { useEffect, useState } from "react";
 import { getAll } from "./helpers/get";
 import Navbar from "./components/Navbar";
+import SignUpForm from "./components/SignUpForm";
+import Login from "./components/Login";
 
 function App() {
   const [error, setError] = useState("");
@@ -37,8 +39,8 @@ function App() {
   return (
     <>
       <Routes>
-        {/* <Route path="/" />
-        <Route path="login" /> */}
+        <Route path="/" element={<SignUpForm/>}/>
+        <Route path="login"  element={<Login/>}/> 
         <Route
           path="/"
           element={
