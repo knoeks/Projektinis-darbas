@@ -1,16 +1,17 @@
 import { filterItems } from "../helpers/searchBar";
-import { useLocation, useSearchParams, useOutletContext } from "react-router";
-import { useState, useEffect } from "react";
+import { useLocation, useOutletContext } from "react-router";
+import { useEffect } from "react";
 import search from "../assets/icon-search.svg";
 
 function SearchBar() {
-  const { allFilms, filteredFilms, setFilteredFilms } = useOutletContext();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const {
+    allFilms,
+    setFilteredFilms,
+    setSearchParams,
+    searchResults,
+    setSearchResults,
+  } = useOutletContext();
   const location = useLocation();
-
-  const searchQuery = searchParams.get("search") || "";
-
-  const [searchResults, setSearchResults] = useState(searchQuery);
 
   useEffect(() => {
     const filtered =
@@ -42,28 +43,15 @@ function SearchBar() {
   };
 
   return (
-    <div className="p-4 md:p-8 xl:px-9">
-      <div className={`search-container ${location.search && `search-results`}`}>
-        <img src={search} alt="Search Icon" className="search-icon" />
-        <input
-          className="font-outfit search-bar"
-          type="text"
-          id="search"
-          onChange={handleInputChange}
-          placeholder={getPlaceholder()}
-        />
-      </div>
-      {searchResults === "" ? (
-        ""
-      ) : filteredFilms.length === 0 ? (
-        <h2 className="trending--heading--text">Found no results for {"'" + searchResults + "'"}</h2>
-      ) : (
-        <h2 className="trending--heading--text">
-          Found {filteredFilms.length}{" "}
-          {filteredFilms.length === 1 ? "result" : "results"} for{" "}
-          {"'" + searchResults + "'"}
-        </h2>
-      )}
+    <div className="search-container">
+      <img src={search} alt="Search Icon" className="search-icon" />
+      <input
+        className="font-outfit search-bar"
+        type="text"
+        id="search"
+        onChange={handleInputChange}
+        placeholder={getPlaceholder()}
+      />
     </div>
   );
 }

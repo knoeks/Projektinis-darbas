@@ -3,7 +3,7 @@ import HomePage from "./components/HomePage";
 import MoviePage from "./components/MoviePage";
 import SeriesPage from "./components/SeriesPage";
 import BookmarkedPage from "./components/BookmarkedPage";
-import { Route, Routes, Outlet } from "react-router";
+import { Route, Routes, Outlet, useSearchParams } from "react-router";
 import NotFound from "./components/NotFound";
 import { useEffect, useState } from "react";
 import { getAll } from "./helpers/get";
@@ -13,6 +13,10 @@ function App() {
   const [error, setError] = useState("");
   const [allFilms, setAllFilms] = useState([]);
   const [filteredFilms, setFilteredFilms] = useState([]);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search") || "";
+  const [searchResults, setSearchResults] = useState(searchQuery);
 
   const fetchData = async () => {
     try {
@@ -44,6 +48,9 @@ function App() {
                 setAllFilms,
                 filteredFilms,
                 setFilteredFilms,
+                setSearchParams,
+                searchResults,
+                setSearchResults,
               }}
             />
             

@@ -56,7 +56,7 @@
     @apply absolute top-3 right-6
   }
   .search-bar {
-    @apply text-specific_search md:text-heading-m caret-red text-white pb-[0.87rem] md:pb-[0.94rem] focus:outline-none bg-transparent w-full;
+    @apply text-specific_search md:text-heading-m caret-red text-white pb-[14px] focus:outline-none bg-transparent w-full border-b border-transparent;
 
     &:focus {
       @apply border-b border-white;
@@ -66,10 +66,10 @@
     @apply w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem]
   }
   .search-container {
-    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center
+    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center p-[1rem] pb-[10px] md:pb-[19px] xl:pb-[21px] pt-[1.5rem] md:p-8 xl:px-9
   }
   .search-results {
-    @apply pb-[1.5rem] md:pb-[2.06rem] xl:pb-[2.13rem];
+    @apply text-white px-[1rem] md:px-[25px] xl:px-[2.25rem] text-specific_search-results md:text-heading-l
   }
 }
 
