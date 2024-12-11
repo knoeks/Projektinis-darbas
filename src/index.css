@@ -94,6 +94,9 @@
   .signup--main--container{
     @apply flex flex-col justify-center items-center  bg-light font-outfit pb-[12.81rem]
   }
+  .login--main--container{
+    @apply flex flex-col justify-center items-center  bg-light font-outfit pb-[12.81rem] h-svh
+  }
   .signup--icon{
     @apply md:pt-[4.9rem] md:pb-[5.19rem] pt-[3rem] pb-[3.65rem]
   }
@@ -107,7 +110,7 @@
     @apply text-red text-xs sm:text-sm absolute right-10 top-3
   }
   .login--form--container{
-    @apply bg-dark shadow-lg md:w-[25rem] md:h-[23.3rem] w-[20.4rem] h-[22.8rem] rounded-[0.625rem] md:rounded-[1.25rem] border-dark text-white
+    @apply bg-dark shadow-lg md:w-[25rem] md:h-[23.3rem] w-[20.4rem] h-[22.8rem] rounded-[0.625rem] md:rounded-[1.25rem] border-dark text-white md:pb-[15.63rem] 
   }
 }
 
