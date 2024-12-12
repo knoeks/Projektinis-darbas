@@ -52,6 +52,7 @@ function SearchBar() {
         onChange={handleInputChange}
         placeholder={getPlaceholder()}
         value={searchResults}
+        maxLength={30}
       />
     </div>
   );
