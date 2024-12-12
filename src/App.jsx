@@ -9,6 +9,8 @@ import { getAll } from "./helpers/get";
 import Navbar from "./components/Navbar";
 import SignUpForm from "./components/SignUpForm";
 import Login from "./components/Login";
+import { ErrorBoundary } from "react-error-boundary";
+import SomethingWentWrong from "./components/SomethingWentWrong";
 
 function App() {
   const [error, setError] = useState("");
@@ -38,32 +40,36 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<SignUpForm />} />
-        <Route path="login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
-        <Route
-          path="/"
-          element={
-            <LayoutContext
-              context={{
-                allFilms,
-                setAllFilms,
-                filteredFilms,
-                setFilteredFilms,
-                setSearchParams,
-                searchResults,
-                setSearchResults,
-              }}
-            />
-          }
-        >
-          <Route path="home" element={<HomePage />} />
-          <Route path="movies" element={<MoviePage />} />
-          <Route path="series" element={<SeriesPage />} />
-          <Route path="bookmarked" element={<BookmarkedPage />} />
-        </Route>
-      </Routes>
+      <ErrorBoundary fallback={<SomethingWentWrong />} resetKeys={[searchQuery]} onReset={() => {console.log("ErRRRRPRPPPPROROOROROOR")}}>
+        <Routes>
+          <Route path="/" element={<SignUpForm />} />
+          <Route path="login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="somethingWentWrong" element={<SomethingWentWrong />}/>
+          <Route
+            path="/"
+            element={
+              <LayoutContext
+                context={{
+                  allFilms,
+                  setAllFilms,
+                  filteredFilms,
+                  setFilteredFilms,
+                  setSearchParams,
+                  searchResults,
+                  setSearchResults,
+                  searchQuery,
+                }}
+              />
+            }
+          >
+            <Route path="home" element={<HomePage />} />
+            <Route path="movies" element={<MoviePage />} />
+            <Route path="series" element={<SeriesPage />} />
+            <Route path="bookmarked" element={<BookmarkedPage />} />
+          </Route>
+        </Routes>
+      </ErrorBoundary>
       {error && <p>{error}</p>}
     </>
   );
