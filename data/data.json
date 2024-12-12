@@ -56,7 +56,7 @@
       "year": 2019,
       "category": "TV Series",
       "rating": "E",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": true,
       "id": "037a"
     },
@@ -76,7 +76,7 @@
       "year": 2021,
       "category": "Movie",
       "rating": "18+",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": true,
       "id": "357b"
     },
@@ -96,7 +96,7 @@
       "year": 2018,
       "category": "TV Series",
       "rating": "PG",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": true,
       "id": "8e2a"
     },
@@ -483,6 +483,48 @@
       "isBookmarked": true,
       "isTrending": false,
       "id": "84fa"
+    }
+  ],
+  "users": [
+    {
+      "id": "7a0b",
+      "email": "tomas@gmail.com",
+      "password": "Antanas12"
+    },
+    {
+      "id": "762b",
+      "email": "lola@gmail.com",
+      "password": "Lola123"
+    },
+    {
+      "id": "3df1",
+      "email": "amanda@gmail.com",
+      "password": "Amanda12"
+    },
+    {
+      "id": "c3ec",
+      "email": "quatrox99@gmail.com",
+      "password": "Qweqweqwe123"
+    },
+    {
+      "id": "e72a",
+      "email": "Jaronimo@gmail.com",
+      "password": "Qweqweqwe123"
+    },
+    {
+      "id": "9b33",
+      "email": "Jaro@gmail.com",
+      "password": "Qweqweqwe1"
+    },
+    {
+      "id": "218c",
+      "email": "jaron@gmail.com",
+      "password": "Qweqweqwe1"
+    },
+    {
+      "id": "24e9",
+      "email": "at@gmail.com",
+      "password": "QWERTY12345"
     }
   ]
 }
