@@ -69,7 +69,11 @@ const SignUp = () => {
       
       toast.success("Your account is created successfully!", {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 10000,
+        style: {
+          background: "#161D2F",
+          color: "#FFFFFF",
+        },
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: false,

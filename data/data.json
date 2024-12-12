@@ -56,7 +56,7 @@
       "year": 2019,
       "category": "TV Series",
       "rating": "E",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": true,
       "id": "037a"
     },
@@ -76,7 +76,7 @@
       "year": 2021,
       "category": "Movie",
       "rating": "18+",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": true,
       "id": "357b"
     },
@@ -144,7 +144,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "18+",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "6c70"
     },
@@ -192,7 +192,7 @@
       "year": 2016,
       "category": "TV Series",
       "rating": "18+",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": false,
       "id": "5c73"
     },
@@ -240,7 +240,7 @@
       "year": 2015,
       "category": "TV Series",
       "rating": "E",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "416f"
     },
@@ -256,7 +256,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "PG",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "8b74"
     },
@@ -304,7 +304,7 @@
       "year": 2021,
       "category": "Movie",
       "rating": "PG",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "62d0"
     },
@@ -320,7 +320,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "18+",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "42e9"
     },
@@ -368,7 +368,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "E",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "a309"
     },
@@ -400,7 +400,7 @@
       "year": 2016,
       "category": "TV Series",
       "rating": "E",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "a83a"
     },
@@ -448,7 +448,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "18+",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "d2c0"
     },
@@ -480,7 +480,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "PG",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "84fa"
     }
@@ -522,119 +522,44 @@
       "password": "Qweqweqwe1"
     },
     {
-      "id": "4148",
-      "email": "anna@gmail.com",
-      "password": "Anna142"
+      "id": "24e9",
+      "email": "at@gmail.com",
+      "password": "QWERTY12345"
     },
     {
-      "id": "816b",
-      "email": "amelia@gmail.com",
-      "password": "Amelia12"
+      "id": "b109",
+      "email": "nanana@mail.com",
+      "password": "Nanana1"
     },
     {
-      "id": "e1d1",
-      "email": "mira@gmail.com",
-      "password": "Mira12"
+      "id": "08d3",
+      "email": "qwerty@mail.com",
+      "password": "Qwerty123"
     },
     {
-      "id": "de97",
-      "email": "inga@gmail.com",
-      "password": "Inga12"
+      "id": "55b4",
+      "email": "maga@mail.com",
+      "password": "Maga123"
     },
     {
-      "id": "af62",
-      "email": "marija@gmail.com",
-      "password": "Marija12"
+      "id": "cd84",
+      "email": "asdf@mail.com",
+      "password": "Qwert123"
     },
     {
-      "id": "72b4",
-      "email": "greta@gmail.com",
-      "password": "Greta12"
+      "id": "bc3d",
+      "email": "ajdas@mail.com",
+      "password": "Qwerty123"
     },
     {
-      "id": "a967",
-      "email": "joana@gmail.com",
-      "password": "Joana12"
+      "id": "8dbe",
+      "email": "asf@mail.com",
+      "password": "Qwerty123"
     },
     {
-      "id": "d93d",
-      "email": "ilona@gmail.com",
-      "password": "Ilona12"
-    },
-    {
-      "id": "5c75",
-      "email": "anna1@gmail.com",
-      "password": "Anna25"
-    },
-    {
-      "id": "4211",
-      "email": "andzela@gmail.com",
-      "password": "Andzela12"
-    },
-    {
-      "id": "ac03",
-      "email": "amanda1@gmail.com",
-      "password": "Amanda12"
-    },
-    {
-      "id": "162e",
-      "email": "lili@gmail.com",
-      "password": "Lili12"
-    },
-    {
-      "id": "95d6",
-      "email": "alibaba@gmail.com",
-      "password": "Ali123"
-    },
-    {
-      "id": "b3ec",
-      "email": "monika@gmail.com",
-      "password": "Monika12"
-    },
-    {
-      "id": "8fe2",
-      "email": "marga@gmail.com",
-      "password": "Marga12"
-    },
-    {
-      "id": "dfe6",
-      "email": "dina@gmail.com",
-      "password": "Dina12"
-    },
-    {
-      "id": "420a",
-      "email": "aman@gmail.com",
-      "password": "Aman12"
-    },
-    {
-      "id": "5878",
-      "email": "alina@gmail.com",
-      "password": "Alina12"
-    },
-    {
-      "id": "cd32",
-      "email": "abba@gmail.com",
-      "password": "Abba12"
-    },
-    {
-      "id": "2e9e",
-      "email": "aliona14@gmail.com",
-      "password": "Aliona14"
-    },
-    {
-      "id": "ff24",
-      "email": "aliona15@gmail.com",
-      "password": "Aliona85"
-    },
-    {
-      "id": "b1d5",
-      "email": "aliona156@gmail.com",
-      "password": "Aliona15"
-    },
-    {
-      "id": "a7fe",
-      "email": "aliona@mail.com",
-      "password": "Alina12"
+      "id": "d721",
+      "email": "qwer@mail.com",
+      "password": "Qwerty123"
     }
   ]
 }

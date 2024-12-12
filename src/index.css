@@ -92,7 +92,7 @@
     @apply md:w-[21rem] w-[17.4rem] md:mx-[2rem] mx-[1.5rem] h-[2.31rem] mb-[1.5rem] bg-transparent border-b focus:outline-none focus:border-white text-white 
    }
   .signup--main--container{
-    @apply flex flex-col justify-center items-center  bg-light font-outfit pb-[12.81rem]
+    @apply flex flex-col justify-center items-center  bg-light font-outfit pb-[12.81rem] h-svh
   }
   .login--main--container{
     @apply flex flex-col justify-center items-center  bg-light font-outfit pb-[12.81rem] h-svh
