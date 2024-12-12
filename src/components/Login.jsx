@@ -40,7 +40,7 @@ const LoginForm = () => {
       isValid = false;
     } else if (!isValidPassword(password)) {
       newErrors.password =
-        "Invalid password.";
+        "Invalid password";
       isValid = false;
     }
   
@@ -95,7 +95,7 @@ const LoginForm = () => {
         noValidate
         className="login--form--container"
       >
-        <h2 className="signup--heading--text">Login</h2>
+        <h2 className="signup--heading--text text-heading-l">Login</h2>
 
         <div className="relative">
           <input

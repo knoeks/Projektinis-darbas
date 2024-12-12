@@ -104,11 +104,12 @@
     @apply bg-dark shadow-lg md:w-[25rem] md:h-[26.1rem] w-[20.4rem] h-[26.3rem] rounded-[0.625rem] md:rounded-[1.25rem] border-dark text-white
   }
   .signup--heading--text{
-    @apply ml-[1.5rem] mt-[1.5rem] mb-[2.5rem] text-[2rem] md:tracking-[-0.03125rem] font-outfit font-normal md:ml-[2rem] md:mt-[2rem] md:text-[2rem] md:mb-[2.5rem] h-[2.5rem]
+    @apply  ml-[1.5rem] mt-[1.5rem] mb-[2.5rem] text-[2rem] md:tracking-[-0.03125rem] font-outfit font-normal md:ml-[2rem] md:mt-[2rem] md:text-[2rem] md:mb-[2.5rem] h-[2.5rem]
   }
   .signup--error{
     @apply text-red text-xs sm:text-sm absolute right-10 top-3
   }
+  
   .login--form--container{
     @apply bg-dark shadow-lg md:w-[25rem] md:h-[23.3rem] w-[20.4rem] h-[22.8rem] rounded-[0.625rem] md:rounded-[1.25rem] border-dark text-white md:pb-[15.63rem] 
   }

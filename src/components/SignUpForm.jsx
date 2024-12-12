@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -25,50 +28,66 @@ const SignUp = () => {
     /^[^\s@]+@[^\s@]+\.(com|org|net|edu|gov|io|info)$/i.test(email);
   const isValidPassword = (password) =>
     /^(?=.*[A-Z])(?=.*\d).{6,18}$/.test(password);
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
-
+  
     const email = formData.email.trim().toLowerCase();
     const { password, repeatPassword } = formData;
-
+  
     if (!email) newErrors.email = "Can't be empty";
     else if (!isValidEmail(email)) newErrors.email = "Invalid email format";
-
+  
     if (!password) newErrors.password = "Can't be empty";
     else if (!isValidPassword(password))
       newErrors.password = "Capital letter, number, 6-18 characters";
-
+  
     if (password !== repeatPassword)
       newErrors.repeatPassword = "Passwords do not match";
-
+  
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-
+  
     try {
+      console.log("Submitting form...");
+  
       const response = await axios.get("http://localhost:5001/users");
       const users = response.data;
       const userExists = users.some((user) => user.email === email);
-
+  
       if (userExists) {
         setErrors({ email: "Email is already registered" });
         return;
       }
-
+  
       await axios.post("http://localhost:5001/users", { email, password });
+  
+      
+      toast.success("Your account is created successfully!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        
+      });
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
 
-      alert("Account created successfully!");
-      navigate("/login");
     } catch (err) {
       console.error("Error signing up:", err);
       setErrors({ general: "Error signing up. Please try again later." });
     }
   };
-
   return (
     <div className="signup--main--container">
+      <ToastContainer/>
       <div className="signup--icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +108,7 @@ const SignUp = () => {
         noValidate
         className="signup--form--container"
       >
-        <h2 className="signup--heading--text heading-l">Sign Up</h2>
+        <h2 className="signup--heading--text text-heading-l">Sign Up</h2>
 
         <div>
           <div className="relative ">

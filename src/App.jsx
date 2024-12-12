@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import SignUpForm from "./components/SignUpForm";
 import Login from "./components/Login";
 
+
 function App() {
   const [error, setError] = useState("");
   const [allFilms, setAllFilms] = useState([]);
