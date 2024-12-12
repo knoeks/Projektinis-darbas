@@ -20,6 +20,24 @@
     @apply cursor-pointer;
     caret-color: #FC4747;
   }
+  .nav-container{
+    @apply grid grid-cols-3 p-4 h-[7vh] bg-dark place-content-center  md:rounded-[0.625rem] md:m-4 lg:grid-cols-1 lg:float-left lg:h-[94vh] lg:justify-items-center lg:grid-rows-[27px_1fr_32px] lg:gap-12;
+  }
+  .nav-2nd-container{
+    @apply m-0 place-self-center flex flex-row w-[133.54px] md:w-[172.92px] justify-between lg:flex-col lg:h-[200px] lg:w-[3vw] lg:place-self-start lg:items-center;
+  }
+  .logo {
+    @apply w-[20px] h-[20px] md:w-[32px] md:h-[25.6px] self-center;
+  }
+.svg-nav{
+  @apply w-[16px] h-[16px] md:w-[20px] md:h-[20px] hover:fill-red;
+}
+.booked{
+  @apply w-[14px] h-[16px] md:w-[17px] md:h-[20px] hover:fill-red;
+}
+.pic{
+  @apply place-self-end w-[24px] h-[24px] md:w-[32px] md:h-[32px] lg:place-self-center border-2 border-white rounded-full;
+}
 }
 
 @layer components {

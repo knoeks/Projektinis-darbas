@@ -1,4 +1,3 @@
-import NavBar from "./components/Navbar.jsx";
 import HomePage from "./components/HomePage";
 import MoviePage from "./components/MoviePage";
 import SeriesPage from "./components/SeriesPage";
@@ -39,13 +38,9 @@ function App() {
 
   return (
     <>
-    <NavBar/>
-    
-    </>
-  )
       <Routes>
-        <Route path="/" element={<SignUpForm/>}/>
-        <Route path="login"  element={<Login/>}/> 
+        <Route path="/" element={<SignUpForm />} />
+        <Route path="login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
         <Route
           path="/"
@@ -60,7 +55,7 @@ function App() {
                 searchResults,
                 setSearchResults,
               }}
-            /> 
+            />
           }
         >
           <Route path="home" element={<HomePage />} />
