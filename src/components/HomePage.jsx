@@ -11,7 +11,9 @@ function HomePage() {
       {!location.search && (
         <div>
           <Trending />
-          <h1 className="trending--heading--text p-4 md:p-8 xl:px-9">Reccomended for you</h1>
+          <div className="trending-full">
+          <h1 className="trending--heading--text  flex-row">Reccomended for you</h1>
+          </div>
         </div>
       )}
       <FilmList category={""} />

@@ -10,15 +10,15 @@ import { useLocation } from "react-router";
 const NavBar = () => {
 let location = useLocation();
 
-  return (     
-  <div className="box-content lg:h-full">
+  return (  
+  <div className=" md:p-8 xl:p-8 bg-light box-border sticky top-0 left-0 z-50 xl:w-[10rem]">
     <div className="nav-container">
     <Logo className="logo"/>
     <div className="nav-2nd-container">
-    <Link to="home" className={location.pathname === "/home" ? "[&>*]:fill-white":""}><Home className="svg-nav"/></Link>
-    <Link to="movies" className={location.pathname === "/movies" ? "[&>*]:fill-white":""}><Movies className="svg-nav"/></Link>
-    <Link to="series" className={location.pathname === "/series" ? "[&>*]:fill-white":""}><Tv className="svg-nav"/></Link>
-    <Link to="bookmarked" className={location.pathname === "/bookmarked" ? "[&>*]:fill-white":""}><Bookmarked className="booked" /></Link>
+    <Link to="home" className={`group relative ${location.pathname === "/home" ? "[&>*]:fill-white":""}`}><Home className="svg-nav"/><p className="pop-name">home</p></Link>
+    <Link to="movies" className={`group relative ${location.pathname === "/movies" ? "[&>*]:fill-white":""}`}><Movies className="svg-nav"/><p className="pop-name -left-3">movies</p></Link>
+    <Link to="series" className={`group relative ${location.pathname === "/series" ? "[&>*]:fill-white":""}`}><Tv className="svg-nav"/><p className="pop-name">series</p></Link>
+    <Link to="bookmarked" className={`group relative ${location.pathname === "/bookmarked" ? "[&>*]:fill-white":""}`}><Bookmarked className="booked" /><p className="pop-name -left-8">bookmarked</p></Link>
     </div>
     <a href="#my_modal_8"><img className="pic" src={avatar} alt="avatar" /></a>
     <div className="modal bg-dark" role="dialog" id="my_modal_8">

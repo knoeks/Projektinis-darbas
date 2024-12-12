@@ -71,10 +71,10 @@ function App() {
 
 function LayoutContext({ context }) {
   return (
-    <div>
-      <Navbar />
+    <>
+     <Navbar/>
       <Outlet context={context} />
-    </div>
+    </>
   );
 }
 

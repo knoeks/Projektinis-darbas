@@ -21,10 +21,10 @@
     caret-color: #FC4747;
   }
   .nav-container{
-    @apply grid grid-cols-3 p-4 h-[7vh] bg-dark place-content-center  md:rounded-[0.625rem] md:m-4 lg:grid-cols-1 lg:float-left lg:h-[94vh] lg:justify-items-center lg:grid-rows-[27px_1fr_32px] lg:gap-12;
+    @apply grid grid-cols-3 p-4 h-[3.5rem] bg-dark place-content-center md:rounded-[0.625rem] md:h-[4.5rem] xl:grid-cols-1 xl:w-24 xl:h-[92vh] xl:justify-items-center xl:grid-rows-[27px_1fr_32px] xl:gap-12;
   }
   .nav-2nd-container{
-    @apply m-0 place-self-center flex flex-row w-[133.54px] md:w-[172.92px] justify-between lg:flex-col lg:h-[200px] lg:w-[3vw] lg:place-self-start lg:items-center;
+    @apply m-0 place-self-center flex flex-row w-[133.54px] md:w-[172.92px] justify-between xl:flex-col xl:h-[200px] xl:w-[2.25rem] xl:items-center xl:place-self-start xl:justify-self-center;
   }
   .logo {
     @apply w-[20px] h-[20px] md:w-[32px] md:h-[25.6px] self-center;
@@ -36,13 +36,16 @@
   @apply w-[14px] h-[16px] md:w-[17px] md:h-[20px] hover:fill-red;
 }
 .pic{
-  @apply place-self-end w-[24px] h-[24px] md:w-[32px] md:h-[32px] lg:place-self-center border-2 border-white rounded-full;
+  @apply place-self-end w-[24px] h-[24px] md:w-[32px] md:h-[32px] xl:place-self-center border-2 border-white rounded-full;
+}
+.pop-name{
+  @apply invisible group-hover:visible text-white font-outfit text-body-s absolute sm:bottom-4 md:bottom-4 xl:-top-5 -left-2;
 }
 }
 
 @layer components {
   .films-row {
-    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-4 md:p-8 xl:px-9 justify-items-center dynamic-film-gap dynamic-film-padding;
+    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-4 md:p-10 xl:px-9 justify-items-center dynamic-film-gap dynamic-film-padding;
   }
 
   .film-card {
@@ -62,7 +65,7 @@
   }
 
   .bookmark-button {
-    @apply absolute right-2 top-2 sm:right-4 md:top-4 z-50;
+    @apply absolute right-2 top-2 sm:right-4 md:top-4 z-40;
   }
 
   .play-button-bg {
@@ -240,7 +243,8 @@
   overflow-x: scroll;
   scroll-behavior: smooth;
   cursor: grab;
-  gap: 2.5rem
+  gap: 2.5rem;
+  padding: 2rem
 }
 
 .carousel-item {
