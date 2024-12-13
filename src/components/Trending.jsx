@@ -25,7 +25,7 @@ const Trending = () => {
   }, []);
 
   return (
-    <section className="trending-full">
+    <section >
       <h1 className="trending--heading--text flex-row">Trending</h1>
       <div>
         {error && <div className="error">{error}</div>}
