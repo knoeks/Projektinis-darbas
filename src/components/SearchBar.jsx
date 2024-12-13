@@ -43,7 +43,7 @@ function SearchBar() {
     }
   };
 
-  const pattern = /([A-Za-z])/;
+  const pattern = /^[a-zA-Z0-9/\-,.?=]+$/;
   let isValid = pattern.test(searchQuery);
 
   if (searchQuery && !isValid) {
