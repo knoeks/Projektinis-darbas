@@ -247,7 +247,7 @@
   scroll-behavior: smooth;
   cursor: grab;
   gap: 2.5rem;
-  padding: 2rem;
+  padding: 2rem 2rem 2rem 0rem;
 }
 
 .carousel-item {
