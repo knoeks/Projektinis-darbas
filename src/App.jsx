@@ -71,7 +71,7 @@ function App() {
 
 function LayoutContext({ context }) {
   return (
-    <div className="flex xl:flex-row flex-col">
+    <div className="flex xl:flex-row flex-col max">
       <Navbar />
       <div>
         <Outlet context={context} />

@@ -7,10 +7,6 @@
     @apply bg-light
   }
 
-  #root{
-    @apply flex
-  }
-
   .input-field {
     @apply caret-red text-white border-b border-accent pb-[1.13rem] focus:outline-none bg-transparent;
 
@@ -26,7 +22,7 @@
     caret-color: #fc4747;
   }
   .nav-container {
-    @apply grid grid-cols-3 xl:pt-[2.21rem] xl:pb-[2rem] md:pl-[1.5rem] md:pr-[1.31rem] px-[1rem] h-[3.5rem] bg-dark place-content-center md:rounded-[0.625rem] md:h-[4.5rem] xl:grid-cols-1 xl:w-24 xl:h-[92vh] xl:justify-items-center xl:grid-rows-[27px_1fr_32px] xl:gap-[4.69rem];
+    @apply grid grid-cols-3 xl:pt-[2.21rem] xl:pb-[2rem] md:pl-[1.5rem] md:pr-[1.31rem]  h-[3.5rem] bg-dark place-content-center md:rounded-[0.625rem] md:h-[4.5rem] xl:grid-cols-1 xl:w-24 xl:h-[92vh] xl:justify-items-center xl:grid-rows-[27px_1fr_32px] xl:gap-[4.69rem];
   }
   .nav-2nd-container {
     @apply m-0 place-self-center flex flex-row w-[133.54px] md:w-[172.92px] justify-between xl:flex-col xl:h-[200px] xl:w-[2.25rem] xl:items-center xl:place-self-start xl:justify-self-center;
