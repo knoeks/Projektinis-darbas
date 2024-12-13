@@ -16,40 +16,40 @@ const NavBar = () => {
         <Logo className="logo" />
         <div className="nav-2nd-container">
           <Link
+            data-tip="home"
             to="home"
-            className={`group relative ${
+            className={`tooltip group relative ${
               location.pathname === "/home" ? "[&>*]:fill-white" : ""
             }`}
           >
             <Home className="svg-nav" />
-            <p className="pop-name">home</p>
           </Link>
           <Link
+          data-tip="movies"
             to="movies"
-            className={`group relative ${
+            className={`tooltip group relative ${
               location.pathname === "/movies" ? "[&>*]:fill-white" : ""
             }`}
           >
             <Movies className="svg-nav" />
-            <p className="pop-name -left-3">movies</p>
           </Link>
           <Link
+          data-tip="series"
             to="series"
-            className={`group relative ${
+            className={`tooltip group relative ${
               location.pathname === "/series" ? "[&>*]:fill-white" : ""
             }`}
           >
             <Tv className="svg-nav" />
-            <p className="pop-name">series</p>
           </Link>
           <Link
+          data-tip="bookmarked"
             to="bookmarked"
-            className={`group relative ${
+            className={`tooltip group relative ${
               location.pathname === "/bookmarked" ? "[&>*]:fill-white" : ""
             }`}
           >
             <Bookmarked className="booked" />
-            <p className="pop-name -left-8">bookmarked</p>
           </Link>
         </div>
         <a href="#my_modal_8">
