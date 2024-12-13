@@ -11,7 +11,7 @@ const NavBar = () => {
   let location = useLocation();
 
   return (
-    <div className="md:px-8 md:py-8  xl:pr-0 box-border fixed top-0 left-0 z-50 w-full bg-light xl:h-full xl:w-fit">
+    <div className="md:px-8 md:pt-8 md:pb-2  xl:pr-0 box-border fixed top-0 left-0 z-50 w-full bg-light xl:h-full xl:w-fit">
       <div className="nav-container w-full xl:w-fit">
         <Logo className="logo" />
         <div className="nav-2nd-container">
