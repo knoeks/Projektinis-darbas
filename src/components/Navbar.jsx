@@ -11,7 +11,7 @@ const NavBar = () => {
   let location = useLocation();
 
   return (
-    <div className="md:px-8 md:pt-8 xl:pr-0 box-border sticky top-0 left-0 z-50 xl:w-fit">
+    <div className="md:px-8 md:pt-8 xl:pr-0 box-border sticky top-0 left-0 z-50 xl:w-fit bg-light">
       <div className="nav-container">
         <Logo className="logo" />
         <div className="nav-2nd-container">
@@ -19,7 +19,7 @@ const NavBar = () => {
             data-tip="home"
             to="home"
             className={`tooltip group relative ${
-              location.pathname === "/home" ? "[&>*]:fill-white" : ""
+              location.pathname === "/home" ? "[&>*]:fill-white [&>*]:hover:fill-white" : ""
             }`}
           >
             <Home className="svg-nav" />
@@ -28,7 +28,7 @@ const NavBar = () => {
           data-tip="movies"
             to="movies"
             className={`tooltip group relative ${
-              location.pathname === "/movies" ? "[&>*]:fill-white" : ""
+              location.pathname === "/movies" ? "[&>*]:fill-white [&>*]:hover:fill-white" : ""
             }`}
           >
             <Movies className="svg-nav" />
@@ -37,7 +37,7 @@ const NavBar = () => {
           data-tip="series"
             to="series"
             className={`tooltip group relative ${
-              location.pathname === "/series" ? "[&>*]:fill-white" : ""
+              location.pathname === "/series" ? "[&>*]:fill-white [&>*]:hover:fill-white" : ""
             }`}
           >
             <Tv className="svg-nav" />
@@ -46,7 +46,7 @@ const NavBar = () => {
           data-tip="bookmarked"
             to="bookmarked"
             className={`tooltip group relative ${
-              location.pathname === "/bookmarked" ? "[&>*]:fill-white" : ""
+              location.pathname === "/bookmarked" ? "[&>*]:fill-white [&>*]:hover:fill-white" : ""
             }`}
           >
             <Bookmarked className="booked" />

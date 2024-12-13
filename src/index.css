@@ -179,7 +179,6 @@
     padding-bottom: 1rem;
   }
   .trending-full {
-    padding-left: 1rem !important;
     box-sizing: border-box;
   }
   .trending-full .trending--absolute {
@@ -199,7 +198,8 @@
   position: relative;
 }
 .trending-full {
-  padding-left: 2.25rem;
+  padding-left: 1rem;
+
 }
 .trending--heading--text {
   font-family: Outfit;
