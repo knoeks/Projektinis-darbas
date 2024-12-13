@@ -71,10 +71,12 @@ function App() {
 
 function LayoutContext({ context }) {
   return (
-    <>
-     <Navbar/>
-      <Outlet context={context} />
-    </>
+    <div className="flex xl:flex-row flex-col">
+      <Navbar />
+      <div>
+        <Outlet context={context} />
+      </div>
+    </div>
   );
 }
 
