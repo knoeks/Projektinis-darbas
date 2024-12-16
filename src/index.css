@@ -46,7 +46,7 @@
 
 @layer components {
   .films-row {
-    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 xl:pr-9 xl:pl-0 justify-items-center dynamic-film-gap pr-4 md:pr-[1.56rem] xl:pr-0;
+    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 xl:pr-9 xl:pl-0 justify-items-center dynamic-film-gap pr-4 md:pr-[1.56rem];
   }
 
   .film-card {
