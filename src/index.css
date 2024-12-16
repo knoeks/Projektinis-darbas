@@ -46,7 +46,7 @@
 
 @layer components {
   .films-row {
-    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-4 md:p-10 xl:pr-9 xl:pl-0 justify-items-center dynamic-film-gap dynamic-film-padding;
+    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 py-4 md:py-10 xl:pr-9 xl:pl-0 justify-items-center dynamic-film-gap dynamic-film-padding;
   }
 
   .film-card {
@@ -99,7 +99,7 @@
     @apply w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem];
   }
   .search-container {
-    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center p-[1rem] pb-[10px] md:pb-[19px] xl:pb-[21px] pt-[1.5rem] md:p-8 xl:pr-9 xl:pl-0;
+    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center py-[1rem] pb-[10px] md:pb-[19px] xl:pb-[21px] pt-[1.5rem] md:py-8 xl:pr-9 xl:pl-0;
   }
   .search-results {
     @apply text-white px-[1rem] md:px-[25px] xl:px-[2.25rem] text-specific_search-results md:text-heading-l;
@@ -146,7 +146,7 @@
   }
 
   .dynamic-film-padding {
-    @apply px-4 pt-6 pb-xl md:px-6 md:pt-6 md:pb-14 xl:px-9 xl:pt-8 xl:pb-13;
+    @apply pr-4 pt-6 pb-xl md:pr-6 md:pt-6 md:pb-14 xl:px-9 xl:pt-8 xl:pb-13;
   }
 
   .circle-icon {
@@ -159,6 +159,10 @@
 
   .hover-opacity-100 {
     @apply opacity-100 transition-opacity duration-300;
+  }
+
+  .screen-spacing {
+    @apply pl-4 md:pl-[1.56rem] xl:pl-0
   }
 }
 

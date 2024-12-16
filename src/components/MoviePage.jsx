@@ -7,7 +7,7 @@ function MoviePage() {
   return (
     <>
       <SearchBar />
-      {!location.search && <h1 className="trending--heading--text p-4 md:p-8 xl:px-9">Movies</h1>}
+      {!location.search && <h1 className="trending--heading--text">Movies</h1>}
       <FilmList category={"Movie"} />
     </>
   );

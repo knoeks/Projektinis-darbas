@@ -11,9 +11,9 @@ function BookmarkedPage() {
         <FilmList category={""} />
       ) : (
         <div>
-          <h1 className="trending--heading--text p-4 md:p-8 xl:px-9">Movies</h1>
+          <h1 className="trending--heading--text">Movies</h1>
           <FilmList category={"Movie"} />
-          <h1 className="trending--heading--text p-4 md:p-8 xl:px-9">TV Series</h1>
+          <h1 className="trending--heading--text">TV Series</h1>
           <FilmList category={"TV Series"} />
         </div>
       )}

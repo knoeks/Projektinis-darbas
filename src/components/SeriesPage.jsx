@@ -7,7 +7,7 @@ function SeriesPage() {
   return (
     <>
       <SearchBar />
-      {!location.search && <h1 className="trending--heading--text p-4 md:p-8 xl:px-9">TV Series</h1>}
+      {!location.search && <h1 className="trending--heading--text">TV Series</h1>}
       <FilmList category={"TV Series"} />
     </>
   );
