@@ -64,7 +64,7 @@ const SignUp = () => {
         return;
       }
   
-      await axios.post("http://localhost:5001/users", { email, password });
+      await axios.post("http://localhost:5001/users", { email, password});
   
       
       toast.success("Your account is created successfully!", {

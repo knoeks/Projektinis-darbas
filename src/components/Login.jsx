@@ -93,9 +93,9 @@ const LoginForm = () => {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="login--form--container pb-[0.5rem]"
+        className="login--form--container"
       >
-        <h2 className="signin--heading--text text-[1.65rem] mt-[1.20rem] mb-[3.5rem]">Login</h2>
+        <h2 className="signin--heading--text text-white ml-[-0.25rem] text-[1.75rem]">Login</h2>
 
         <div className="relative">
           <input
@@ -104,9 +104,9 @@ const LoginForm = () => {
             name="email"
             value={email}
             onChange={handleChange}
-            className={`signup--input ${
+            className={`login--input -mt-[0.35rem] mb-[1.25rem] ${
               errors.email ? "border-red" : "border-accent"
-            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
+            } placeholder:pl-[1rem] placeholder:pb-[1rem] placeholder:body-m placeholder:opacity-50`}
             placeholder="Email Address"
           />
           {errors.email && (
@@ -127,14 +127,14 @@ const LoginForm = () => {
   />
 
           {errors.password && (
-            <span className="absolute text-red text-sm top-2 right-4">{errors.password}</span>
+            <span className="absolute text-red text-sm top-3 right-4">{errors.password}</span>
           )}
         </div>
 
         <button type="submit" className="login--button">
           Login to your account
         </button>
-        <p className="signup--login-text text-center text-white text-sm mt-[0.95rem] mb-[0] font-light">
+        <p className="signup--login-text text-center text-white text-sm mt-[1rem] font-light">
           Don’t have an account?{" "}
           <a href="/" className="signup--link">
             Sign Up
