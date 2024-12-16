@@ -29,18 +29,17 @@ const LoginForm = () => {
       isValid = false;
     }
   
+    // Password validation
     const isValidPassword = (password) => {
-      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,18}$/; // 6 to 18 characters allowed
+      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,50}$/;
       return passwordRegex.test(password);
     };
   
-   
     if (!password) {
       newErrors.password = "Can't be empty";
       isValid = false;
     } else if (!isValidPassword(password)) {
-      newErrors.password =
-        "Invalid password";
+      newErrors.password = "Invalid password";
       isValid = false;
     }
   
@@ -56,22 +55,31 @@ const LoginForm = () => {
       });
   
       const users = await response.json();
+  
+      // Check if the email exists
       const user = users.find(
         (u) => u.email.toLowerCase() === email.toLowerCase()
       );
   
       if (!user) {
         setErrors({ email: "This email is not registered" });
-      } else if (user.password !== password) {
-        setErrors({ password: "Invalid password" });
-      } else {
-        // Redirect to Home upon successful login
-        navigate("/home");
+        return;
       }
+  
+      // Check if the password matches
+      if (user.password !== password) {
+        setErrors({ password: "Invalid password" });
+        return;
+      }
+  
+      // Successful login - redirect to home
+      navigate("/home");
     } catch (err) {
+      console.error("Error during login:", err);
       setErrors({ general: "An error occurred. Please try again later." });
     }
   };
+  
   
   return (
     <div className="login--main--container">
@@ -97,39 +105,66 @@ const LoginForm = () => {
       >
         <h2 className="signin--heading--text text-white ml-[-0.25rem] text-[1.75rem]">Login</h2>
 
-        <div className="relative">
-          <input
-            autoComplete="off"
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            className={`login--input -mt-[0.35rem] mb-[1.25rem] ${
-              errors.email ? "border-red" : "border-accent"
-            } placeholder:pl-[1rem] placeholder:pb-[1rem] placeholder:body-m placeholder:opacity-50`}
-            placeholder="Email Address"
-          />
-          {errors.email && (
-            <span className="absolute text-red text-sm top-3 right-4">{errors.email}</span>
-          )}
-        </div>
+        <div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
+  <input
+    autoComplete="off"
+    type="email"
+    name="email"
+    value={email} 
+    onChange={handleChange}
+    className={`login--input ${
+      errors.email ? "border-red" : "border-accent"
+    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
+    placeholder="Email Address"
+  />
+  {errors.email && (
+    <span
+      className={`login--error ${
+        email.length > 30
+          ? "absolute bottom-[-5px] right-[6px] text-right"
+          : "absolute top-3 right-2"
+      }`}
+    >
+      {errors.email}
+    </span>
+  )}
+</div>
 
-        <div className="relative">
+
+<div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
   <input
     type="password"
     name="password"
     value={password}
-    onChange={handleChange}
-    className={`login--input -mt-[0.25rem] mb-[1.25rem] ${
-      errors.password ? "border-red" : "border-accent"
-    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
+    onChange={(e) => {
+      const { value } = e.target;
+      if (value.length <= 50) {
+        handleChange(e); // Update password only if <= 30
+      }
+    }}
+    className={`login--input ${
+      errors.password ? "border-red" : "border-gray-500"
+    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
     placeholder="Password"
   />
-
-          {errors.password && (
-            <span className="absolute text-red text-sm top-3 right-4">{errors.password}</span>
-          )}
-        </div>
+  {errors.password && (
+    <span
+      className={`login--error ${
+        password.length > 30
+          ? "absolute bottom-[-4px] right-[8px] text-right"
+          : "absolute top-3 right-2"
+      }`}
+    >
+      {password.length === 0
+        ? "Can't be empty"
+        : password.length < 6
+        ? " Invalid password"
+        : password.length > 30
+        ? "Invalid password"
+        : errors.password}
+    </span>
+  )}
+</div>
 
         <button type="submit" className="login--button">
           Login to your account

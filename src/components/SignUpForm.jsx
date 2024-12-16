@@ -42,7 +42,7 @@ const SignUp = () => {
   
     if (!password) newErrors.password = "Can't be empty";
     else if (!isValidPassword(password))
-      newErrors.password = "Capital letter, number, 6-18 characters";
+      newErrors.password = "Capital letter, number, 6 characters";
   
     if (password !== repeatPassword)
       newErrors.repeatPassword = "Passwords do not match";
@@ -114,41 +114,63 @@ const SignUp = () => {
       >
      <h2 className="signup--heading--text text-[1.75rem]">Sign Up</h2>
 
-        <div>
-          <div className="relative ">
-            <input
-              autoComplete="off"
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={`signup--input ${
-                errors.email ? "border-red" : "border-accent"
-              } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
-              placeholder="Email Address"
-            />
-            {errors.email && (
-              <span className="signup--error">{errors.email}</span>
-            )}
-          </div>
-        </div>
+     <div>
+     <div className="relative">
+  <input
+    autoComplete="off"
+    type="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    className={`signup--input ${
+      errors.email ? "border-red" : "border-accent"
+    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
+    placeholder="Email Address"
+  />
+  {errors.email && (
+    <span
+      className={`text-red text-sm whitespace-nowrap flex-shrink-0 ${
+        formData.email.length > 26
+          ? "absolute bottom-[-6px] right-[6px] text-right"
+          : "absolute top-3 right-2"
+      }`}
+    >
+      {errors.email}
+    </span>
+  )}
+</div>
+</div>
 
-        <div className="relative ">
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            maxLength={16}
-            onChange={handleChange}
-            className={`signup--input ${
-              errors.password ? "border-red" : "border-accent"
-            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
-            placeholder="Password"
-          />
-          {errors.password && (
-            <span className="signup--error">{errors.password}</span>
-          )}
-        </div>
+<div className="relative">
+  <input
+    type="password"
+    name="password"
+    value={formData.password}
+    maxLength={50}
+    onChange={handleChange}
+    className={`signup--input ${
+      errors.password ? "border-red" : "border-accent"
+    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
+    placeholder="Password"
+  />
+{errors.password && (
+  <span
+    className={`signup--error ${
+      formData.password.length > 30
+        ? "translate-y-[2rem] absolute bottom-[-6px] right-[6px]"
+        : "absolute top-3 right-2"
+    }`}
+  >
+    {formData.password.length === 0
+      ? "Can't be empty"
+      : formData.password.length < 6
+      ? "Password must be at least 6 characters"
+      : errors.password}
+  </span>
+)}
+ </div>
+
+ 
 
         <div className="relative  ">
           <input
@@ -156,7 +178,7 @@ const SignUp = () => {
             name="repeatPassword"
             value={formData.repeatPassword}
             onChange={handleChange}
-            className={`signup--input placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50 ${
+            className={`signup--input placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90 ${
               errors.repeatPassword ? "border-red" : "border-accent"
             } `}
             placeholder="Repeat Password"
@@ -170,7 +192,7 @@ const SignUp = () => {
           Create an account
         </button>
 
-        <p className="text-center text-white text-[0.75rem] font-light mt-[0.75rem] mb-[1.5rem] font-outfit">
+        <p className="text-center text-white text-[0.90rem] font-light mt-[0.75rem] mb-[1.5rem] font-outfit">
           Already have an account?{" "}
           <a
             href="/login"

@@ -87,8 +87,8 @@
     tracking-[0.01em] mt-[0.25rem] mb-[0.5rem] hover:bg-white hover:text-black transition;
 }
   .signup--input{
-    @apply w-full h-[2.5rem] mb-[1rem] bg-transparent border-b border-gray-500 
-    text-[0.875rem] text-white placeholder-gray-400 focus:outline-none focus:border-white;
+    @apply w-full h-[2.5rem] mb-[1rem] bg-transparent border-b border-accent
+    text-[0.875rem] text-white placeholder-accent focus:outline-none focus:border-white flex-shrink-0;
 }
   
   .signup--main--container{
@@ -104,10 +104,15 @@
     @apply text-[1.55rem] font-light mt-[0.5rem] mb-[1rem] py-2 text-left;
   }
   
-  .signup--error{
-    @apply absolute text-red text-sm top-3 right-2
-  }
-
+  @layer components {
+    .signup--error {
+        @apply absolute text-red text-sm top-3 right-2 flex-shrink-0 whitespace-nowrap;
+        
+    }
+}
+.signup--input--container {
+    @apply flex items-center justify-between flex-wrap relative;
+}
   .signup--link {
     @apply text-red hover:underline ml-[0.25rem] text-[0.85rem] font-light;
   }
@@ -128,9 +133,9 @@
 }
 
 .login--input {
-  @apply w-full h-[3rem] mb-[1rem] bg-transparent border-b border-gray-500 
-  text-[0.875rem] text-white placeholder-gray-400 focus:outline-none 
-  focus:border-white leading-tight placeholder:-translate-y-1;
+  @apply w-full h-[2.5rem] mb-[1rem] bg-transparent border-b border-accent
+  text-[0.875rem] text-white placeholder-accent focus:outline-none 
+  focus:border-white flex-shrink-0;
 }
 .login--button {
   @apply w-full h-[3rem] bg-red text-white rounded-[0.25rem] 
@@ -148,6 +153,11 @@
 .signin--heading--text{
   @apply ml-[1rem] mt-[1.5rem] mb-[1.5rem] text-[1.5rem]  
        font-light text-left;
+}
+@layer components {
+  .login--error {
+    @apply absolute text-red text-sm flex-shrink-0 whitespace-nowrap;
+  }
 }
 }
 
