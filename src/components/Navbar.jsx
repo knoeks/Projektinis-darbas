@@ -52,7 +52,7 @@ const NavBar = () => {
             <Bookmarked className="booked" />
           </Link>
         </div>
-        <a href="#my_modal_8">
+        <a className="flex justify-end" href="#my_modal_8">
           <img className="pic" src={avatar} alt="avatar" />
         </a>
         <div className="modal bg-dark" role="dialog" id="my_modal_8">
