@@ -560,6 +560,16 @@
       "id": "d721",
       "email": "qwer@mail.com",
       "password": "Qwerty123"
+    },
+    {
+      "id": "82fa",
+      "email": "anna@gmail.com",
+      "password": "Anna12"
+    },
+    {
+      "id": "fbaa",
+      "email": "amanda12@gmail.com",
+      "password": "Amanda12"
     }
   ]
 }

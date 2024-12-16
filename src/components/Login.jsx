@@ -34,7 +34,7 @@ const LoginForm = () => {
       return passwordRegex.test(password);
     };
   
-    // Password validation Password must be between 6 and 18 characters, include at least one uppercase letter and one digit
+   
     if (!password) {
       newErrors.password = "Can't be empty";
       isValid = false;
@@ -93,9 +93,9 @@ const LoginForm = () => {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="login--form--container"
+        className="login--form--container pb-[0.5rem]"
       >
-        <h2 className="signup--heading--text text-heading-l">Login</h2>
+        <h2 className="signin--heading--text text-[1.65rem] mt-[1.20rem] mb-[3.5rem]">Login</h2>
 
         <div className="relative">
           <input
@@ -104,39 +104,39 @@ const LoginForm = () => {
             name="email"
             value={email}
             onChange={handleChange}
-            className={`login--input ${
+            className={`signup--input ${
               errors.email ? "border-red" : "border-accent"
             } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
             placeholder="Email Address"
           />
           {errors.email && (
-            <span className="signup--error">{errors.email}</span>
+            <span className="absolute text-red text-sm top-3 right-4">{errors.email}</span>
           )}
         </div>
 
         <div className="relative">
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            className={`login--input mb-[2.5rem] ${
-              errors.password ? "border-red" : "border-accent"
-            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
-            placeholder="Password"
-          />
+  <input
+    type="password"
+    name="password"
+    value={password}
+    onChange={handleChange}
+    className={`login--input -mt-[0.25rem] mb-[1.25rem] ${
+      errors.password ? "border-red" : "border-accent"
+    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
+    placeholder="Password"
+  />
+
           {errors.password && (
-            <span className="signup--error">{errors.password}</span>
+            <span className="absolute text-red text-sm top-2 right-4">{errors.password}</span>
           )}
         </div>
 
-        <button type="submit" className="signup--button">
+        <button type="submit" className="login--button">
           Login to your account
         </button>
-
-        <p className="text-center text-white body-m font-outfit">
+        <p className="signup--login-text text-center text-white text-sm mt-[0.95rem] mb-[0] font-light">
           Don’t have an account?{" "}
-          <a href="/" className="text-red body-m hover:underline font-outfit">
+          <a href="/" className="signup--link">
             Sign Up
           </a>
         </p>

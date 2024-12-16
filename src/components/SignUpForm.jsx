@@ -112,7 +112,7 @@ const SignUp = () => {
         noValidate
         className="signup--form--container"
       >
-        <h2 className="signup--heading--text text-heading-l">Sign Up</h2>
+     <h2 className="signup--heading--text text-[1.75rem]">Sign Up</h2>
 
         <div>
           <div className="relative ">
@@ -170,11 +170,11 @@ const SignUp = () => {
           Create an account
         </button>
 
-        <p className="text-center text-white body-m font-outfit">
+        <p className="text-center text-white text-[0.75rem] font-light mt-[0.75rem] mb-[1.5rem] font-outfit">
           Already have an account?{" "}
           <a
             href="/login"
-            className="text-red body-m hover:underline font-outfit"
+            className="text-red hover:underline ml-[0.35rem] text-[0.85rem] font-light]"
           >
             Login
           </a>
