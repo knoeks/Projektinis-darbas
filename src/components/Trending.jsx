@@ -26,7 +26,7 @@ const Trending = () => {
 
   return (
     <section >
-      <h1 className="trending--heading--text flex-row">Trending</h1>
+      <h1 className="trending--heading--text flex-row  py-6 md:pt-[2.06rem] xl:pt-[2.13rem] xl:pb-[2.38rem]">Trending</h1>
       <div>
         {error && <div className="error">{error}</div>}
         <div

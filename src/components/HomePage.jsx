@@ -12,7 +12,7 @@ function HomePage() {
         <div className="overflow-auto">
           <Trending/>
           <div className="trending-full">
-          <h1 className="trending--heading--text flex-row">Reccomended for you</h1>
+          <h1 className="trending--heading--text flex-row py-6 md:pt-[2.44rem] xl:pt-10">Reccomended for you</h1>
           </div>
         </div>
       )}

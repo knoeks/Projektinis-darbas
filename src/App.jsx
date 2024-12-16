@@ -71,7 +71,7 @@ function App() {
 
 function LayoutContext({ context }) {
   return (
-    <div className="pt-[3.62rem] md:pt-[6.06rem] xl:pl-[10.25rem] xl:pt-0">
+    <div>
       <Navbar />
       <div className="screen-spacing">
         <Outlet context={context} />

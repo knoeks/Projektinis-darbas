@@ -46,7 +46,7 @@
 
 @layer components {
   .films-row {
-    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 py-4 md:py-10 xl:pr-9 xl:pl-0 justify-items-center dynamic-film-gap dynamic-film-padding;
+    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 xl:pr-9 xl:pl-0 justify-items-center dynamic-film-gap;
   }
 
   .film-card {
@@ -99,7 +99,7 @@
     @apply w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem];
   }
   .search-container {
-    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center py-[1rem] pb-[10px] md:pb-[19px] xl:pb-[21px] pt-[1.5rem] md:py-8 xl:pr-9 xl:pl-0;
+    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center;
   }
   .search-results {
     @apply text-white px-[1rem] md:px-[25px] xl:px-[2.25rem] text-specific_search-results md:text-heading-l;
@@ -145,10 +145,6 @@
     @apply gap-x-sm md:gap-x-md xl:gap-x-10 gap-y-4 md:gap-y-6 xl:gap-y-8;
   }
 
-  .dynamic-film-padding {
-    @apply pr-4 pt-6 pb-xl md:pr-6 md:pt-6 md:pb-14 xl:px-9 xl:pt-8 xl:pb-13;
-  }
-
   .circle-icon {
     @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-opacity-100 hover:invert;
   }
@@ -162,8 +158,13 @@
   }
 
   .screen-spacing {
-    @apply pl-4 md:pl-[1.56rem] xl:pl-0
+    @apply pl-4 md:pl-[1.56rem] pt-[5.125rem] md:pt-[8.06rem] xl:pl-[10.25rem] xl:pt-16 pb-[2.37rem] md:pb-[3.5rem] xl:pb-[3.25rem] 
   }
+
+  .trending--heading--text {
+    @apply text-heading-l tracking-[-0.03125rem] md:tracking-[-0.0195rem] pb-[1.56rem] text-white text-[1.25rem] md:text-[2rem] font-[400]
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -177,11 +178,7 @@
   .trending-full .trending--text--image {
     font-size: 0.75rem;
   }
-  .trending-full .trending--heading--text {
-    font-size: 1.25rem;
-    letter-spacing: -0.0195rem;
-    padding-bottom: 1rem;
-  }
+
   .trending-full {
     box-sizing: border-box;
   }
@@ -198,16 +195,7 @@
   display: flex;
   position: relative;
 }
-.trending--heading--text {
-  font-family: Outfit;
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  letter-spacing: -0.03125rem;
-  padding-bottom: 1.56rem;
-  color: white;
-}
+
 .trending--thumbnail {
   width: 29.375rem;
   height: 14.375rem;
@@ -244,7 +232,7 @@
   scroll-behavior: smooth;
   cursor: grab;
   gap: 2.5rem;
-  padding: 2rem 2rem 2rem 0rem;
+
 }
 
 .carousel-item {
