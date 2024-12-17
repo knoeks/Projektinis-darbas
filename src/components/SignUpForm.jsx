@@ -112,7 +112,7 @@ const SignUp = () => {
         noValidate
         className="signup--form--container"
       >
-     <h2 className="signup--heading--text text-[1.75rem]">Sign Up</h2>
+     <h2 className="signup--heading--text text-[1.75rem] mt-[-0.5rem]">Sign Up</h2>
 
      <div>
      <div className="relative">
@@ -156,8 +156,8 @@ const SignUp = () => {
 {errors.password && (
   <span
     className={`signup--error ${
-      formData.password.length > 20
-        ? "translate-y-[2rem] absolute bottom-[-6px] right-[6px]"
+      formData.password.length > 17
+        ? "translate-y-[1.5rem] absolute bottom-[-6px] right-[6px]"
         : "absolute top-3 right-2"
     }`}
   >
@@ -170,29 +170,42 @@ const SignUp = () => {
 )}
  </div>
 
- 
+ <div className="relative">
+  <input
+    type="password"
+    name="repeatPassword"
+    value={formData.repeatPassword}
+    maxLength={50}
+    onChange={handleChange}
+    className={`signup--input ${
+      errors.repeatPassword ? "border-red" : "border-accent"
+    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
+    placeholder="Repeat Password"
+  />
+  {errors.repeatPassword && (
+    <span
+      className={`signup--error text-[0.85rem] leading-[1rem] text-red-500 ${
+        formData.repeatPassword.length > 30
+          ? "translate-y-[1.5rem] absolute bottom-[-4px] right-[4px]"
+          : "absolute top-2 right-2"
+      }`}
+    >
+      {formData.repeatPassword.length === 0
+        ? "Can't be empty"
+        : formData.repeatPassword.length < 6
+        ? "Password must be at least 6 characters"
+        : errors.repeatPassword}
+    </span>
+  )}
+</div>
 
-        <div className="relative  ">
-          <input
-            type="password"
-            name="repeatPassword"
-            value={formData.repeatPassword}
-            onChange={handleChange}
-            className={`signup--input placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90 ${
-              errors.repeatPassword ? "border-red" : "border-accent"
-            } `}
-            placeholder="Repeat Password"
-          />
-          {errors.repeatPassword && (
-            <span className="signup--error">{errors.repeatPassword}</span>
-          )}
-        </div>
+
 
         <button type="submit" className="signup--button">
           Create an account
         </button>
 
-        <p className="text-center text-white text-[0.90rem] font-light mt-[0.75rem] mb-[1.5rem] font-outfit">
+        <p className="text-center text-white text-[0.90rem] font-light mt-[0.75rem] mb-[0rem] font-outfit">
           Already have an account?{" "}
           <a
             href="/login"
