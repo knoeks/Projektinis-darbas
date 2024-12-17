@@ -13,92 +13,92 @@ const NavBar = ({role}) => {
 
 
   return (
-    <div className="md:px-8 md:pt-8 md:pb-2 xl:pr-0 box-border fixed top-0 left-0 z-50 w-full bg-light xl:h-full xl:w-fit">
-      <div className="nav-container">
-        <Logo className="logo" />
-        <div className="nav-2nd-container">
-          <Link
-            data-tip="home"
-            to="home"
-            className={`tooltip group relative ${
-              location.pathname === "/home"
-                ? "[&>*]:fill-white [&>*]:hover:fill-white"
-                : ""
-            }`}
-          >
-            <Home className="svg-nav" />
-          </Link>
-          <Link
-            data-tip="movies"
-            to="movies"
-            className={`tooltip group relative ${
-              location.pathname === "/movies"
-                ? "[&>*]:fill-white [&>*]:hover:fill-white"
-                : ""
-            }`}
-          >
-            <Movies className="svg-nav" />
-          </Link>
-          <Link
-            data-tip="series"
-            to="series"
-            className={`tooltip group relative ${
-              location.pathname === "/series"
-                ? "[&>*]:fill-white [&>*]:hover:fill-white"
-                : ""
-            }`}
-          >
-            <Tv className="svg-nav" />
-          </Link>
-          <Link
-            data-tip="bookmarked"
-            to="bookmarked"
-            className={`tooltip group relative ${
-              location.pathname === "/bookmarked"
-                ? "[&>*]:fill-white [&>*]:hover:fill-white"
-                : ""
-            }`}
-          >
-            <Bookmarked className="booked" />
-          </Link>
-
-          {role === "admin" && (
+    <div>
+      <div className="md:px-8 md:pt-8 md:pb-2 xl:pr-0 box-border sticky xl:fixed top-0 left-0 z-50 w-full bg-light xl:h-full xl:w-fit">
+        <div className="nav-container">
+          <Logo className="logo" />
+          <div className="nav-2nd-container">
             <Link
-              data-tip="admin"
-              to="admin"
+              data-tip="home"
+              to="home"
               className={`tooltip group relative ${
-                location.pathname === "/admin"
+                location.pathname === "/home"
                   ? "[&>*]:fill-white [&>*]:hover:fill-white"
                   : ""
               }`}
             >
-              <Admin className="admin" />
+              <Home className="svg-nav" />
             </Link>
-          )}
-        </div>
-
-        <button
-          className="flex justify-end"
-          onClick={() => document.getElementById("my_modal_3").showModal()}
-        >
-          <img className="pic" src={avatar} alt="avatar" />
-        </button>
-        <dialog id="my_modal_3" className="modal ">
-          <div className="modal-box bg-dark text-center">
-            <h3 className="text-white font-outfit text-heading-m">Sign out</h3>
-            <p className="py-4 text-white font-outfit text-body-m">
-              Ar you sure want to sign out?
-            </p>
-            <div className="grid grid-cols-2 place-items-center">
-              <Link to="/" className="btn bg-red w-32">
-                Sign Out
+            <Link
+              data-tip="movies"
+              to="movies"
+              className={`tooltip group relative ${
+                location.pathname === "/movies"
+                  ? "[&>*]:fill-white [&>*]:hover:fill-white"
+                  : ""
+              }`}
+            >
+              <Movies className="svg-nav" />
+            </Link>
+            <Link
+              data-tip="series"
+              to="series"
+              className={`tooltip group relative ${
+                location.pathname === "/series"
+                  ? "[&>*]:fill-white [&>*]:hover:fill-white"
+                  : ""
+              }`}
+            >
+              <Tv className="svg-nav" />
+            </Link>
+            <Link
+              data-tip="bookmarked"
+              to="bookmarked"
+              className={`tooltip group relative ${
+                location.pathname === "/bookmarked"
+                  ? "[&>*]:fill-white [&>*]:hover:fill-white"
+                  : ""
+              }`}
+            >
+              <Bookmarked className="booked" />
+            </Link>
+            {role === "admin" && (
+              <Link
+                data-tip="admin"
+                to="admin"
+                className={`tooltip group relative ${
+                  location.pathname === "/admin"
+                    ? "[&>*]:fill-white [&>*]:hover:fill-white"
+                    : ""
+                }`}
+              >
+                <Admin className="admin" />
               </Link>
-              <form method="dialog">
-                <button className="btn bg-[#5A698F] w-32">Close</button>
-              </form>
-            </div>
+            )}
           </div>
-        </dialog>
+          <button
+            className="flex justify-end"
+            onClick={() => document.getElementById("my_modal_3").showModal()}
+          >
+            <img className="pic" src={avatar} alt="avatar" />
+          </button>
+          <dialog id="my_modal_3" className="modal ">
+            <div className="modal-box bg-dark text-center">
+              <h3 className="text-white font-outfit text-heading-m">Sign out</h3>
+              <p className="py-4 text-white font-outfit text-body-m">
+                Ar you sure want to sign out?
+              </p>
+              <div className="grid grid-cols-2 place-items-center">
+                <Link to="/" className="btn bg-red w-32">
+                  Sign Out
+                </Link>
+                <form method="dialog">
+                  <button className="btn bg-[#5A698F] w-32">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+        </div>
       </div>
     </div>
   );

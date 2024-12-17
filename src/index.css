@@ -5,7 +5,8 @@
 @layer base {
 
   body {
-    @apply bg-light;
+    @apply bg-light min-h-svh;
+
   }
 
   .input-field {
@@ -162,7 +163,7 @@
   }
 
   .screen-spacing {
-    @apply pl-4 md:pl-[1.56rem] pt-[5.125rem] md:pt-[8.06rem] xl:pl-[10.25rem] xl:pt-16 pb-[2.37rem] md:pb-[3.5rem] xl:pb-[3.25rem];
+    @apply ml-4 md:ml-[1.56rem] mt-[1.5rem] md:mt-[1.56rem] xl:pl-[10.25rem] xl:pt-16 pb-[2.37rem] md:pb-[3.5rem] xl:pb-[3.25rem];
   }
 
   .trending--heading--text {

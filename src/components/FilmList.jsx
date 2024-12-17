@@ -13,18 +13,20 @@ function FilmList({ category }) {
       newFilteredFilms = filteredFilms.filter((film) =>
         location.search ? true : !film.isTrending
       );
-
       break;
+
     case "/movies":
       newFilteredFilms = filteredFilms.filter((film) =>
         category ? film.category === category : true
       );
       break;
+
     case "/series":
       newFilteredFilms = filteredFilms.filter((film) =>
         category ? film.category === category : true
       );
       break;
+
     case "/bookmarked":
       newFilteredFilms = filteredFilms.filter((film) => {
         if (film.isBookmarked && !location.search) {
@@ -34,6 +36,7 @@ function FilmList({ category }) {
         }
       });
       break;
+
     default:
       newFilteredFilms = filteredFilms;
       break;
@@ -41,7 +44,7 @@ function FilmList({ category }) {
 
   return (
     <div>
-      <div>
+      <div className="trending--heading--text py-6 md:pt-[2.06rem] xl:pt-[2.13rem] xl:pb-[2.38rem]">
         {searchResults === "" ? (
           ""
         ) : newFilteredFilms.length === 0 ? (
