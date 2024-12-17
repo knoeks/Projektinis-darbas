@@ -5,7 +5,7 @@ import Home from "../assets/icon-nav-home.svg?react";
 import Movies from "../assets/icon-nav-movies.svg?react";
 import Tv from "../assets/icon-nav-tv-series.svg?react";
 import Bookmarked from "../assets/icon-nav-bookmark.svg?react";
-import Admin from "../assets/admin-tools.svg?react";
+import Admin from "../assets/icon-nav-admin.svg?react";
 import { useLocation } from "react-router";
 
 const NavBar = ({role}) => {
@@ -72,7 +72,7 @@ const NavBar = ({role}) => {
                   : ""
               }`}
             >
-              <admin className="booked" />
+              <Admin className="admin" />
             </Link>
           )}
         </div>

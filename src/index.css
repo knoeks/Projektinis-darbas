@@ -38,7 +38,7 @@
     @apply w-[14px] h-[16px] md:w-[17px] md:h-[20px] hover:fill-red;
   }
   .admin {
-    @apply w-[14px] h-[16px] md:w-[17px] md:h-[20px] hover:fill-red;
+    @apply w-[16px] h-[16px] md:w-[20px] md:h-[20px] hover:fill-red;
   }
   .pic {
     @apply place-self-end w-[24px] h-[24px] md:w-[32px] md:h-[32px] xl:place-self-center border-2 border-white rounded-full;
