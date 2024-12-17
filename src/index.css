@@ -87,10 +87,10 @@
     tracking-[0.01em] mt-[1.2rem] mb-[0.5rem] hover:bg-white hover:text-black transition;
 }
   .signup--input{
-    @apply w-full h-[2rem] mb-[1rem] bg-transparent border-b border-accent
-    text-[0.875rem] text-white placeholder-accent focus:outline-none focus:border-white flex-shrink-0;
-}
-  
+    @apply w-full h-[2.5rem] mb-[1rem] bg-transparent border-b border-accent
+    text-[0.875rem] text-white placeholder-accent focus:outline-none 
+    focus:border-white flex-shrink-0;
+  }
   .signup--main--container{
     @apply flex flex-col justify-center items-center bg-light font-outfit pb-[8rem] h-svh;
   }
@@ -106,7 +106,7 @@
   
   @layer components {
     .signup--error {
-        @apply absolute text-red text-sm top-3 right-2 flex-shrink-0 whitespace-nowrap;
+        @apply absolute text-red text-sm top-4 right-2 flex-shrink-0 whitespace-nowrap;
         
     }
 }

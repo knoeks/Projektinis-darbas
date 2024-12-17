@@ -184,7 +184,7 @@ const SignUp = () => {
   />
   {errors.repeatPassword && (
     <span
-      className={`signup--error text-[0.85rem] leading-[1rem] text-red-500 ${
+      className={`signup--error text-[0.85rem] leading-[1.5rem] text-red-500 ${
         formData.repeatPassword.length > 30
           ? "translate-y-[1.5rem] absolute bottom-[-4px] right-[4px]"
           : "absolute top-2 right-2"
