@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
-import { postdata } from "../helpers/post";
+import { post } from "../helpers/post";
 import { updateOne } from "../helpers/patch";
 
 function Form({ title, setFormOpen }) {
@@ -20,7 +20,7 @@ function Form({ title, setFormOpen }) {
         await updateOne(title.id, data);
         setFormOpen(false);
       } else {
-        await postdata({ ...data, isBookmarked: false });
+        await post({ ...data, isBookmarked: false });
       }
       reset();
     } catch (error) {
@@ -41,7 +41,7 @@ function Form({ title, setFormOpen }) {
     const file = e.target.files[0];
     try {
       const base64 = await convertToBase64(file);
-      console.log("Base64 String:", base64);
+      setValue("thumbnail", base64);
     } catch (error) {
       console.error("Error converting file:", error);
     }
@@ -91,7 +91,10 @@ function Form({ title, setFormOpen }) {
         </div>
         <div>
           <label htmlFor="rating">Rating:</label>
-          <select id="rating">
+          <select
+            id="rating"
+            {...register("category", { required: "This field is required" })}
+          >
             {/* <option>Select age rating</option> */}
           </select>
         </div>
