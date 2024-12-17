@@ -1,5 +1,4 @@
 import FilmList from "./FilmList";
-import Trending from "./Trending";
 import SearchBar from "./SearchBar";
 import { useLocation } from "react-router";
 

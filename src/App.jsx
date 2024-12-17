@@ -37,16 +37,6 @@ function App() {
     setSearchResults(searchQuery);
   }, [searchQuery]);
 
-  function LayoutContext({ context }) {
-    return (
-      <div>
-        <Navbar role={role} />
-        <div className="screen-spacing">
-          <Outlet context={context} />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -67,6 +57,7 @@ function App() {
                 searchResults,
                 setSearchResults,
               }}
+              role={role}
             />
           }
         >
@@ -79,6 +70,17 @@ function App() {
       </Routes>
       {error && <p>{error}</p>}
     </>
+  );
+}
+
+function LayoutContext({ context, role }) {
+  return (
+    <div>
+      <Navbar role={role} />
+      <div className="screen-spacing">
+        <Outlet context={context} role={role} />
+      </div>
+    </div>
   );
 }
 

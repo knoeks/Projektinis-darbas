@@ -35,7 +35,7 @@ function FilmList({ category }) {
       });
       break;
     default:
-      newFilteredFilms = filteredFilms;
+      //newFilteredFilms = filteredFilms;
       break;
   }
 
