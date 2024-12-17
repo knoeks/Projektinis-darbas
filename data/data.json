@@ -489,7 +489,8 @@
     {
       "id": "7a0b",
       "email": "tomas@gmail.com",
-      "password": "Antanas12"
+      "password": "Antanas12",
+      "role": "user"
     },
     {
       "id": "762b",

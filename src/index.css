@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+
   body {
-    @apply bg-light
+    @apply bg-light;
   }
 
   .input-field {
@@ -34,6 +35,9 @@
     @apply w-[16px] h-[16px] md:w-[20px] md:h-[20px] hover:fill-red;
   }
   .booked {
+    @apply w-[14px] h-[16px] md:w-[17px] md:h-[20px] hover:fill-red;
+  }
+  .admin {
     @apply w-[14px] h-[16px] md:w-[17px] md:h-[20px] hover:fill-red;
   }
   .pic {
@@ -158,13 +162,12 @@
   }
 
   .screen-spacing {
-    @apply pl-4 md:pl-[1.56rem] pt-[5.125rem] md:pt-[8.06rem] xl:pl-[10.25rem] xl:pt-16 pb-[2.37rem] md:pb-[3.5rem] xl:pb-[3.25rem] 
+    @apply pl-4 md:pl-[1.56rem] pt-[5.125rem] md:pt-[8.06rem] xl:pl-[10.25rem] xl:pt-16 pb-[2.37rem] md:pb-[3.5rem] xl:pb-[3.25rem];
   }
 
   .trending--heading--text {
-    @apply text-heading-l tracking-[-0.03125rem] md:tracking-[-0.0195rem] pb-[1.56rem] text-white text-[1.25rem] md:text-[2rem] font-[400]
+    @apply text-heading-l tracking-[-0.03125rem] md:tracking-[-0.0195rem] pb-[1.56rem] text-white text-[1.25rem] md:text-[2rem] font-[400];
   }
-
 }
 
 @media (max-width: 768px) {
@@ -232,7 +235,6 @@
   scroll-behavior: smooth;
   cursor: grab;
   gap: 2.5rem;
-
 }
 
 .carousel-item {
