@@ -166,84 +166,67 @@
   }
 
 }
-
 @media (max-width: 768px) {
   .trending-full .trending--thumbnail {
-    max-width: 15rem;
-    max-height: 8.75rem;
+    @apply max-w-[15rem] max-h-[8.75rem];
   }
   .trending-full .trending--title--image {
-    font-size: 0.9375rem;
+    @apply text-[0.9375rem];
   }
   .trending-full .trending--text--image {
-    font-size: 0.75rem;
+    @apply text-[0.75rem];
   }
-
   .trending-full {
-    box-sizing: border-box;
+    @apply box-border;
   }
   .trending-full .trending--absolute {
-    bottom: 1rem;
-    left: 1rem;
+    @apply bottom-4 left-4;
   }
 }
 
 .trending--main--container {
-  max-width: 100vw;
-  max-height: 18.4rem;
-  background-color: #10141e;
-  display: flex;
-  position: relative;
+  @apply max-w-[100vw] max-h-[18.4rem] bg-[#10141e] flex relative;
 }
 
 .trending--thumbnail {
-  width: 29.375rem;
-  height: 14.375rem;
+  @apply w-[29.375rem] h-[14.375rem];
 }
+
 .trending--text--image {
-  display: flex;
-  font-family: Outfit;
-  font-size: 0.9375rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  opacity: 0.75;
-  align-items: center;
-  gap: 0.56rem;
+  @apply flex items-center gap-[0.56rem] font-['Outfit'] text-[0.9375rem] opacity-75 leading-normal text-body-s font-light;
 }
+
 .trending--absolute {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  z-index: 10;
+  @apply absolute bottom-[1.5rem] left-[1.5rem] z-10;
 }
+
 .trending--title--image {
-  font-family: Outfit;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  color: white;
+  @apply font-['Outfit'] text-[1.5rem] font-normal leading-normal text-white;
 }
 
 .carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  cursor: grab;
-  gap: 2.5rem;
-
+  @apply flex overflow-x-auto scroll-smooth cursor-grab gap-[2.5rem];
 }
 
 .carousel-item {
-  flex: 0 0 auto;
+  @apply flex-shrink-0;
 }
 
 .carousel-item img {
-  display: block;
-  width: 100%;
+  @apply block w-full;
 }
 
 .carousel::-webkit-scrollbar {
   display: none;
+}
+.trending--image-container {
+  @apply relative w-full h-full overflow-hidden;
+}
+
+.trending--image {
+  @apply object-cover w-full h-full;
+}
+
+.trending--image-gradient {
+  @apply absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 via-transparent to-transparent;
 }

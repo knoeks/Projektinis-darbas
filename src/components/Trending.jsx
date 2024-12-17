@@ -8,22 +8,9 @@ const Trending = () => {
   const carouselRef = useRef(null);
 
   const { allFilms } = useOutletContext();
-
-  // perrasytas kodas nes jau yra vienas fetch pada
-  // const getAllTrending = async () => {
-  //   try {
-  //     const trendingData = await getAll();
-  //     const trendingItems = trendingData.filter((item) => item.isTrending);
-  //     setTrending(trendingItems);
-  //     setError("");
-  //   } catch (error) {
-  //     setError("Error fetching trending data:", error);
-  //   }
-  // };
   const trendingItems = allFilms.filter((item) => item.isTrending);
 
   useEffect(() => {
-    // getAllTrending();
     handleMouseDrag(carouselRef);
   }, []);
 
