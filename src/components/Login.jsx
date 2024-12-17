@@ -139,7 +139,7 @@ const LoginForm = () => {
     onChange={(e) => {
       const { value } = e.target;
       if (value.length <= 50) {
-        handleChange(e); // Update password only if <= 30
+        handleChange(e); 
       }
     }}
     className={`login--input ${
