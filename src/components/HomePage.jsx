@@ -10,7 +10,7 @@ function HomePage() {
       <SearchBar />
       {!location.search && (
         <div className="overflow-auto">
-          <Trending className="test"/>
+          <Trending/>
           <div className="trending-full">
           <h1 className="trending--heading--text flex-row py-6 md:pt-[2.44rem] xl:pt-10">Reccomended for you</h1>
           </div>
