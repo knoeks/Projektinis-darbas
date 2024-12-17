@@ -130,7 +130,7 @@ const SignUp = () => {
   {errors.email && (
     <span
       className={`text-red text-sm whitespace-nowrap flex-shrink-0 ${
-        formData.email.length > 26
+        formData.email.length > 24
           ? "absolute bottom-[-6px] right-[6px] text-right"
           : "absolute top-3 right-2"
       }`}
@@ -156,7 +156,7 @@ const SignUp = () => {
 {errors.password && (
   <span
     className={`signup--error ${
-      formData.password.length > 30
+      formData.password.length > 20
         ? "translate-y-[2rem] absolute bottom-[-6px] right-[6px]"
         : "absolute top-3 right-2"
     }`}
