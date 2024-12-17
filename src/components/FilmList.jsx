@@ -44,7 +44,7 @@ function FilmList({ category }) {
 
   return (
     <div>
-      <div className="trending--heading--text py-6 md:pt-[2.06rem] xl:pt-[2.13rem] xl:pb-[2.38rem]">
+      <div >
         {searchResults === "" ? (
           ""
         ) : newFilteredFilms.length === 0 ? (
