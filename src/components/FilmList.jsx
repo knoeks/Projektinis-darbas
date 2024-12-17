@@ -35,7 +35,7 @@ function FilmList({ category }) {
       });
       break;
     default:
-      //newFilteredFilms = filteredFilms;
+      newFilteredFilms = filteredFilms;
       break;
   }
 
@@ -56,7 +56,7 @@ function FilmList({ category }) {
           </h2>
         )}
       </div>
-      <div className="films-row ">
+      <div className="films-row">
         {newFilteredFilms.map((film) => {
           return <Film key={uuidv4()} film={film} />;
         })}
