@@ -164,7 +164,7 @@ const LoginForm = ({ setRole }) => {
   {errors.password && (
     <span
       className={`login--error ${
-        password.length > 50
+        password.length > 30
           ? "absolute bottom-[-4px] right-[8px] text-right"
           : "absolute top-3 right-2"
       }`}
@@ -173,7 +173,7 @@ const LoginForm = ({ setRole }) => {
         ? "Can't be empty"
         : password.length < 6
         ? " Invalid password"
-        : password.length > 50
+        : password.length > 40
         ? "Invalid password"
         : errors.password}
     </span>

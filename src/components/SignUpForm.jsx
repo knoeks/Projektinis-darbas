@@ -147,7 +147,7 @@ const SignUp = () => {
             type="password"
             name="password"
             value={formData.password}
-            maxLength={50}
+            maxLength={40}
             onChange={handleChange}
             className={`signup--input ${
               errors.password ? "border-red" : "border-accent"
@@ -176,7 +176,7 @@ const SignUp = () => {
             type="password"
             name="repeatPassword"
             value={formData.repeatPassword}
-            maxLength={50}
+            maxLength={40}
             onChange={handleChange}
             className={`signup--input ${
               errors.repeatPassword ? "border-red" : "border-accent"
@@ -205,7 +205,7 @@ const SignUp = () => {
         </button>
 
         <p className="text-center text-white text-[0.90rem] font-light mt-[0.5rem] mb-[0rem] font-outfit">
-          Already have an account?{" "}
+          Already have an account?
           <a
             href="/login"
             className="text-red hover:underline ml-[0.35rem] text-[0.85rem] font-light]"
