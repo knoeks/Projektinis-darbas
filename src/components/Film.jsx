@@ -24,6 +24,9 @@ function Film({ film}) {
         { location.pathname === "/admin"
                   ? <DeleteButton film={film}/>
                   : "" }
+        { location.pathname === "/admin"
+                  ? <EditButton />
+                  : "" }
         <img className="film-thumbnail" src={str} alt={title} />
         <PlayButton/>
       </div>
