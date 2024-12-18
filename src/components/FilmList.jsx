@@ -13,18 +13,20 @@ function FilmList({ category }) {
       newFilteredFilms = filteredFilms.filter((film) =>
         location.search ? true : !film.isTrending
       );
-
       break;
+
     case "/movies":
       newFilteredFilms = filteredFilms.filter((film) =>
         category ? film.category === category : true
       );
       break;
+
     case "/series":
       newFilteredFilms = filteredFilms.filter((film) =>
         category ? film.category === category : true
       );
       break;
+
     case "/bookmarked":
       newFilteredFilms = filteredFilms.filter((film) => {
         if (film.isBookmarked && !location.search) {
@@ -34,13 +36,15 @@ function FilmList({ category }) {
         }
       });
       break;
+
     default:
+      newFilteredFilms = filteredFilms;
       break;
   }
 
   return (
     <div>
-      <div>
+      <div >
         {searchResults === "" ? (
           ""
         ) : newFilteredFilms.length === 0 ? (

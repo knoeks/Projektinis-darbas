@@ -1,4 +1,3 @@
-
 import HomePage from "./components/HomePage";
 import MoviePage from "./components/MoviePage";
 import SeriesPage from "./components/SeriesPage";
@@ -10,13 +9,14 @@ import { getAll } from "./helpers/get";
 import Navbar from "./components/Navbar";
 import SignUpForm from "./components/SignUpForm";
 import Login from "./components/Login";
+import AdminPage from "./components/AdminPage";
 
 
 function App() {
   const [error, setError] = useState("");
   const [allFilms, setAllFilms] = useState([]);
   const [filteredFilms, setFilteredFilms] = useState([]);
-
+  const [role, setRole] = useState("admin");
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get("search") || "";
   const [searchResults, setSearchResults] = useState(searchQuery);
@@ -36,14 +36,17 @@ console.log(role)
     fetchData();
   }, []);
 
+  useEffect(() => {
+    setSearchResults(searchQuery);
+  }, [searchQuery]);
 
 
   return (
     <>
-      
       <Routes>
-        <Route path="/" element={<SignUpForm/>}/>
-        <Route path="login"  element={<Login/>}/> 
+        <Route path="/" element={<SignUpForm />} />
+        <Route path="login" element={<Login setRole={setRole}/>} />
+        <Route path="*" element={<NotFound />} />
         <Route
           path="/"
           element={
@@ -57,30 +60,29 @@ console.log(role)
                 searchResults,
                 setSearchResults,
               }}
+              role={role}
             />
-            
           }
         >
-          
           <Route path="home" element={<HomePage />} />
           <Route path="movies" element={<MoviePage />} />
           <Route path="series" element={<SeriesPage />} />
           <Route path="bookmarked" element={<BookmarkedPage />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="admin" element={<AdminPage />} />
         </Route>
       </Routes>
       {error && <p>{error}</p>}
     </>
   );
-
 }
 
-function LayoutContext({ context }) {
+function LayoutContext({ context, role }) {
   return (
     <div>
-      <Navbar />
-      <Outlet context={context} />
-      
+      <Navbar role={role} />
+      <div className="screen-spacing">
+        <Outlet context={context} role={role} />
+      </div>
     </div>
   );
 }
