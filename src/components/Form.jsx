@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { post } from "../helpers/post";
 import { updateOne } from "../helpers/update";
 
@@ -12,13 +12,10 @@ function Form({ title, setFormOpen }) {
     formState: { errors },
     reset,
     setValue,
-    watch,
   } = useForm({
     mode: "onBlur",
     reValidateMode: "onChange",
   });
-
-  const isTrending = watch("isTrending", "");
 
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -31,26 +28,29 @@ function Form({ title, setFormOpen }) {
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
+    if (!file) return;
     try {
       const base64 = await convertToBase64(file);
-
-      if (isTrending === true) {
-        setValue(
-          "thumbnail",
-          { regular: { large: base64 }, trending: { large: base64 } },
-          { shouldValidate: true }
-        );
-      } else {
-        setValue(
-          "thumbnail",
-          { regular: { large: base64 } },
-          { shouldValidate: true }
-        );
-      }
+      setValue(
+        "thumbnail",
+        { regular: { large: base64 }, trending: { large: base64 } },
+        { shouldValidate: true }
+      );
     } catch (error) {
       console.error("Error converting file:", error);
     }
   };
+
+  useEffect(() => {
+    if (title) {
+      const { title, year, category, rating, isTrending } = title;
+      setValue("title", title);
+      setValue("year", year);
+      setValue("category", category);
+      setValue("rating", rating);
+      setValue("isTrending", isTrending);
+    }
+  }, [title, setValue]);
 
   const formSubmitHandler = async (data) => {
     try {
@@ -61,7 +61,6 @@ function Form({ title, setFormOpen }) {
 
       const formattedData = {
         ...data,
-        isTrending: data.isTrending === "true",
         isBookmarked: false,
       };
       if (title) {
@@ -97,23 +96,41 @@ function Form({ title, setFormOpen }) {
           />
           <div className="text-red">{errors.title?.message}</div>
         </div>
-        <div className="p-3">
-          <label htmlFor="thumbnail">Thumbnail:</label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            id="thumbnail"
-            // {...register("thumbnail", { required: "This field is required" })}
-          />
-          {/* <div className="text-red">{errors.thumbnail?.message}</div> */}
-        </div>
+        {!title && (
+          <div className="p-3">
+            <label htmlFor="thumbnail">Thumbnail:</label>
+            <input
+              type="file"
+              accept="image/*"
+              id="thumbnail"
+              {...register("thumbnail", {
+                required: "This field is required",
+                validate: (fileList) =>
+                  fileList?.length > 0 || "File is required",
+              })}
+              onChange={(e) => {
+                handleFileChange(e);
+                setValue("thumbnail", e.target.files, { shouldValidate: true });
+              }}
+            />
+            <div className="text-red">{errors.thumbnail?.message}</div>
+          </div>
+        )}
         <div className="p-3">
           <label htmlFor="year">Year:</label>
           <input
             type="number"
             id="year"
-            {...register("year", { required: "This field is required" })}
+            {...register("year", {
+              required: "This field is required",
+              validate: {
+                minYear: (value) =>
+                  value >= 1900 || "Year must be 1900 or later",
+                maxYear: (value) =>
+                  value <= new Date().getFullYear() ||
+                  `Year cannot exceed ${new Date().getFullYear()}`,
+              },
+            })}
           />
           <div className="text-red">{errors.year?.message}</div>
         </div>
@@ -121,7 +138,11 @@ function Form({ title, setFormOpen }) {
           <label htmlFor="category">Category:</label>
           <select
             id="category"
-            {...register("category", { required: "This field is required" })}
+            {...register("category", {
+              required: "This field is required",
+              validate: (value) =>
+                value !== "Select category" || "Please select a valid category",
+            })}
           >
             <option>Select category</option>
             <option value="Movie">Movie</option>
@@ -133,7 +154,11 @@ function Form({ title, setFormOpen }) {
           <label htmlFor="rating">Rating:</label>
           <select
             id="rating"
-            {...register("rating", { required: "This field is required" })}
+            {...register("rating", {
+              required: "This field is required",
+              validate: (value) =>
+                value !== "Select age rating" || "Please select a valid rating",
+            })}
           >
             <option>Select age rating</option>
             <option value="E">General Audiences</option>
@@ -147,14 +172,14 @@ function Form({ title, setFormOpen }) {
           <input
             type="radio"
             id="isTrendingTrue"
-            value="True"
+            value={true}
             {...register("isTrending", { required: "Field is required" })}
           />
           <label htmlFor="isTrendingTrue">Yes</label>
           <input
             type="radio"
             id="isTrendingFalse"
-            value="False"
+            value={false}
             {...register("isTrending", { required: "Field is required" })}
           />
           <label htmlFor="isTrendingFalse">No</label>
