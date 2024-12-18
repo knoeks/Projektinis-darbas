@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const LoginForm = ({ setRole }) => {
   const [email, setEmail] = useState("");
@@ -49,12 +50,10 @@ const LoginForm = ({ setRole }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:5001/users", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      });
+      // Fetching users with axios
+      const response = await axios.get("http://localhost:5001/users");
 
-      const users = await response.json();
+      const users = response.data;
 
       // Check if the email exists
       const user = users.find(
@@ -72,8 +71,20 @@ const LoginForm = ({ setRole }) => {
         return;
       }
 
-      // Successful login - redirect to home
-      navigate("/home");
+   // Fetching the role 
+console.log(`Logged in as ${user.role}`);
+
+// Redirect based on user role
+if (user.role === "admin") {
+  navigate("/admin-dashboard");
+} else if (user.role === "user") {
+  
+  navigate("/home");
+} else {
+
+  console.warn("Unrecognized role:", user.role);
+  navigate("/home");
+}
     } catch (err) {
       console.error("Error during login:", err);
       setErrors({ general: "An error occurred. Please try again later." });

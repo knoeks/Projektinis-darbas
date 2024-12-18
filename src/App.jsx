@@ -30,6 +30,8 @@ function App() {
     }
   };
 
+console.log(`role in app.jsx ${role}`);
+
   useEffect(() => {
     fetchData();
   }, []);

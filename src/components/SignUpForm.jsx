@@ -62,12 +62,9 @@ const SignUp = () => {
         return;
       }
   
-      // Добавление роли "user" по умолчанию
-      await axios.post("http://localhost:5001/users", {
-        email,
-        password,
-        role: "user", // Роль по умолчанию
-      });
+        // Add the new user to the database
+    await axios.post("http://localhost:5001/users", { email, password, role: "user" });
+
   
       toast.success("Your account is created successfully!", {
         position: "top-center",
