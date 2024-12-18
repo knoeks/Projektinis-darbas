@@ -41,26 +41,6 @@
       "id": "b796"
     },
     {
-      "title": "Undiscovered Cities",
-      "thumbnail": {
-        "trending": {
-          "small": "./assets/thumbnails/undiscovered-cities/trending/small.jpg",
-          "large": "./assets/thumbnails/undiscovered-cities/trending/large.jpg"
-        },
-        "regular": {
-          "small": "./assets/thumbnails/undiscovered-cities/regular/small.jpg",
-          "medium": "./assets/thumbnails/undiscovered-cities/regular/medium.jpg",
-          "large": "./assets/thumbnails/undiscovered-cities/regular/large.jpg"
-        }
-      },
-      "year": 2019,
-      "category": "TV Series",
-      "rating": "E",
-      "isBookmarked": true,
-      "isTrending": true,
-      "id": "037a"
-    },
-    {
       "title": "1998",
       "thumbnail": {
         "trending": {
