@@ -1,6 +1,7 @@
 import FilmList from "./FilmList";
 import SearchBar from "./SearchBar";
 import { useLocation } from "react-router";
+import Form from "./Form"
 
 function AdminPage() {
   const location = useLocation();
@@ -16,6 +17,20 @@ function AdminPage() {
         </div>
       )}
       <FilmList category={""} />
+      <button
+            className="flex justify-end"
+            onClick={() => document.getElementById("my_modal_4").showModal()}
+          >
+            AASHHHAHHS
+          </button>
+          <dialog id="my_modal_4" className="modal ">
+            <div className="modal-box bg-dark text-center">
+              <Form />
+              <form method="dialog">
+                  <button className="btn bg-[#5A698F] w-32">Close</button>
+                </form>
+            </div>
+          </dialog>
     </>
   );
 }

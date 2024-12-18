@@ -26,20 +26,20 @@ function Form({ title, setFormOpen }) {
     });
   };
 
-  const handleFileChange = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    try {
-      const base64 = await convertToBase64(file);
-      setValue(
-        "thumbnail",
-        { regular: { large: base64 }, trending: { large: base64 } },
-        { shouldValidate: true }
-      );
-    } catch (error) {
-      console.error("Error converting file:", error);
-    }
-  };
+  // const handleFileChange = async (e) => {
+  //   const file = e.target.files[0];
+  //   if (!file) return;
+  //   try {
+  //     const base64 = await convertToBase64(file);
+  //     setValue(
+  //       "thumbnail",
+  //       { regular: { large: base64 }, trending: { large: base64 } },
+  //       { shouldValidate: true }
+  //     );
+  //   } catch (error) {
+  //     console.error("Error converting file:", error);
+  //   }
+  // };
 
   useEffect(() => {
     if (title) {
@@ -54,13 +54,20 @@ function Form({ title, setFormOpen }) {
 
   const formSubmitHandler = async (data) => {
     try {
-      if (!data.thumbnail?.regular?.large) {
+      const file = data.thumbnail?.[0];
+      if (!file) {
         setError("Thumbnail is required");
         return;
       }
 
+      const base64 = await convertToBase64(file);
+
       const formattedData = {
         ...data,
+        thumbnail: {
+          regular: { large: base64 },
+          trending: { large: base64 },
+        },
         isBookmarked: false,
       };
       if (title) {
@@ -104,14 +111,10 @@ function Form({ title, setFormOpen }) {
               accept="image/*"
               id="thumbnail"
               {...register("thumbnail", {
-                required: "This field is required",
+                required: "Thumbnail is required",
                 validate: (fileList) =>
-                  fileList?.length > 0 || "File is required",
+                  (fileList && fileList.length > 0) || "Please select a file",
               })}
-              onChange={(e) => {
-                handleFileChange(e);
-                setValue("thumbnail", e.target.files, { shouldValidate: true });
-              }}
             />
             <div className="text-red">{errors.thumbnail?.message}</div>
           </div>
