@@ -2,7 +2,7 @@ import { useLocation } from "react-router";
 import oval from "../assets/oval.svg";
 import Bookmark from "./Bookmark";
 import Category from "./Category";
-import DeleteButton from "./DeleteButton";
+import ControlPanel from "./ControlPanel";
 import PlayButton from "./PlayButton";
 
 function Film({ film}) {
@@ -22,18 +22,15 @@ function Film({ film}) {
       <div className="film-container">
         <Bookmark film={film}/>
         { location.pathname === "/admin"
-                  ? <DeleteButton film={film}/>
-                  : "" }
-        { location.pathname === "/admin"
-                  ? <EditButton />
+                  ? <ControlPanel film={film}/>
                   : "" }
         <img className="film-thumbnail" src={str} alt={title} />
-        <PlayButton/>
+        <PlayButton />
       </div>
       <div className="card-description-top">
         <p>{year}</p>
         <img className="block" src={oval} alt="oval separator" />
-        <Category category={category}/>
+        <Category category={category} />
         <img className="block" src={oval} alt="oval separator" />
         <p>{rating}</p>
       </div>
