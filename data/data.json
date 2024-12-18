@@ -576,6 +576,30 @@
       "id": "d4a5",
       "email": "annaqwiz@gmail.com",
       "password": "Anna14"
+    },
+    {
+      "id": "89e2",
+      "email": "asfas@gmail.com",
+      "password": "Pakaifu123",
+      "role": "user"
+    },
+    {
+      "id": "29d2",
+      "email": "sdfoudsfh@mail.com",
+      "password": "Pakaifu 123",
+      "role": "user"
+    },
+    {
+      "id": "47ea",
+      "email": "popqweq@mail.com",
+      "password": "Paakifu123",
+      "role": "admin"
+    },
+    {
+      "id": "4c14",
+      "email": "asfausfhui@mail.com",
+      "password": "Qwerty123",
+      "role": "user"
     }
   ]
 }

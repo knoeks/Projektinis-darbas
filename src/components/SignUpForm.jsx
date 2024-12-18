@@ -53,8 +53,6 @@ const SignUp = () => {
     }
   
     try {
-      console.log("Submitting form...");
-  
       const response = await axios.get("http://localhost:5001/users");
       const users = response.data;
       const userExists = users.some((user) => user.email === email);
@@ -64,9 +62,13 @@ const SignUp = () => {
         return;
       }
   
-      await axios.post("http://localhost:5001/users", { email, password});
+      // Добавление роли "user" по умолчанию
+      await axios.post("http://localhost:5001/users", {
+        email,
+        password,
+        role: "user", // Роль по умолчанию
+      });
   
-      
       toast.success("Your account is created successfully!", {
         position: "top-center",
         autoClose: 10000,
@@ -78,12 +80,11 @@ const SignUp = () => {
         closeOnClick: true,
         pauseOnHover: false,
         draggable: false,
-        
       });
+  
       setTimeout(() => {
         navigate("/login");
       }, 3000);
-
     } catch (err) {
       console.error("Error signing up:", err);
       setErrors({ general: "Error signing up. Please try again later." });

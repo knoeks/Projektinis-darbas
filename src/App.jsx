@@ -16,7 +16,7 @@ function App() {
   const [error, setError] = useState("");
   const [allFilms, setAllFilms] = useState([]);
   const [filteredFilms, setFilteredFilms] = useState([]);
-  const [role, setRole] = useState("admin");
+  const [role, setRole] = useState("user");
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get("search") || "";
   const [searchResults, setSearchResults] = useState(searchQuery);
