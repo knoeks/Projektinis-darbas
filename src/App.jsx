@@ -9,12 +9,14 @@ import { getAll } from "./helpers/get";
 import Navbar from "./components/Navbar";
 import SignUpForm from "./components/SignUpForm";
 import Login from "./components/Login";
+import AdminPage from "./components/AdminPage";
+
 
 function App() {
   const [error, setError] = useState("");
   const [allFilms, setAllFilms] = useState([]);
   const [filteredFilms, setFilteredFilms] = useState([]);
-
+  const [role, setRole] = useState("user");
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get("search") || "";
   const [searchResults, setSearchResults] = useState(searchQuery);
@@ -28,6 +30,8 @@ function App() {
     }
   };
 
+console.log(`role in app.jsx ${role}`);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -36,11 +40,12 @@ function App() {
     setSearchResults(searchQuery);
   }, [searchQuery]);
 
+
   return (
     <>
       <Routes>
         <Route path="/" element={<SignUpForm />} />
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<Login setRole={setRole}/>} />
         <Route path="*" element={<NotFound />} />
         <Route
           path="/"
@@ -55,6 +60,7 @@ function App() {
                 searchResults,
                 setSearchResults,
               }}
+              role={role}
             />
           }
         >
@@ -62,6 +68,7 @@ function App() {
           <Route path="movies" element={<MoviePage />} />
           <Route path="series" element={<SeriesPage />} />
           <Route path="bookmarked" element={<BookmarkedPage />} />
+          <Route path="admin" element={<AdminPage />} />
         </Route>
       </Routes>
       {error && <p>{error}</p>}
@@ -69,12 +76,12 @@ function App() {
   );
 }
 
-function LayoutContext({ context }) {
+function LayoutContext({ context, role }) {
   return (
     <div>
-      <Navbar />
+      <Navbar role={role} />
       <div className="screen-spacing">
-        <Outlet context={context} />
+        <Outlet context={context} role={role} />
       </div>
     </div>
   );
