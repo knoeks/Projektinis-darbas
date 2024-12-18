@@ -1,10 +1,23 @@
 import Edit from "../assets/icon-edit.svg?react";
+import { useState } from "react";
 function EditButton({ film }) {
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setFilmToDelete(id);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+
 
      return (
      <>
-          <div className="delete-button">
-              <button className="delete-icon"
+          <div className="edit-button">
+              <button className="edit-icon"
               onClick={() => document.getElementById("my_modal_2").showModal()}><Edit/>
               </button>
               </div>
@@ -14,15 +27,16 @@ function EditButton({ film }) {
                   Cia musu edit forma
                 <div className="grid grid-cols-2 place-items-center">
                   <button className="btn bg-red w-32">
-                    Delete
+                    Submit
                     </button>
                   <form method="dialog">
-                    <button className="btn bg-[#5A698F] w-32">Close</button>
+                  <button className="btn bg-[#5A698F] w-32" onClick={closeModal}>
+                  Close
+                  </button>
                   </form>
                 </div>
               </div>
             </dialog>
-            <ToastContainer />
      </>
         );
 }

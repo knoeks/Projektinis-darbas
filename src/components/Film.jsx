@@ -2,8 +2,9 @@ import { useLocation } from "react-router";
 import oval from "../assets/oval.svg";
 import Bookmark from "./Bookmark";
 import Category from "./Category";
-import ControlPanel from "./ControlPanel";
 import PlayButton from "./PlayButton";
+import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
 
 function Film({ film}) {
   const { title, year, category, rating, thumbnail} = film;
@@ -22,7 +23,10 @@ function Film({ film}) {
       <div className="film-container">
         <Bookmark film={film}/>
         { location.pathname === "/admin"
-                  ? <ControlPanel film={film}/>
+                  ? <DeleteButton film={film}/>
+                  : "" }
+        { location.pathname === "/admin"
+                  ? <EditButton film={film}/>
                   : "" }
         <img className="film-thumbnail" src={str} alt={title} />
         <PlayButton />
