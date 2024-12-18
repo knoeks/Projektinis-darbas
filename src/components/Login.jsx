@@ -96,7 +96,7 @@ const LoginForm = ({ setRole }) => {
   };
 
   return (
-    <div className="login--main--container">
+    <div className="signup--main--container">
       <div className="signup--icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -115,77 +115,76 @@ const LoginForm = ({ setRole }) => {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="login--form--container"
+        className="signup--form--container"
       >
-        <h2 className="signin--heading--text text-white ml-[-0.25rem] text-[1.75rem]">
-          Login
-        </h2>
+        <h2 className="signup--heading--text text-white text-[1.75rem]">Login</h2>
 
         <div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
-          <input
-            autoComplete="off"
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            className={`login--input ${
-              errors.email ? "border-red" : "border-accent"
-            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
-            placeholder="Email Address"
-          />
-          {errors.email && (
-            <span
-              className={`login--error ${
-                email.length > 30
-                  ? "absolute bottom-[-5px] right-[6px] text-right"
-                  : "absolute top-3 right-2"
-              }`}
-            >
-              {errors.email}
-            </span>
-          )}
-        </div>
+  <input
+    autoComplete="off"
+    type="email"
+    name="email"
+    value={email} 
+    onChange={handleChange}
+    className={`signup--input ${
+      errors.email ? "border-red" : "border-accent"
+    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
+    placeholder="Email Address"
+  />
+  {errors.email && (
+    <span
+      className={`login--error ${
+        email.length > 30
+          ? "absolute bottom-[-5px] right-[6px] text-right"
+          : "absolute top-3 right-2"
+      }`}
+    >
+      {errors.email}
+    </span>
+  )}
+</div>
 
-        <div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => {
-              const { value } = e.target;
-              if (value.length <= 60) {
-                handleChange(e);
-              }
-            }}
-            className={`login--input ${
-              errors.password ? "border-red" : "border-gray-500"
-            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
-            placeholder="Password"
-          />
-          {errors.password && (
-            <span
-              className={`login--error ${
-                password.length > 50
-                  ? "absolute bottom-[-4px] right-[8px] text-right"
-                  : "absolute top-3 right-2"
-              }`}
-            >
-              {password.length === 0
-                ? "Can't be empty"
-                : password.length < 6
-                ? " Invalid password"
-                : password.length > 50
-                ? "Invalid password"
-                : errors.password}
-            </span>
-          )}
-        </div>
+
+<div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
+  <input
+    type="password"
+    name="password"
+    value={password}
+    onChange={(e) => {
+      const { value } = e.target;
+      if (value.length <= 60) {
+        handleChange(e); 
+      }
+    }}
+    className={`signup--input ${
+      errors.password ? "border-red" : "border-gray-500"
+    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
+    placeholder="Password"
+  />
+  {errors.password && (
+    <span
+      className={`login--error ${
+        password.length > 50
+          ? "absolute bottom-[-4px] right-[8px] text-right"
+          : "absolute top-3 right-2"
+      }`}
+    >
+      {password.length === 0
+        ? "Can't be empty"
+        : password.length < 6
+        ? " Invalid password"
+        : password.length > 50
+        ? "Invalid password"
+        : errors.password}
+    </span>
+  )}
+</div>
 
         <button type="submit" className="login--button">
           Login to your account
         </button>
-        <p className="signup--login-text text-center text-white text-sm mt-[1rem] font-light">
-          Don’t have an account?{" "}
+        <p className="signup--login-text text-center text-white text-sm mt-[0.5rem] font-light">
+          Don’t have an account?
           <a href="/" className="signup--link">
             Sign Up
           </a>
