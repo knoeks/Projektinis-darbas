@@ -73,6 +73,9 @@
   .bookmark-button {
     @apply absolute right-2 top-2 sm:right-4 md:top-4 z-40;
   }
+  .delete-button{
+    @apply absolute left-2 bottom-2 md:left-4 md:bottom-4 z-40;
+  }
 
   .play-button-bg {
     @apply absolute w-full h-full top-0 bg-black bg-opacity-50 z-10 transition-opacity duration-200 rounded-lg;
@@ -142,6 +145,9 @@
 }
 
 @layer utilities {
+  .delete-icon{
+    @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-white;
+  }
   .film-container {
     @apply relative w-full;
   }
