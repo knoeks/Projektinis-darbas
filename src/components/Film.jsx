@@ -1,11 +1,13 @@
+import { useLocation } from "react-router";
 import oval from "../assets/oval.svg";
 import Bookmark from "./Bookmark";
 import Category from "./Category";
 import DeleteButton from "./DeleteButton";
 import PlayButton from "./PlayButton";
 
-function Film({ film }) {
-  const { title, year, category, rating, thumbnail,id } = film;
+function Film({ film}) {
+  const { title, year, category, rating, thumbnail} = film;
+  const location = useLocation();
 
   let str = "src/" + thumbnail.regular.large.slice(2);
 
