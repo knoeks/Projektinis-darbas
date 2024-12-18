@@ -71,15 +71,20 @@ const LoginForm = () => {
         return;
       }
 
-      // Fetching the role after successful login
-      console.log(`Logged in as ${user.role}`);
+   // Fetching the role 
+console.log(`Logged in as ${user.role}`);
 
-      // Redirect based on user role
-      if (user.role === "admin") {
-        navigate("/admin-dashboard");
-      } else {
-        navigate("/home");
-      }
+// Redirect based on user role
+if (user.role === "admin") {
+  navigate("/admin-dashboard");
+} else if (user.role === "user") {
+  
+  navigate("/home");
+} else {
+
+  console.warn("Unrecognized role:", user.role);
+  navigate("/home");
+}
     } catch (err) {
       console.error("Error during login:", err);
       setErrors({ general: "An error occurred. Please try again later." });

@@ -588,6 +588,12 @@
       "email": "erika@gmail.com",
       "password": "Erika12",
       "role": "user"
+    },
+    {
+      "id": "74f4",
+      "email": "priora@mail.com",
+      "password": "Pakaifu123",
+      "role": "admin"
     }
   ]
 }
