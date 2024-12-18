@@ -600,6 +600,12 @@
       "email": "asfausfhui@mail.com",
       "password": "Qwerty123",
       "role": "user"
+    },
+    {
+      "id": "0959",
+      "email": "asjfju@mail.com",
+      "password": "Qwerty123",
+      "role": "user"
     }
   ]
 }
