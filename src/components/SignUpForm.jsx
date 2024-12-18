@@ -3,8 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
