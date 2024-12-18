@@ -575,6 +575,18 @@
       "id": "d4a5",
       "email": "annaqwiz@gmail.com",
       "password": "Anna14"
+    },
+    {
+      "id": "51a8",
+      "email": "alina@gmail.com",
+      "password": "Alina12",
+      "role": "user"
+    },
+    {
+      "id": "7a94",
+      "email": "erika@gmail.com",
+      "password": "Erika12",
+      "role": "user"
     }
   ]
 }

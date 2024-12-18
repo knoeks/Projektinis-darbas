@@ -64,7 +64,9 @@ const SignUp = () => {
         return;
       }
   
-      await axios.post("http://localhost:5001/users", { email, password});
+        // Add the new user to the database
+    await axios.post("http://localhost:5001/users", { email, password, role: "user" });
+
   
       
       toast.success("Your account is created successfully!", {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ const LoginForm = () => {
     e.preventDefault();
     const newErrors = {};
     let isValid = true;
-  
+
     // Email validation
     if (!email) {
       newErrors.email = "Can't be empty";
@@ -28,13 +29,13 @@ const LoginForm = () => {
       newErrors.email = "Invalid email format";
       isValid = false;
     }
-  
+
     // Password validation
     const isValidPassword = (password) => {
       const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,50}$/;
       return passwordRegex.test(password);
     };
-  
+
     if (!password) {
       newErrors.password = "Can't be empty";
       isValid = false;
@@ -42,45 +43,49 @@ const LoginForm = () => {
       newErrors.password = "Invalid password";
       isValid = false;
     }
-  
+
     if (!isValid) {
       setErrors(newErrors);
       return;
     }
-  
+
     try {
-      const response = await fetch("http://localhost:5001/users", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      });
-  
-      const users = await response.json();
-  
+      // Fetching users with axios
+      const response = await axios.get("http://localhost:5001/users");
+
+      const users = response.data;
+
       // Check if the email exists
       const user = users.find(
         (u) => u.email.toLowerCase() === email.toLowerCase()
       );
-  
+
       if (!user) {
         setErrors({ email: "This email is not registered" });
         return;
       }
-  
+
       // Check if the password matches
       if (user.password !== password) {
         setErrors({ password: "Invalid password" });
         return;
       }
-  
-      // Successful login - redirect to home
-      navigate("/home");
+
+      // Fetching the role after successful login
+      console.log(`Logged in as ${user.role}`);
+
+      // Redirect based on user role
+      if (user.role === "admin") {
+        navigate("/admin-dashboard");
+      } else {
+        navigate("/home");
+      }
     } catch (err) {
       console.error("Error during login:", err);
       setErrors({ general: "An error occurred. Please try again later." });
     }
   };
-  
-  
+
   return (
     <div className="login--main--container">
       <div className="signup--icon">
@@ -106,65 +111,64 @@ const LoginForm = () => {
         <h2 className="signin--heading--text text-white ml-[-0.25rem] text-[1.75rem]">Login</h2>
 
         <div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
-  <input
-    autoComplete="off"
-    type="email"
-    name="email"
-    value={email} 
-    onChange={handleChange}
-    className={`login--input ${
-      errors.email ? "border-red" : "border-accent"
-    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
-    placeholder="Email Address"
-  />
-  {errors.email && (
-    <span
-      className={`login--error ${
-        email.length > 30
-          ? "absolute bottom-[-5px] right-[6px] text-right"
-          : "absolute top-3 right-2"
-      }`}
-    >
-      {errors.email}
-    </span>
-  )}
-</div>
+          <input
+            autoComplete="off"
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+            className={`login--input ${
+              errors.email ? "border-red" : "border-accent"
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
+            placeholder="Email Address"
+          />
+          {errors.email && (
+            <span
+              className={`login--error ${
+                email.length > 30
+                  ? "absolute bottom-[-5px] right-[6px] text-right"
+                  : "absolute top-3 right-2"
+              }`}
+            >
+              {errors.email}
+            </span>
+          )}
+        </div>
 
-
-<div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
-  <input
-    type="password"
-    name="password"
-    value={password}
-    onChange={(e) => {
-      const { value } = e.target;
-      if (value.length <= 60) {
-        handleChange(e); 
-      }
-    }}
-    className={`login--input ${
-      errors.password ? "border-red" : "border-gray-500"
-    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
-    placeholder="Password"
-  />
-  {errors.password && (
-    <span
-      className={`login--error ${
-        password.length > 50
-          ? "absolute bottom-[-4px] right-[8px] text-right"
-          : "absolute top-3 right-2"
-      }`}
-    >
-      {password.length === 0
-        ? "Can't be empty"
-        : password.length < 6
-        ? " Invalid password"
-        : password.length > 50
-        ? "Invalid password"
-        : errors.password}
-    </span>
-  )}
-</div>
+        <div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => {
+              const { value } = e.target;
+              if (value.length <= 60) {
+                handleChange(e);
+              }
+            }}
+            className={`login--input ${
+              errors.password ? "border-red" : "border-gray-500"
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
+            placeholder="Password"
+          />
+          {errors.password && (
+            <span
+              className={`login--error ${
+                password.length > 50
+                  ? "absolute bottom-[-4px] right-[8px] text-right"
+                  : "absolute top-3 right-2"
+              }`}
+            >
+              {password.length === 0
+                ? "Can't be empty"
+                : password.length < 6
+                ? " Invalid password"
+                : password.length > 50
+                ? "Invalid password"
+                : errors.password}
+            </span>
+          )}
+        </div>
 
         <button type="submit" className="login--button">
           Login to your account
