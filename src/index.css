@@ -104,90 +104,85 @@
     @apply w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem];
   }
   .search-container {
-    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center;
+    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center p-[1rem] pb-[10px] md:pb-[19px] xl:pb-[21px] pt-[1.5rem] md:p-8 xl:px-9;
   }
   .search-results {
-    @apply text-white text-specific_search-results md:text-heading-l py-6 md:pt-[2.06rem] xl:pt-[2.13rem] xl:pb-[2.38rem];
+    @apply text-white px-[1rem] md:px-[25px] xl:px-[2.25rem] text-specific_search-results md:text-heading-l;
   }
-  .signup--button{
+  .signup--button {
     @apply w-full h-[2.5rem] bg-red text-white rounded-[0.25rem] font-light text-[0.875rem] 
     tracking-[0.01em] mt-[1.2rem] mb-[0.5rem] hover:bg-white hover:text-black transition;
-}
-  .signup--input{
-    @apply w-full h-[2.5rem] mb-[1rem] bg-transparent border-b border-accent
+  }
+  .signup--input {
+    @apply w-full h-[2.25rem] mb-[1rem] bg-transparent border-b border-accent
     text-[0.875rem] text-white placeholder-accent focus:outline-none 
     focus:border-white flex-shrink-0;
   }
-  .signup--main--container{
-    @apply flex flex-col justify-center items-center bg-light font-outfit pb-[8rem] h-svh;
+  .signup--main--container {
+    @apply flex flex-col items-center bg-light font-outfit pb-[8rem] h-svh;
   }
   .signup--icon {
     @apply md:pt-[4.9rem] md:pb-[5.19rem] pt-[3rem] pb-[3.65rem];
   }
-  .signup--form--container{
-    @apply w-[23rem] bg-dark shadow-lg text-[1.125rem] font-light mb-[2rem] rounded-[1.25rem] px-[2rem] pt-[2rem] pb-[2rem] text-white;
+  .signup--form--container {
+    @apply w-[20.4375rem] md:w-[25rem] bg-dark shadow-lg text-[1.125rem] font-light mb-[2rem] rounded-[1.25rem] px-[2rem] pt-[2rem] pb-[2rem] text-white;
   }
-  .signup--heading--text{
-    @apply text-[1.55rem] font-light mt-[0.5rem] mb-[1rem] py-2 text-left;
+  .signup--heading--text {
+    @apply text-[1.55rem] font-light  mb-[1rem] pb-2 text-left;
   }
-  
+
   @layer components {
     .signup--error {
-        @apply absolute text-red text-sm top-4 right-2 flex-shrink-0 whitespace-nowrap;
-        
+      @apply absolute text-red text-sm top-4 right-2 flex-shrink-0 whitespace-nowrap;
     }
-}
+  }
 
-
-.signup--input--container {
+  .signup--input--container {
     @apply flex items-center justify-between flex-wrap relative;
-}
+  }
   .signup--link {
     @apply text-red hover:underline ml-[0.25rem] text-[0.85rem] font-light;
   }
-.login--button {
-  @apply w-full h-[2.5rem] bg-red text-white rounded-[0.25rem] font-light text-[0.875rem]
-         tracking-[0.01em] mt-[1.2rem] mb-[1rem] hover:bg-white hover:text-black transition;
-}
+  .login--button {
+    @apply w-full h-[2.5rem] bg-red text-white rounded-[0.25rem] font-light text-[0.875rem]
+         tracking-[0.01em] md:mt-[1rem] mb-[1rem] hover:bg-white hover:text-black transition;
+  }
 
-.login--main--container {
-  @apply flex flex-col justify-start items-center h-svh bg-light font-outfit; 
-  padding-top: 0rem; 
-}
+  .login--main--container {
+    @apply flex flex-col justify-start items-center h-svh bg-light font-outfit;
+    padding-top: 0rem;
+  }
 
-.login--form--container {
-  @apply bg-dark shadow-lg w-[26rem] h-[25.5rem] rounded-[1.25rem]
-         px-[1.75rem] mt-[2rem] pt-[0rem] pb-[1rem] text-white text-[1rem]
+  .login--form--container {
+    @apply bg-dark shadow-lg w-[26rem] h-[25.5rem] rounded-[1.25rem]
+         px-[1.75rem] pt-[0rem] pb-[1rem] text-white text-[1rem]
          leading-[3rem];
-}
+  }
 
-.login--input {
-  @apply w-full h-[2.5rem] mb-[1rem] bg-transparent border-b border-accent
+  .login--input {
+    @apply w-full h-[2.5rem] mb-[1rem] bg-transparent border-b border-accent
   text-[0.875rem] text-white placeholder-accent focus:outline-none 
   focus:border-white flex-shrink-0;
-}
-.login--button {
-  @apply w-full h-[3rem] bg-red text-white rounded-[0.25rem] 
+  }
+  .login--button {
+    @apply w-full h-[3rem] bg-red text-white rounded-[0.25rem] 
          text-[0.875rem] tracking-[0.01em] 
          hover:bg-white hover:text-black 
          transition duration-300;
-}
-
-.signin--heading--text {
-  @apply text-[1.55rem] font-light mt-[1rem] mb-[0.85rem] py-2 text-left ml-[-0.25rem];
-}
-.signup--login-text {
-  @apply text-center text-white text-sm leading-[1.25] mt-[1rem] mb-[0];
-}
-.signin--heading--text{
-  @apply ml-[1.5rem] mt-[1.5rem] mb-[1.5rem] text-[1.5rem]  
-       font-light text-left;
-}
-@layer components {
-  .login--error {
-    @apply absolute text-red text-sm flex-shrink-0 whitespace-nowrap;
   }
-}
+
+  .signup--login-text {
+    @apply text-center text-white text-sm leading-[1.25] mb-[0];
+  }
+  .signin--heading--text {
+    @apply  mt-[1.5rem] mb-[1.5rem] text-[1.5rem]  
+       font-light text-left py-2;
+  }
+  @layer components {
+    .login--error {
+      @apply absolute text-red text-sm flex-shrink-0 whitespace-nowrap;
+    }
+  }
 }
 
 @layer utilities {
@@ -239,6 +234,9 @@
     bottom: 1rem;
     left: 1rem;
   }
+  .trending-full .carousel {
+    gap: 1rem;
+  }
 }
 
 .trending--main--container {
@@ -248,7 +246,19 @@
   display: flex;
   position: relative;
 }
-
+.trending-full {
+  padding-left: 2.25rem;
+}
+.trending--heading--text {
+  font-family: Outfit;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.03125rem;
+  padding-bottom: 1.56rem;
+  color: white;
+}
 .trending--thumbnail {
   width: 29.375rem;
   height: 14.375rem;

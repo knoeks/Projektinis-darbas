@@ -96,7 +96,7 @@ const LoginForm = ({ setRole }) => {
   };
 
   return (
-    <div className="login--main--container">
+    <div className="signup--main--container">
       <div className="signup--icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ const LoginForm = ({ setRole }) => {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="login--form--container"
+        className="signup--form--container"
       >
         <h2 className="signin--heading--text text-white ml-[-0.25rem] text-[1.75rem]">
           Login
@@ -184,8 +184,8 @@ const LoginForm = ({ setRole }) => {
         <button type="submit" className="login--button">
           Login to your account
         </button>
-        <p className="signup--login-text text-center text-white text-sm mt-[1rem] font-light">
-          Don’t have an account?{" "}
+        <p className="signup--login-text text-center text-white text-sm mt-[0.5rem] font-light">
+          Don’t have an account?
           <a href="/" className="signup--link">
             Sign Up
           </a>
