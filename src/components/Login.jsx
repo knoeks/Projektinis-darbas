@@ -117,68 +117,69 @@ const LoginForm = ({ setRole }) => {
         noValidate
         className="signup--form--container"
       >
-        <h2 className="signup--heading--text text-white text-[1.75rem]">Login</h2>
+        <h2 className="signup--heading--text text-white text-[1.75rem]">
+          Login
+        </h2>
 
         <div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
-  <input
-    autoComplete="off"
-    type="email"
-    name="email"
-    value={email} 
-    onChange={handleChange}
-    className={`signup--input ${
-      errors.email ? "border-red" : "border-accent"
-    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
-    placeholder="Email Address"
-  />
-  {errors.email && (
-    <span
-      className={`login--error ${
-        email.length > 17
-          ? "absolute bottom-[-5px] right-[6px] text-right"
-          : "absolute top-3 right-2"
-      }`}
-    >
-      {errors.email}
-    </span>
-  )}
-</div>
+          <input
+            autoComplete="off"
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+            className={`signup--input text-body-m ${
+              errors.email ? "border-red" : "border-accent"
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-50 placeholder:text-white`}
+            placeholder="Email Address"
+          />
+          {errors.email && (
+            <span
+              className={`login--error ${
+                email.length > 17
+                  ? "absolute bottom-[-5px] right-[6px] text-right"
+                  : "absolute top-3 right-2"
+              }`}
+            >
+              {errors.email}
+            </span>
+          )}
+        </div>
 
-
-<div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
-  <input
-    type="password"
-    name="password"
-    value={password}
-    onChange={(e) => {
-      const { value } = e.target;
-      if (value.length <= 60) {
-        handleChange(e); 
-      }
-    }}
-    className={`signup--input ${
-      errors.password ? "border-red" : "border-gray-500"
-    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-90`}
-    placeholder="Password"
-  />
-  {errors.password && (
-    <span
-      className={`login--error ${
-        password.length > 19
-          ? "absolute bottom-[-4px] right-[8px] text-right"
-          : "absolute top-3 right-2"
-      }`}
-    >
-      {password.length === 0
-        ? "Can't be empty"
-        : password.length < 6
-        ? " Invalid password"
-        : password.length > 40
-        ? "Invalid password"
-        : errors.password}
-    </span>
-  )}
-</div>
+        <div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => {
+              const { value } = e.target;
+              if (value.length <= 60) {
+                handleChange(e);
+              }
+            }}
+            className={`signup--input text-body-m ${
+              errors.password ? "border-red" : "border-accent"
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-50 placeholder:text-white`}
+            placeholder="Password"
+          />
+          {errors.password && (
+            <span
+              className={`login--error ${
+                password.length > 19
+                  ? "absolute bottom-[-4px] right-[8px] text-right"
+                  : "absolute top-3 right-2"
+              }`}
+            >
+              {password.length === 0
+                ? "Can't be empty"
+                : password.length < 6
+                ? " Invalid password"
+                : password.length > 40
+                ? "Invalid password"
+                : errors.password}
+            </span>
+          )}
+        </div>
 
         <button type="submit" className="login--button">
           Login to your account
