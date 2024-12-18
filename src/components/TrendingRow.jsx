@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Bookmark from "./Bookmark";
 import Category from "./Category";
 import PlayButton from "./PlayButton";
@@ -26,7 +25,7 @@ const TrendingRow = ({ trending }) => {
   return (
     <div className="inline-block trending--main--container">
       <div className="">
-        <div className="trending--thumbnail rounded-full">
+        <div className="trending--thumbnail">
           <Bookmark film={{ ...trending, isBookmarked }} />
             <div className="trending--image-container">
               <img
