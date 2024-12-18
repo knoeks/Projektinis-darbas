@@ -96,7 +96,7 @@
       "year": 2018,
       "category": "TV Series",
       "rating": "PG",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": true,
       "id": "8e2a"
     },
@@ -112,7 +112,7 @@
       "year": 2019,
       "category": "Movie",
       "rating": "E",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": false,
       "id": "a362"
     },
@@ -144,7 +144,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "18+",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "6c70"
     },
@@ -192,7 +192,7 @@
       "year": 2016,
       "category": "TV Series",
       "rating": "18+",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": false,
       "id": "5c73"
     },
@@ -240,7 +240,7 @@
       "year": 2015,
       "category": "TV Series",
       "rating": "E",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "416f"
     },
@@ -256,7 +256,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "PG",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "8b74"
     },
@@ -304,7 +304,7 @@
       "year": 2021,
       "category": "Movie",
       "rating": "PG",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "62d0"
     },
@@ -320,7 +320,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "18+",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "42e9"
     },
@@ -368,7 +368,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "E",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "a309"
     },
@@ -384,7 +384,7 @@
       "year": 2018,
       "category": "TV Series",
       "rating": "PG",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": false,
       "id": "789c"
     },
@@ -400,7 +400,7 @@
       "year": 2016,
       "category": "TV Series",
       "rating": "E",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "a83a"
     },
@@ -448,7 +448,7 @@
       "year": 2017,
       "category": "Movie",
       "rating": "18+",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "d2c0"
     },
@@ -480,9 +480,23 @@
       "year": 2017,
       "category": "Movie",
       "rating": "PG",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": false,
       "id": "84fa"
+    },
+    {
+      "id": "9bde",
+      "title": "12345",
+      "year": "1500",
+      "category": "Movie",
+      "rating": "E",
+      "isTrending": false,
+      "thumbnail": {
+        "regular": {
+          "large": "data:image/png;base64,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"
+        }
+      },
+      "isBookmarked": true
     }
   ],
   "users": [
@@ -528,9 +542,78 @@
       "password": "QWERTY12345"
     },
     {
-      "id": "9db6",
-      "email": "a@gmail.com",
-      "password": "P47403150543g"
+      "id": "b109",
+      "email": "nanana@mail.com",
+      "password": "Nanana1"
+    },
+    {
+      "id": "08d3",
+      "email": "qwerty@mail.com",
+      "password": "Qwerty123"
+    },
+    {
+      "id": "55b4",
+      "email": "maga@mail.com",
+      "password": "Maga123"
+    },
+    {
+      "id": "cd84",
+      "email": "asdf@mail.com",
+      "password": "Qwert123"
+    },
+    {
+      "id": "bc3d",
+      "email": "ajdas@mail.com",
+      "password": "Qwerty123"
+    },
+    {
+      "id": "8dbe",
+      "email": "asf@mail.com",
+      "password": "Qwerty123"
+    },
+    {
+      "id": "d721",
+      "email": "qwer@mail.com",
+      "password": "Qwerty123"
+    },
+    {
+      "id": "82fa",
+      "email": "anna@gmail.com",
+      "password": "Anna12"
+    },
+    {
+      "id": "fbaa",
+      "email": "amanda12@gmail.com",
+      "password": "Amanda12"
+    },
+    {
+      "id": "d4a5",
+      "email": "annaqwiz@gmail.com",
+      "password": "Anna14"
+    },
+    {
+      "id": "89e2",
+      "email": "asfas@gmail.com",
+      "password": "Pakaifu123",
+      "role": "user"
+    },
+    {
+      "id": "29d2",
+      "email": "sdfoudsfh@mail.com",
+      "password": "Pakaifu 123",
+      "role": "user"
+    },
+    {
+      "id": "47ea",
+      "email": "popqweq@mail.com",
+      "password": "Paakifu123",
+      "role": "admin"
+    },
+    {
+      "id": "4c14",
+      "email": "asfausfhui@mail.com",
+      "password": "Qwerty123",
+      "role": "user"
     }
   ]
 }

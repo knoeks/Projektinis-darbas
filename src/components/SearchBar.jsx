@@ -10,6 +10,7 @@ function SearchBar() {
     setSearchParams,
     searchResults,
     setSearchResults,
+    searchQuery,
   } = useOutletContext();
   const location = useLocation();
 
@@ -41,6 +42,15 @@ function SearchBar() {
         return "Search for movies or TV series";
     }
   };
+
+  const pattern = /^[a-zA-Z0-9/\-,.?=]+$/;
+  let isValid = pattern.test(searchQuery);
+
+  if (searchQuery && !isValid) {
+    console.log();
+    
+    throw new Error("Invalid search query!");
+  }
 
   return (
     <div className="search-container">
