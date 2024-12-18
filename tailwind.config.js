@@ -31,11 +31,11 @@ export default {
 
       // pavyzdys: text-heading-xs
       fontSize: {
-        "heading-l": ["32px", { lineHeight: "40px", fontWeight: "300" }], // Light
+        "heading-l": ["32px", { lineHeight: "40px", fontWeight: "400" }], // Light
         "heading-m": ["24px", { lineHeight: "32px", fontWeight: "300" }], // Light
-        "heading-s": ["24px", { lineHeight: "32px", fontWeight: "500" }], // Medium
+        "heading-s": ["24px", { fontWeight: "400" }], // Medium
         "heading-xs": ["18px", { lineHeight: "24px", fontWeight: "500" }], // Medium
-        "body-m": ["15px", { lineHeight: "24px", fontWeight: "300" }], // Light
+        "body-m": ["15px", { fontWeight: "400" }], // Light
         "body-s": ["15px", { lineHeight: "24px", fontWeight: "300" }], // Light
         "specific_search": ["16px", {lineHeight: "24px", fontWeight: "300" }], // Text for mobile search bar
         "specific_search-results": ["20px", {lineHeight: "24px", fontWeight: "300" }], // Text for mobile search results

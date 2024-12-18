@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { getAll } from "../helpers/get";
+import { useEffect, useRef } from "react";
+
 import TrendingRow from "./TrendingRow";
 import { handleMouseDrag } from "../helpers/handleMouseDrag";
 import { useOutletContext } from "react-router";

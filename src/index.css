@@ -46,7 +46,7 @@
 
 @layer components {
   .films-row {
-    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 xl:pr-9 xl:pl-0 justify-items-center dynamic-film-gap;
+    @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 xl:pr-9 xl:pl-0 justify-items-center dynamic-film-gap pr-4 md:pr-[1.56rem];
   }
 
   .film-card {
@@ -166,22 +166,13 @@
   }
 
 }
-@media (max-width: 768px) {
-  .trending-full .trending--thumbnail {
-    @apply max-w-[15rem] max-h-[8.75rem];
-  }
-  .trending-full .trending--title--image {
-    @apply text-[0.9375rem];
-  }
-  .trending-full .trending--text--image {
-    @apply text-[0.75rem];
-  }
-  .trending-full {
-    @apply box-border;
-  }
-  .trending-full .trending--absolute {
-    @apply bottom-4 left-4;
-  }
+
+.trending-full {
+  @apply box-border;
+}
+
+.trending-full .trending--absolute {
+  @apply bottom-4 left-4 md:bottom-0 md:left-0;
 }
 
 .trending--main--container {
@@ -189,23 +180,23 @@
 }
 
 .trending--thumbnail {
-  @apply w-[29.375rem] h-[14.375rem];
+  @apply w-[15rem] h-[8.75rem] md:w-[29.375rem] md:h-[14.375rem];
 }
 
 .trending--text--image {
-  @apply flex items-center gap-[0.56rem] font-['Outfit'] text-[0.9375rem] opacity-75 leading-normal text-body-s font-light;
+  @apply flex items-center gap-[0.56rem] text-body-m text-[0.75rem] md:text-[0.9375rem]  opacity-75 leading-normal font-light;
 }
 
 .trending--absolute {
-  @apply absolute bottom-[1.5rem] left-[1.5rem] z-10;
+  @apply absolute bottom-[1rem] left-[1rem] md:bottom-[1.5rem] md:left-[1.5rem] z-10;
 }
 
 .trending--title--image {
-  @apply font-['Outfit'] text-[1.5rem] font-normal leading-normal text-white;
+  @apply text-heading-s text-[0.9375rem] md:text-[1.5rem] text-white;
 }
 
 .carousel {
-  @apply flex overflow-x-auto scroll-smooth cursor-grab gap-[2.5rem];
+  @apply flex overflow-x-auto scroll-smooth cursor-grab gap-4 md:gap-10;
 }
 
 .carousel-item {
