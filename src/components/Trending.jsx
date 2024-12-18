@@ -1,83 +1,45 @@
 import { useState, useEffect, useRef } from "react";
-import TrendingMap from "./TrendingMap";
 import { getAll } from "../helpers/get";
+import TrendingRow from "./TrendingRow";
+import { handleMouseDrag } from "../helpers/handleMouseDrag";
+import { useOutletContext } from "react-router";
 
 const Trending = () => {
-  const [trending, setTrending] = useState([]);
-  const [error, setError] = useState("");
-  const carouselRef = useRef(null); 
+  const carouselRef = useRef(null);
 
-  const getAllTrending = async () => {
-    try {
-      const trendingData = await getAll();
-      const trendingItems = trendingData.filter((item) => item.isTrending); 
-      setTrending(trendingItems);
-      setError(""); 
-    } catch (error) {
-      console.error("Error fetching trending data:", error);
-      setError("Failed to fetch trending data. Please try again later.");
-    }
-  };
+  const { allFilms } = useOutletContext();
 
-  useEffect(() => {
-    getAllTrending();
-  }, []);
-
-
-  const handleMouseDrag = () => {
-    const carousel = carouselRef.current;
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    const startDrag = (event) => {
-      isDown = true;
-      startX = event.pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
-    };
-
-    const moveDrag = (event) => {
-      if (!isDown) return;
-      event.preventDefault();
-      const x = event.pageX - carousel.offsetLeft;
-      const walk = (x - startX) * 1.5; 
-      carousel.scrollLeft = scrollLeft - walk;
-    };
-
-    const stopDrag = () => {
-      isDown = false;
-    };
-
-    carousel.addEventListener("mousedown", startDrag);
-    carousel.addEventListener("mousemove", moveDrag);
-    carousel.addEventListener("mouseup", stopDrag);
-    carousel.addEventListener("mouseleave", stopDrag);
-
-
-    return () => {
-      carousel.removeEventListener("mousedown", startDrag);
-      carousel.removeEventListener("mousemove", moveDrag);
-      carousel.removeEventListener("mouseup", stopDrag);
-      carousel.removeEventListener("mouseleave", stopDrag);
-    };
-  };
+  // perrasytas kodas nes jau yra vienas fetch pada
+  // const getAllTrending = async () => {
+  //   try {
+  //     const trendingData = await getAll();
+  //     const trendingItems = trendingData.filter((item) => item.isTrending);
+  //     setTrending(trendingItems);
+  //     setError("");
+  //   } catch (error) {
+  //     setError("Error fetching trending data:", error);
+  //   }
+  // };
+  const trendingItems = allFilms.filter((item) => item.isTrending);
 
   useEffect(() => {
-    handleMouseDrag(); 
+    // getAllTrending();
+    handleMouseDrag(carouselRef);
   }, []);
 
   return (
-    <section className="trending-full">
-      <h1 className="trending--heading--text flex-row">Trending</h1>
+    <section>
+      <h1 className="trending--heading--text flex-row py-6 md:pt-[2.06rem] xl:pt-[2.13rem] xl:pb-[2.38rem]">
+        Trending
+      </h1>
       <div>
-        
-        {error && <div className="error">{error}</div>}
-
         <div
           ref={carouselRef}
           className="carousel overflow-hidden whitespace-nowrap"
         >
-          <TrendingMap trending={trending}/>
+          {trendingItems.map((trending, index) => (
+            <TrendingRow key={index} trending={trending} />
+          ))}
         </div>
       </div>
     </section>

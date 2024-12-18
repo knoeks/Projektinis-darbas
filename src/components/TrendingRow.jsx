@@ -7,9 +7,9 @@ import bookmarkFull from "../assets/icon-bookmark-full.svg";
 import { updateOne } from "../helpers/update"; 
 
 const TrendingRow = ({ trending }) => {
-  const { title, thumbnail, year, category, rating, id, isBookmarked: initialIsBookmarked } = trending;
+  const { title, thumbnail, year, category, rating, isBookmarked } = trending;
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [isBookmarked, setIsBookmarked] = useState(initialIsBookmarked); 
+  // const [isBookmarked, setIsBookmarked] = useState(initialIsBookmarked); 
 
   let oval = (
     <svg
@@ -39,27 +39,27 @@ const TrendingRow = ({ trending }) => {
     };
   }, []);
 
-  const bookmarkHandler = async () => {
-    const newIsBookmarked = !isBookmarked;
-    setIsBookmarked(newIsBookmarked); 
+  // const bookmarkHandler = async () => {
+  //   const newIsBookmarked = !isBookmarked;
+  //   setIsBookmarked(newIsBookmarked); 
 
     
-    await updateOne(id, { isBookmarked: newIsBookmarked }); 
-  };
+  //   await updateOne(id, { isBookmarked: newIsBookmarked }); 
+  // };
 
   return (
     <div className="inline-block trending--main--container">
       <div className="">
         <div className="trending--thumbnail rounded-full">
           <Bookmark film={{ ...trending, isBookmarked }} />
-          <div className="bookmark-button group">
+          {/* <div className="bookmark-button group">
             <button onClick={bookmarkHandler} className="circle-icon">
               <img 
                 src={isBookmarked ? bookmarkFull : bookmarkEmpty} 
                 alt={isBookmarked ? "Bookmark Full" : "Bookmark Empty"} 
               />
             </button>
-          </div>
+          </div> */}
           {getThumbnailSrc() ? (
             <img className="w-full rounded-[0.5rem]" src={getThumbnailSrc()} alt={title} />
           ) : (

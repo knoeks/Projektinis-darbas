@@ -1,18 +1,17 @@
 import FilmList from "./FilmList";
-import Trending from "./Trending";
 import SearchBar from "./SearchBar";
 import { useLocation } from "react-router";
 
-function HomePage() {
+function AdminPage() {
   const location = useLocation();
+
   return (
     <>
       <SearchBar />
       {!location.search && (
         <div className="overflow-auto">
-          <Trending/>
           <div className="trending-full">
-          <h1 className="trending--heading--text flex-row py-6 md:pt-[2.44rem] xl:pt-10">Reccomended for you</h1>
+          <h1 className="trending--heading--text  py-6 md:pt-[2.06rem] xl:pt-[2.13rem] xl:pb-[2.38rem]">Edit | Delete films</h1>
           </div>
         </div>
       )}
@@ -21,4 +20,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default AdminPage;
