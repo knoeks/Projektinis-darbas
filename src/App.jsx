@@ -11,6 +11,7 @@ import SignUpForm from "./components/SignUpForm";
 import Login from "./components/Login";
 import { ErrorBoundary } from "react-error-boundary";
 import SomethingWentWrong from "./components/SomethingWentWrong";
+import Form from "./components/Form";
 
 function App() {
   const [error, setError] = useState("");
@@ -67,6 +68,7 @@ function App() {
             <Route path="movies" element={<MoviePage />} />
             <Route path="series" element={<SeriesPage />} />
             <Route path="bookmarked" element={<BookmarkedPage />} />
+            <Route path="form" element={<Form />}/>
           </Route>
         </Routes>
       </ErrorBoundary>

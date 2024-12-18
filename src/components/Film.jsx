@@ -6,7 +6,14 @@ import PlayButton from "./PlayButton";
 function Film({ film }) {
   const { title, year, category, rating, thumbnail } = film;
 
-  let str = "src/" + thumbnail.regular.large.slice(2);
+  // let str = "src/" + thumbnail.regular.large.slice(2);
+  let str = "";
+
+  if (thumbnail.regular.large.startsWith("data:image")) {
+    str = thumbnail.regular.large;
+  } else {
+    str = "src/" + thumbnail.regular.large.slice(2);
+  }
 
   return (
     <div className="film-card">

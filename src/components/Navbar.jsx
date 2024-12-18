@@ -19,6 +19,8 @@ let location = useLocation();
     <Link to="movies" className={location.pathname === "/movies" ? "[&>*]:fill-white":""}><Movies className="svg-nav"/></Link>
     <Link to="series" className={location.pathname === "/series" ? "[&>*]:fill-white":""}><Tv className="svg-nav"/></Link>
     <Link to="bookmarked" className={location.pathname === "/bookmarked" ? "[&>*]:fill-white":""}><Bookmarked className="booked" /></Link>
+    {/**/}
+    <Link to="Form">FORM</Link>
     </div>
     <a href="#my_modal_8"><img className="pic" src={avatar} alt="avatar" /></a>
     <div className="modal bg-dark" role="dialog" id="my_modal_8">
