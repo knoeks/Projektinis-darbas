@@ -134,7 +134,7 @@ const LoginForm = ({ setRole }) => {
   {errors.email && (
     <span
       className={`login--error ${
-        email.length > 30
+        email.length > 17
           ? "absolute bottom-[-5px] right-[6px] text-right"
           : "absolute top-3 right-2"
       }`}
@@ -164,7 +164,7 @@ const LoginForm = ({ setRole }) => {
   {errors.password && (
     <span
       className={`login--error ${
-        password.length > 30
+        password.length > 19
           ? "absolute bottom-[-4px] right-[8px] text-right"
           : "absolute top-3 right-2"
       }`}

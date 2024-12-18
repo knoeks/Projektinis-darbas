@@ -23,8 +23,7 @@ const SignUp = () => {
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const isValidEmail = (email) =>
-    /^[^\s@]+@[^\s@]+\.(com|org|net|edu|gov|io|info)$/i.test(email);
+  const isValidEmail = (email) => /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/i.test(email);
   const isValidPassword = (password) =>
     /^(?!.*\s)(?=.*[A-Z])(?=.*\d).{6,18}$/.test(password);
 
@@ -156,11 +155,8 @@ const SignUp = () => {
           />
           {errors.password && (
             <span
-              className={`signup--error ${
-                formData.password.length > 10
-                  ? "translate-y-[1.5rem] absolute bottom-[-6px] right-[6px]"
-                  : "absolute top-3 right-2"
-              }`}
+              className="signup--error
+                translate-y-[1.5rem] absolute bottom-[-6px] right-[6px]"
             >
               {formData.password.length === 0
                 ? "Can't be empty"
@@ -186,7 +182,7 @@ const SignUp = () => {
           {errors.repeatPassword && (
             <span
               className={`signup--error text-[0.85rem] leading-[1.5rem] text-red-500 ${
-                formData.repeatPassword.length > 23
+                formData.repeatPassword.length > 13
                   ? "translate-y-[1.5rem] absolute bottom-[-4px] right-[4px]"
                   : "absolute top-2 right-2"
               }`}
