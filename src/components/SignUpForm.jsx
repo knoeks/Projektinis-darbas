@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -29,44 +28,42 @@ const SignUp = () => {
   const isValidPassword = (password) =>
     /^(?=.*[A-Z])(?=.*\d).{6,18}$/.test(password);
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
-  
+
     const email = formData.email.trim().toLowerCase();
     const { password, repeatPassword } = formData;
-  
+
     if (!email) newErrors.email = "Can't be empty";
     else if (!isValidEmail(email)) newErrors.email = "Invalid email format";
-  
+
     if (!password) newErrors.password = "Can't be empty";
     else if (!isValidPassword(password))
       newErrors.password = "Capital letter, number, 6 characters";
-  
+
     if (password !== repeatPassword)
       newErrors.repeatPassword = "Passwords do not match";
-  
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-  
+
     try {
       console.log("Submitting form...");
-  
+
       const response = await axios.get("http://localhost:5001/users");
       const users = response.data;
       const userExists = users.some((user) => user.email === email);
-  
+
       if (userExists) {
         setErrors({ email: "Email is already registered" });
         return;
       }
-  
-      await axios.post("http://localhost:5001/users", { email, password});
-  
-      
+
+      await axios.post("http://localhost:5001/users", { email, password });
+
       toast.success("Your account is created successfully!", {
         position: "top-center",
         autoClose: 10000,
@@ -78,12 +75,10 @@ const SignUp = () => {
         closeOnClick: true,
         pauseOnHover: false,
         draggable: false,
-        
       });
       setTimeout(() => {
         navigate("/login");
       }, 3000);
-
     } catch (err) {
       console.error("Error signing up:", err);
       setErrors({ general: "Error signing up. Please try again later." });
@@ -91,7 +86,7 @@ const SignUp = () => {
   };
   return (
     <div className="signup--main--container">
-      <ToastContainer/>
+      <ToastContainer />
       <div className="signup--icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -112,100 +107,100 @@ const SignUp = () => {
         noValidate
         className="signup--form--container"
       >
-     <h2 className="signup--heading--text text-[1.75rem] mt-[-0.5rem]">Sign Up</h2>
+        <h2 className="signup--heading--text text-[1.75rem]">
+          Sign Up
+        </h2>
 
-     <div>
-     <div className="relative">
-  <input
-    autoComplete="off"
-    type="email"
-    name="email"
-    value={formData.email}
-    onChange={handleChange}
-    className={`signup--input ${
-      errors.email ? "border-red" : "border-accent"
-    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
-    placeholder="Email Address"
-  />
-  {errors.email && (
-    <span
-      className={`text-red text-sm whitespace-nowrap flex-shrink-0 ${
-        formData.email.length > 24
-          ? "absolute bottom-[-6px] right-[6px] text-right"
-          : "absolute top-3 right-2"
-      }`}
-    >
-      {errors.email}
-    </span>
-  )}
-</div>
-</div>
+        <div>
+          <div className="relative mb-[0.5rem]">
+            <input
+              autoComplete="off"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={`signup--input ${
+                errors.email ? "border-red" : "border-accent"
+              } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
+              placeholder="Email Address"
+            />
+            {errors.email && (
+              <span
+                className={`text-red text-sm whitespace-nowrap flex-shrink-0 ${
+                  formData.email.length > 17
+                    ? "absolute bottom-[-6px] right-[6px] text-right"
+                    : "absolute top-3 right-2"
+                }`}
+              >
+                {errors.email}
+              </span>
+            )}
+          </div>
+        </div>
 
-<div className="relative">
-  <input
-    type="password"
-    name="password"
-    value={formData.password}
-    maxLength={50}
-    onChange={handleChange}
-    className={`signup--input ${
-      errors.password ? "border-red" : "border-accent"
-    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
-    placeholder="Password"
-  />
-{errors.password && (
-  <span
-    className={`signup--error ${
-      formData.password.length > 17
-        ? "translate-y-[1.5rem] absolute bottom-[-6px] right-[6px]"
-        : "absolute top-3 right-2"
-    }`}
-  >
-    {formData.password.length === 0
-      ? "Can't be empty"
-      : formData.password.length < 6
-      ? "Password must be at least 6 characters"
-      : errors.password}
-  </span>
-)}
- </div>
+        <div className="relative mb-[0.5rem] ">
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            maxLength={50}
+            onChange={handleChange}
+            className={`signup--input ${
+              errors.password ? "border-red" : "border-accent"
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
+            placeholder="Password"
+          />
+          {errors.password && (
+            <span
+              className={`signup--error ${
+                formData.password.length > 10
+                  ? "translate-y-[1.5rem] absolute bottom-[-6px] right-[6px]"
+                  : "absolute top-3 right-2"
+              }`}
+            >
+              {formData.password.length === 0
+                ? "Can't be empty"
+                : formData.password.length < 6
+                ? "Password must be at least 6 characters"
+                : errors.password}
+            </span>
+          )}
+        </div>
 
- <div className="relative">
-  <input
-    type="password"
-    name="repeatPassword"
-    value={formData.repeatPassword}
-    maxLength={50}
-    onChange={handleChange}
-    className={`signup--input ${
-      errors.repeatPassword ? "border-red" : "border-accent"
-    } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
-    placeholder="Repeat Password"
-  />
-  {errors.repeatPassword && (
-    <span
-      className={`signup--error text-[0.85rem] leading-[1.5rem] text-red-500 ${
-        formData.repeatPassword.length > 30
-          ? "translate-y-[1.5rem] absolute bottom-[-4px] right-[4px]"
-          : "absolute top-2 right-2"
-      }`}
-    >
-      {formData.repeatPassword.length === 0
-        ? "Can't be empty"
-        : formData.repeatPassword.length < 6
-        ? "Password must be at least 6 characters"
-        : errors.repeatPassword}
-    </span>
-  )}
-</div>
+        <div className="relative mb-[0.5rem]">
+          <input
+            type="password"
+            name="repeatPassword"
+            value={formData.repeatPassword}
+            maxLength={50}
+            onChange={handleChange}
+            className={`signup--input ${
+              errors.repeatPassword ? "border-red" : "border-accent"
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
+            placeholder="Repeat Password"
+          />
+          {errors.repeatPassword && (
+            <span
+              className={`signup--error text-[0.85rem] leading-[1.5rem] text-red-500 ${
+                formData.repeatPassword.length > 23
+                  ? "translate-y-[1.5rem] absolute bottom-[-4px] right-[4px]"
+                  : "absolute top-2 right-2"
+              }`}
+            >
+              {formData.repeatPassword.length === 0
+                ? "Can't be empty"
+                : formData.repeatPassword.length < 6
+                ? "Password must be at least 6 characters"
+                : errors.repeatPassword}
+            </span>
+          )}
+        </div>
 
-
-
-        <button type="submit" className="signup--button">
+        <button type="submit" className="login--button">
           Create an account
         </button>
 
-        <p className="text-center text-white text-[0.90rem] font-light mt-[0.75rem] mb-[0rem] font-outfit">
+        <p className="text-center text-white text-[0.90rem] font-light mt-[0.5rem] mb-[0rem] font-outfit">
           Already have an account?{" "}
           <a
             href="/login"
