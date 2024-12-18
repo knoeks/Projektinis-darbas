@@ -1,5 +1,6 @@
 import { useLocation, useOutletContext } from "react-router";
 import Film from "./Film";
+import { v4 as uuidv4 } from 'uuid';
 
 function FilmList({ category }) {
   const location = useLocation();
@@ -60,7 +61,7 @@ function FilmList({ category }) {
       </div>
       <div className="films-row">
         {newFilteredFilms.map((film) => {
-          return <Film key={film.id} film={film}/>
+          return <Film key={uuidv4()} film={film}/>
         })}
       </div>
     </div>

@@ -1,11 +1,12 @@
 import oval from "../assets/oval.svg";
 import Bookmark from "./Bookmark";
 import Category from "./Category";
+import ControlPanel from "./ControlPanel";
 import DeleteButton from "./DeleteButton";
 import PlayButton from "./PlayButton";
 
 function Film({ film }) {
-  const { title, year, category, rating, thumbnail,id } = film;
+  const { title, year, category, rating, thumbnail } = film;
 
   let str = "";
 
@@ -18,17 +19,15 @@ function Film({ film }) {
   return (
     <div className="film-card">
       <div className="film-container">
-        <Bookmark film={film}/>
-        { location.pathname === "/admin"
-                  ? <DeleteButton film={film}/>
-                  : "" }
+        <Bookmark film={film} />
+        {location.pathname === "/admin" && <ControlPanel film={film}/>}
         <img className="film-thumbnail" src={str} alt={title} />
-        <PlayButton/>
+        <PlayButton />
       </div>
       <div className="card-description-top">
         <p>{year}</p>
         <img className="block" src={oval} alt="oval separator" />
-        <Category category={category}/>
+        <Category category={category} />
         <img className="block" src={oval} alt="oval separator" />
         <p>{rating}</p>
       </div>
