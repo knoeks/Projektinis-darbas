@@ -14,7 +14,7 @@ function AdminPage() {
         <div className="overflow-auto">
           <div className="trending-full flex items-center">
             <h1 className="trending--heading--text mr-8 py-6 md:pt-[2.06rem] xl:pt-[2.13rem] xl:pb-[2.38rem]">
-              Edit | Delete films
+              Create | Edit | Delete
             </h1>
 
             <CreateButton /> 

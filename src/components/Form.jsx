@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { post } from "../helpers/post";
 import { updateOne } from "../helpers/update";
 import { useOutletContext } from "react-router";
+import { v4 as uuidv4 } from 'uuid';
 
 function Form({ film }) {
   const {allFilms, setAllFilms} = useOutletContext();
@@ -58,6 +59,7 @@ function Form({ film }) {
       
       const formattedData = {
         ...data,
+        id: uuidv4(),
         isTrending: data.isTrending === "true",
         thumbnail: {
           regular: { large: data.thumbnail },
