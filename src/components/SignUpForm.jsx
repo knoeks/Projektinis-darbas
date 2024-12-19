@@ -155,8 +155,11 @@ const SignUp = () => {
           />
           {errors.password && (
             <span
-              className="signup--error
-                translate-y-[1.5rem] absolute bottom-[-6px] right-[6px]"
+              className={`text-red text-sm whitespace-nowrap flex-shrink-0 ${
+                formData.password.length > 10
+                  ? "absolute bottom-[-6px] right-[6px] text-right"
+                  : "absolute top-3 right-2"
+              }`}
             >
               {formData.password.length === 0
                 ? "Can't be empty"
@@ -174,7 +177,7 @@ const SignUp = () => {
             value={formData.repeatPassword}
             maxLength={40}
             onChange={handleChange}
-            className={`signup--input text-body-m${ 
+            className={`signup--input text-body-m${
               errors.repeatPassword ? "border-red" : "border-accent"
             } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50 placeholder:text-white`}
             placeholder="Repeat Password"
