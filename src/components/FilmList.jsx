@@ -1,8 +1,11 @@
 import { useLocation, useOutletContext } from "react-router";
 import Film from "./Film";
-import { v4 as uuidv4 } from "uuid";
+import { useState } from "react";
+import { ThemeContext } from "../helpers/themeContext";
 
 function FilmList({ category }) {
+  const [deleteModalID, setDeleteModalID] = useState("");
+  const [editModalID, setEditModalID] = useState("");
   const location = useLocation();
   const { filteredFilms, searchResults } = useOutletContext();
 
@@ -13,18 +16,20 @@ function FilmList({ category }) {
       newFilteredFilms = filteredFilms.filter((film) =>
         location.search ? true : !film.isTrending
       );
-
       break;
+
     case "/movies":
       newFilteredFilms = filteredFilms.filter((film) =>
         category ? film.category === category : true
       );
       break;
+
     case "/series":
       newFilteredFilms = filteredFilms.filter((film) =>
         category ? film.category === category : true
       );
       break;
+
     case "/bookmarked":
       newFilteredFilms = filteredFilms.filter((film) => {
         if (film.isBookmarked && !location.search) {
@@ -34,17 +39,19 @@ function FilmList({ category }) {
         }
       });
       break;
+
     default:
+      newFilteredFilms = filteredFilms;
       break;
   }
 
   return (
     <div>
-      <div>
+      <div >
         {searchResults === "" ? (
           ""
         ) : newFilteredFilms.length === 0 ? (
-          <h2 className="search-results">
+          <h2 className="search-results ">
             Found no results for {"'" + searchResults + "'"}
           </h2>
         ) : (
@@ -55,11 +62,16 @@ function FilmList({ category }) {
           </h2>
         )}
       </div>
-      <div className="films-row">
-        {newFilteredFilms.map((film) => {
-          return <Film key={uuidv4()} film={film} />;
-        })}
-      </div>
+
+      <ThemeContext.Provider
+        value={{ deleteModalID, setDeleteModalID, editModalID, setEditModalID }}
+      >
+        <div className="films-row">
+          {newFilteredFilms.map((film) => {
+            return <Film key={film.id || film.someUniqueValue} film={film} />;
+          })}
+        </div>
+      </ThemeContext.Provider>
     </div>
   );
 }

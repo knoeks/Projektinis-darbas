@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
-const LoginForm = () => {
+const LoginForm = ({ setRole }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
+  const allowedRoles = ["user", "admin"];
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -30,14 +33,15 @@ const LoginForm = () => {
     }
 
     // Password validation
+    const isValidPassword = (password) => {
+      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,50}$/;
+      return passwordRegex.test(password);
+    };
+
     if (!password) {
       newErrors.password = "Can't be empty";
       isValid = false;
-    } else if (
-      password.length < 8 ||
-      !/[A-Z]/.test(password) ||
-      !/[0-9]/.test(password)
-    ) {
+    } else if (!isValidPassword(password)) {
       newErrors.password = "Invalid password";
       isValid = false;
     }
@@ -48,31 +52,44 @@ const LoginForm = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5001/users", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      });
+      // Fetching users with axios
+      const response = await axios.get("http://localhost:5001/users");
 
-      const users = await response.json();
+      const users = response.data;
+
+      // Check if the email exists
       const user = users.find(
         (u) => u.email.toLowerCase() === email.toLowerCase()
       );
 
       if (!user) {
         setErrors({ email: "This email is not registered" });
-      } else if (user.password !== password) {
-        setErrors({ password: "Invalid password" });
-      } else {
-        // Redirect to dashboard upon successful login
-        navigate("/home");
+        return;
       }
+
+      // Check if the password matches
+      if (user.password !== password) {
+        setErrors({ password: "Invalid password" });
+        return;
+      }
+
+      // Redirect based on user role
+      if (allowedRoles.includes(user.role)) {
+        setRole(user.role);
+        sessionStorage.setItem("currentRole", JSON.stringify(user.role));
+        navigate("/home");
+      } else {
+        console.warn("Unrecognized role:", user.role);
+      }
+
     } catch (err) {
+      console.error("Error during login:", err);
       setErrors({ general: "An error occurred. Please try again later." });
     }
   };
 
   return (
-    <div className="login--main--container">
+    <div className="signup--main--container">
       <div className="signup--icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -91,50 +108,78 @@ const LoginForm = () => {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="login--form--container"
+        className="signup--form--container"
       >
-        <h2 className="signup--heading--text">Login</h2>
+        <h2 className="signup--heading--text text-white text-[1.75rem]">
+          Login
+        </h2>
 
-        <div className="relative">
+        <div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
           <input
             autoComplete="off"
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
-            className={`login--input ${
+            className={`signup--input text-body-m ${
               errors.email ? "border-red" : "border-accent"
-            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-50 placeholder:text-white`}
             placeholder="Email Address"
           />
           {errors.email && (
-            <span className="signup--error">{errors.email}</span>
+            <span
+              className={`login--error ${
+                email.length > 17
+                  ? "absolute bottom-[-5px] right-[6px] text-right"
+                  : "absolute top-3 right-2"
+              }`}
+            >
+              {errors.email}
+            </span>
           )}
         </div>
 
-        <div className="relative">
+        <div className="relative block text-accent font-light text-[0.875rem] mb-[0.5rem]">
           <input
             type="password"
             name="password"
             value={password}
-            onChange={handleChange}
-            className={`login--input mb-[2.5rem] ${
+            onChange={(e) => {
+              const { value } = e.target;
+              if (value.length <= 60) {
+                handleChange(e);
+              }
+            }}
+            className={`signup--input text-body-m ${
               errors.password ? "border-red" : "border-accent"
-            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50`}
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:opacity-50 placeholder:text-white`}
             placeholder="Password"
           />
           {errors.password && (
-            <span className="signup--error">{errors.password}</span>
+            <span
+              className={`login--error ${
+                password.length > 19
+                  ? "absolute bottom-[-4px] right-[8px] text-right"
+                  : "absolute top-3 right-2"
+              }`}
+            >
+              {password.length === 0
+                ? "Can't be empty"
+                : password.length < 6
+                ? " Invalid password"
+                : password.length > 40
+                ? "Invalid password"
+                : errors.password}
+            </span>
           )}
         </div>
 
-        <button type="submit" className="signup--button">
+        <button type="submit" className="login--button">
           Login to your account
         </button>
-
-        <p className="text-center text-white body-m font-outfit">
-          Don’t have an account?{" "}
-          <a href="/" className="text-red body-m hover:underline font-outfit">
+        <p className="signup--login-text text-center text-white text-sm mt-[0.5rem] font-light">
+          Don’t have an account?
+          <a href="/" className="signup--link">
             Sign Up
           </a>
         </p>
