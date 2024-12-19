@@ -16,7 +16,7 @@ const Trending = () => {
 
   return (
     <section>
-      <h1 className="trending--heading--text flex-row py-6 md:pt-[2.06rem] xl:pt-[2.13rem] xl:pb-[2.38rem]">
+      <h1 className="trending--heading--text flex-row pt-6 md:pt-[2.06rem] xl:pt-[2.13rem] pb-4 md:pb-[1.56rem]">
         Trending
       </h1>
       <div>
