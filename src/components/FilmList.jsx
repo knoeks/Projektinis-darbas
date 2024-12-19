@@ -47,11 +47,11 @@ function FilmList({ category }) {
 
   return (
     <div>
-      <div>
+      <div >
         {searchResults === "" ? (
           ""
         ) : newFilteredFilms.length === 0 ? (
-          <h2 className="search-results">
+          <h2 className="search-results ">
             Found no results for {"'" + searchResults + "'"}
           </h2>
         ) : (

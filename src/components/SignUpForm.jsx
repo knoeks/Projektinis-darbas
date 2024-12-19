@@ -122,9 +122,9 @@ const SignUp = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`signup--input ${
+              className={`signup--input text-body-m ${
                 errors.email ? "border-red" : "border-accent"
-              } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
+              } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50 placeholder:text-white`}
               placeholder="Email Address"
             />
             {errors.email && (
@@ -148,9 +148,9 @@ const SignUp = () => {
             value={formData.password}
             maxLength={40}
             onChange={handleChange}
-            className={`signup--input ${
+            className={`signup--input text-body-m ${
               errors.password ? "border-red" : "border-accent"
-            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50 placeholder:text-white`}
             placeholder="Password"
           />
           {errors.password && (
@@ -174,9 +174,9 @@ const SignUp = () => {
             value={formData.repeatPassword}
             maxLength={40}
             onChange={handleChange}
-            className={`signup--input ${
+            className={`signup--input text-body-m${ 
               errors.repeatPassword ? "border-red" : "border-accent"
-            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-90`}
+            } placeholder:pl-[1rem] placeholder:pb-[1.06rem] placeholder:body-m placeholder:opacity-50 placeholder:text-white`}
             placeholder="Repeat Password"
           />
           {errors.repeatPassword && (

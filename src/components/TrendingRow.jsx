@@ -25,7 +25,7 @@ const TrendingRow = ({ trending }) => {
   }
 
   return (
-    <div className="inline-block trending--main--container">
+    <div className="inline-block trending--main--container ">
       <div className="">
         <div className="trending--thumbnail">
           <Bookmark film={{ ...trending, isBookmarked }} />
