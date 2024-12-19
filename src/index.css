@@ -123,7 +123,7 @@
       @apply border-b border-white bg-transparent;
     }
     option {
-      @apply text-white bg-dark
+      @apply text-white bg-dark;
     }
   }
   .signup--button {
@@ -241,59 +241,59 @@
   .trending--heading--text {
     @apply text-heading-l tracking-[-0.03125rem] md:tracking-[-0.0195rem] pb-[1.56rem] text-white text-[1.25rem] md:text-[2rem] font-[400];
   }
-}
 
-.trending-full {
-  @apply box-border;
-}
+  .trending-full {
+    @apply box-border;
+  }
 
-.trending-full .trending--absolute {
-  @apply bottom-4 left-4 md:bottom-0 md:left-0;
-}
+  .trending-full .trending--absolute {
+    @apply bottom-4 left-4 md:bottom-0 md:left-0;
+  }
 
-.trending--main--container {
-  @apply max-w-[100vw] max-h-[18.4rem] bg-[#10141e] flex relative;
-}
+  .trending--main--container {
+    @apply max-w-[100vw] max-h-[18.4rem] bg-[#10141e] flex relative;
+  }
 
-.trending--thumbnail {
-  @apply w-[15rem] h-[8.75rem] md:w-[29.375rem] md:h-[14.375rem];
-}
+  .trending--thumbnail {
+    @apply w-[15rem] h-[8.75rem] md:w-[29.375rem] md:h-[14.375rem];
+  }
 
-.trending--text--image {
-  @apply flex items-center gap-[0.56rem] text-body-m text-[0.75rem] md:text-[0.9375rem]  opacity-75 leading-normal font-light;
-}
+  .trending--text--image {
+    @apply flex items-center gap-[0.56rem] text-body-m text-[0.75rem] md:text-[0.9375rem]  opacity-75 leading-normal font-light;
+  }
 
-.trending--absolute {
-  @apply absolute bottom-[1rem] left-[1rem] md:bottom-[1.5rem] md:left-[1.5rem] z-10;
-}
+  .trending--absolute {
+    @apply absolute bottom-[1rem] left-[1rem] md:bottom-[1.5rem] md:left-[1.5rem] z-10;
+  }
 
-.trending--title--image {
-  @apply text-heading-s text-[0.9375rem] md:text-[1.5rem] text-white;
-}
+  .trending--title--image {
+    @apply text-heading-s text-[0.9375rem] md:text-[1.5rem] text-white;
+  }
 
-.carousel {
-  @apply flex overflow-x-auto scroll-smooth cursor-grab gap-4 md:gap-10;
-}
+  .carousel {
+    @apply flex overflow-x-auto scroll-smooth cursor-grab gap-4 md:gap-10;
+  }
 
-.carousel-item {
-  @apply flex-shrink-0;
-}
+  .carousel-item {
+    @apply flex-shrink-0;
+  }
 
-.carousel-item img {
-  @apply block w-full;
-}
+  .carousel-item img {
+    @apply block w-full;
+  }
 
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-.trending--image-container {
-  @apply relative w-full h-full overflow-hidden rounded-lg;
-}
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .trending--image-container {
+    @apply relative w-full h-full overflow-hidden rounded-lg;
+  }
 
-.trending--image {
-  @apply object-cover w-full h-full;
-}
+  .trending--image {
+    @apply object-cover w-full h-full;
+  }
 
-.trending--image-gradient {
-  @apply absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 via-transparent to-transparent;
+  .trending--image-gradient {
+    @apply absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 via-transparent to-transparent;
+  }
 }

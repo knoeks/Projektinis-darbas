@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Edit from "../assets/icon-edit.svg?react";
 //import { useState } from "react";
 import Form from "./Form";
-function EditButton({ film, setModalID, modalID }) {
+import { ThemeContext } from "../helpers/themeContext";
+
+function EditButton({ film }) {
+  const { editModalID, setEditModalID } = useContext(ThemeContext);
+  console.log(editModalID);
   
   return (
     <>
@@ -10,14 +14,14 @@ function EditButton({ film, setModalID, modalID }) {
         <button
           className="edit-icon"
           onClick={() => {
-            setModalID(film.id);
+            setEditModalID(film.id);
           }}
         >
           <Edit />
         </button>
       </div>
 
-      {modalID == film.id && (
+      {editModalID == film.id && (
         <dialog open className="modal">
           <div className="modal-box bg-dark text-center">
             <Form film={film} />
@@ -25,7 +29,7 @@ function EditButton({ film, setModalID, modalID }) {
               <button
                 className="btn bg-[#5A698F] w-32"
                 onClick={() => {
-                  setModalID("");
+                  SetEditModalID("");
                 }}
               >
                 Close

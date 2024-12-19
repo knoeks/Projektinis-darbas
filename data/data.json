@@ -21,26 +21,6 @@
       "id": "822b"
     },
     {
-      "title": "Bottom Gear",
-      "thumbnail": {
-        "trending": {
-          "small": "./assets/thumbnails/bottom-gear/trending/small.jpg",
-          "large": "./assets/thumbnails/bottom-gear/trending/large.jpg"
-        },
-        "regular": {
-          "small": "./assets/thumbnails/bottom-gear/regular/small.jpg",
-          "medium": "./assets/thumbnails/bottom-gear/regular/medium.jpg",
-          "large": "./assets/thumbnails/bottom-gear/regular/large.jpg"
-        }
-      },
-      "year": 2021,
-      "category": "Movie",
-      "rating": "PG",
-      "isBookmarked": true,
-      "isTrending": true,
-      "id": "b796"
-    },
-    {
       "title": "Undiscovered Cities",
       "thumbnail": {
         "trending": {
@@ -481,20 +461,6 @@
       "isBookmarked": false,
       "isTrending": false,
       "id": "84fa"
-    },
-    {
-      "id": "f2a1",
-      "title": "DzinDzin",
-      "thumbnail": {
-        "regular": {
-          "large": "https://fastly.picsum.photos/id/1/560/348.jpg?hmac=OsNWKzvElgkCn7NrLzbfrjgwiGb-7Iu53nFyK81CNkQ"
-        }
-      },
-      "year": "1998",
-      "category": "Movie",
-      "rating": "PG",
-      "isTrending": false,
-      "isBookmarked": false
     }
   ],
   "users": [

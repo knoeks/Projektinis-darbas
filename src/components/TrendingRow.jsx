@@ -17,37 +17,35 @@ const TrendingRow = ({ trending }) => {
     </svg>
   );
 
-
   let str = "";
-    if (thumbnail.regular.large.startsWith("https")) { 
-      str = thumbnail.regular.large;
-    } else {
-      str = "src/" + thumbnail.regular.large.slice(2);
-    }
-    
+  if (thumbnail.regular.large.startsWith("https")) {
+    str = thumbnail.regular.large;
+  } else {
+    str = "src/" + thumbnail.regular.large.slice(2);
+  }
 
   return (
     <div className="inline-block trending--main--container">
       <div className="">
         <div className="trending--thumbnail">
           <Bookmark film={{ ...trending, isBookmarked }} />
-            <div className="trending--image-container">
-              <img
-                className="trending--image rounded-[0.5rem]"
-                src={str}
-                alt={title}
-              />
-              <div className="trending--image-gradient"></div>
-            </div>
+          <div className="trending--image-container">
+            <img
+              className="trending--image rounded-[0.5rem]"
+              src={str}
+              alt={title}
+            />
+            <div className="trending--image-gradient"></div>
+          </div>
           <PlayButton />
         </div>
         <div className="trending--absolute">
           <div className="trending--text--image text-white">
-            {year} {oval}{" "}
+            {year} {oval}
             <span className="flex">
               <Category film={trending} />
               {category}
-            </span>{" "}
+            </span>
             {oval} {rating}
           </div>
           <h3 className="trending--title--image">{title}</h3>

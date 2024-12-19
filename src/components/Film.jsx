@@ -7,7 +7,7 @@ import PlayButton from "./PlayButton";
 //import EditButton from "./EditButton";
 import ControlPanel from "./ControlPanel";
 
-function Film({ film, setModalID, modalID}) {
+function Film({ film }) {
   const { title, year, category, rating, thumbnail } = film;
   const location = useLocation();
 
@@ -25,7 +25,7 @@ function Film({ film, setModalID, modalID}) {
         <Bookmark film={film} />
         {location.pathname === "/admin" ? (
           <>
-            <ControlPanel film={film} setModalID={setModalID} modalID={modalID}/>
+            <ControlPanel film={film}/>
           </>
         ) : (
           ""

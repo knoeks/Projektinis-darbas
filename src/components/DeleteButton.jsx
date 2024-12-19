@@ -1,30 +1,25 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { useOutletContext } from "react-router";
 import { deleteOne } from "../helpers/delete";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Delete from "../assets/icon-delete.svg?react";
+import { ThemeContext } from "../helpers/themeContext";
 
 function DeleteButton({ film }) {
   const { setAllFilms } = useOutletContext();
   const { id } = film; 
 
-  const [filmToDelete, setFilmToDelete] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleModal = (state) => {
-    setFilmToDelete(id);
-    setIsModalOpen(state);
-  };
+  const { deleteModalID, setDeleteModalID } = useContext(ThemeContext);
 
   const handleDelete = async () => {
-    if (!filmToDelete) {
+    if (!deleteModalID) {
       return;
     }
 
     try {
-      await deleteOne(filmToDelete);
-      setAllFilms((prevFilms) => prevFilms.filter((film) => film.id !== filmToDelete));
+      await deleteOne(deleteModalID);
+      setAllFilms((prevFilms) => prevFilms.filter((film) => film.id !== deleteModalID));
       toast.success("Film deleted successfully!", {
         position: "top-center",
         autoClose: 3000,
@@ -46,18 +41,15 @@ function DeleteButton({ film }) {
       });
     }
   };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <>
       <div className="delete-button">
-        <button className="delete-icon" onClick={() => handleModal(true)} aria-label="Delete film">
+        <button className="delete-icon" onClick={() => setDeleteModalID(id)} aria-label="Delete film">
           <Delete />
         </button>
       </div>
-      {isModalOpen && (
+      {deleteModalID == film.id && (
         <dialog open className="modal">
           <div className="modal-box bg-dark text-center">
             <h3 className="text-white font-outfit text-heading-m">Delete</h3>
@@ -68,7 +60,7 @@ function DeleteButton({ film }) {
               <button className="btn bg-red w-32" onClick={handleDelete}>
                 Delete
               </button>
-              <button className="btn bg-[#5A698F] w-32" onClick={() => handleModal(false)}>
+              <button className="btn bg-[#5A698F] w-32" onClick={() => setDeleteModalID("")}>
                 Close
               </button>
             </div>

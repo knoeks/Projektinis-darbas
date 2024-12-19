@@ -9,7 +9,7 @@ function CreateButton() {
           className="create-icon"
           onClick={() => document.getElementById("my_modal_4").showModal()}
         >
-                      <h2 className="text-heading-s">Create</h2>
+          <h2 className="text-heading-s">Create</h2>
           <Edit />
         </button>
       </div>
