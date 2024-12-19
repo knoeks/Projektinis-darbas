@@ -108,7 +108,7 @@ function Form({ film }) {
               required: "This field is required",
               maxLength: 60,
               pattern: {
-                value: /^(?! ).*[\x20-\x7E](?<! )$/,
+                value: /^(?!\s)(?!.*\s$)[\p{L}\p{N}\s\p{P}]+$/u,
                 message: "Remove whitespaces at the start or the end",
               },
             })}

@@ -43,8 +43,7 @@ const TrendingRow = ({ trending }) => {
           <div className="trending--text--image text-white">
             {year} {oval}
             <span className="flex">
-              <Category film={trending} />
-              {category}
+              <Category category={category} />
             </span>
             {oval} {rating}
           </div>
