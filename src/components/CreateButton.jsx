@@ -1,11 +1,11 @@
 import Edit from "../assets/icon-edit.svg?react";
-import { useState } from "react";
-function EditButton({ film }) {
+
+function CreateButton({ film }) {
   return (
     <>
-      <div className="edit-button">
+      <div className="create-button">
         <button
-          className="edit-icon"
+          className="create-icon"
           onClick={() => document.getElementById("my_modal_2").showModal()}
         >
           <Edit />
@@ -27,4 +27,4 @@ function EditButton({ film }) {
   );
 }
 
-export default EditButton;
+export default CreateButton;

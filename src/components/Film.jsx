@@ -25,9 +25,7 @@ function Film({ film }) {
         <Bookmark film={film} />
         {location.pathname === "/admin" ? (
           <>
-            <ControlPanel />
-            <DeleteButton film={film} />
-            <EditButton film={film} />{" "}
+            <ControlPanel film={film}/>
           </>
         ) : (
           ""

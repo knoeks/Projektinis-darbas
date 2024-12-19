@@ -79,6 +79,9 @@
   .delete-button{
     @apply absolute left-4 bottom-4  md:bottom-6 z-40;
   }
+  .create-button{
+    @apply md:bottom-6 z-40;
+  }
 
   .play-button-bg {
     @apply absolute w-full h-full top-0 bg-black bg-opacity-50 z-10 transition-opacity duration-200 rounded-lg;
@@ -198,6 +201,11 @@
   .edit-icon{
     @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-white;
   }
+
+  .create-icon{
+    @apply w-16 h-10 bg-dark z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-white;
+  }
+
   .film-container {
     @apply relative w-full;
   }
