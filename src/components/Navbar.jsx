@@ -13,7 +13,7 @@ const NavBar = ({role}) => {
 
 
   return (
-      <div className="md:px-8 md:pt-8 md:pb-2 xl:pr-0 box-border sticky xl:fixed top-0 left-0 z-50 w-full bg-light xl:h-full xl:w-fit">
+      <div className="md:px-8 md:pt-8 md:pb-2 xl:pr-0 xl:pb-[2.8125rem] box-border sticky xl:fixed top-0 left-0 z-50 w-full bg-light xl:h-full xl:w-fit">
         <div className="nav-container">
           <Logo className="logo" />
           <div className="nav-2nd-container">

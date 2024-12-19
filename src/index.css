@@ -3,10 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-
   body {
     @apply bg-light min-h-svh;
-
   }
 
   .input-field {
@@ -24,7 +22,7 @@
     caret-color: #fc4747;
   }
   .nav-container {
-    @apply grid grid-cols-3 w-full xl:pt-[2.21rem] xl:pb-[2rem] md:pl-[1.5rem] md:pr-[1.31rem] px-4 h-[3.5rem] bg-dark place-content-center md:rounded-[0.625rem] md:h-[4.5rem] xl:grid-cols-1 xl:w-24 xl:h-[92vh] xl:justify-items-center xl:grid-rows-[27px_1fr_32px] xl:gap-[4.69rem];
+    @apply grid grid-cols-3 w-full xl:pt-[2.21rem] xl:pb-[2rem] md:pl-[1.5rem] md:pr-[1.31rem] xl:px-0 px-4 h-[3.5rem] bg-dark place-content-center md:rounded-[0.625rem] md:h-[4.5rem] xl:grid-cols-1 xl:w-24 xl:h-full xl:justify-items-center xl:grid-rows-[27px_1fr_32px] xl:gap-[4.69rem];
   }
   .nav-2nd-container {
     @apply m-0 place-self-center flex flex-row w-[133.54px] md:w-[172.92px] justify-between xl:flex-col xl:h-[200px] xl:w-[2.25rem] xl:items-center xl:place-self-start xl:justify-self-center;
@@ -59,7 +57,7 @@
   }
 
   .card-description-top {
-    @apply flex gap-2 text-body-s opacity-75 pt-2 pb-1 md:pb-[0.3125rem];
+    @apply flex gap-2 text-body-s opacity-75 pt-2;
   }
 
   .card-description-bottom {
@@ -73,13 +71,13 @@
   .bookmark-button {
     @apply absolute right-2 top-2 md:right-4 md:top-4 z-40;
   }
-  .edit-button{
+  .edit-button {
     @apply absolute left-4 top-4 md:top-6 z-40;
   }
-  .delete-button{
+  .delete-button {
     @apply absolute left-4 bottom-4  md:bottom-6 z-40;
   }
-  .create-button{
+  .create-button {
     @apply md:bottom-6 z-40;
   }
 
@@ -113,7 +111,7 @@
     @apply w-[1.5rem] md:w-[2rem] h-[1.5rem] md:h-[2rem];
   }
   .search-container {
-    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center p-[1rem] pb-[10px] md:pb-[19px] xl:pb-[21px] pt-[1.5rem] md:p-8 xl:px-9;
+    @apply flex gap-[1rem] md:gap-[1.5rem] justify-items-center pb-[10px] md:pb-[19px] xl:pb-[21px] pt-[1.5rem];
   }
   .search-results {
     @apply text-white px-[1rem] md:px-[25px] xl:px-[2.25rem] text-specific_search-results md:text-heading-l;
@@ -184,7 +182,7 @@
     @apply text-center text-white text-sm leading-[1.25] mb-[0];
   }
   .signin--heading--text {
-    @apply  mt-[1.5rem] mb-[1.5rem] text-[1.5rem]  
+    @apply mt-[1.5rem] mb-[1.5rem] text-[1.5rem]  
        font-light text-left py-2;
   }
   @layer components {
@@ -195,14 +193,14 @@
 }
 
 @layer utilities {
-  .delete-icon{
+  .delete-icon {
     @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-white;
   }
-  .edit-icon{
+  .edit-icon {
     @apply w-8 h-8 bg-light z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-white;
   }
 
-  .create-icon{
+  .create-icon {
     @apply w-16 h-10 bg-dark z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-white;
   }
 
@@ -211,7 +209,7 @@
   }
 
   .dynamic-film-gap {
-    @apply gap-x-sm md:gap-x-md xl:gap-x-10 gap-y-4 md:gap-y-6 xl:gap-y-8;
+    @apply gap-x-sm md:gap-x-md xl:gap-x-10 gap-y-4 md:gap-y-6 xl:gap-y-[1.6875rem];
   }
 
   .circle-icon {
@@ -246,19 +244,7 @@
 .trending--main--container {
   @apply max-w-[100vw] max-h-[18.4rem] bg-[#10141e] flex relative;
 }
-.trending-full {
-  padding-left: 2.25rem;
-}
-.trending--heading--text {
-  font-family: Outfit;
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  letter-spacing: -0.03125rem;
-  padding-bottom: 1.56rem;
-  color: white;
-}
+
 .trending--thumbnail {
   @apply w-[15rem] h-[8.75rem] md:w-[29.375rem] md:h-[14.375rem];
 }
