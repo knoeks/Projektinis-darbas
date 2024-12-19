@@ -17,10 +17,14 @@ const TrendingRow = ({ trending }) => {
     </svg>
   );
 
-  const getThumbnailSrc = () => {
-    const thumbnailSrc = thumbnail.trending.large;
-    return `src/${thumbnailSrc.slice(2)}`;
-  };
+
+  let str = "";
+    if (thumbnail.regular.large.startsWith("https")) { 
+      str = thumbnail.regular.large;
+    } else {
+      str = "src/" + thumbnail.regular.large.slice(2);
+    }
+    
 
   return (
     <div className="inline-block trending--main--container">
@@ -30,7 +34,7 @@ const TrendingRow = ({ trending }) => {
             <div className="trending--image-container">
               <img
                 className="trending--image rounded-[0.5rem]"
-                src={getThumbnailSrc()}
+                src={str}
                 alt={title}
               />
               <div className="trending--image-gradient"></div>

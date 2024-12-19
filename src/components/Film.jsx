@@ -8,7 +8,7 @@ function Film({ film }) {
 
   let str = "";
 
-  if (thumbnail.regular.large.startsWith("data:image")) {
+  if (thumbnail.regular.large.startsWith("https")) { 
     str = thumbnail.regular.large;
   } else {
     str = "src/" + thumbnail.regular.large.slice(2);

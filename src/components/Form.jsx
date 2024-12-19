@@ -12,39 +12,20 @@ function Form({ title, setFormOpen }) {
     formState: { errors },
     reset,
     setValue,
+    watch,
   } = useForm({
     mode: "onBlur",
     reValidateMode: "onChange",
   });
 
-  const convertToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
-  };
-
-  // const handleFileChange = async (e) => {
-  //   const file = e.target.files[0];
-  //   if (!file) return;
-  //   try {
-  //     const base64 = await convertToBase64(file);
-  //     setValue(
-  //       "thumbnail",
-  //       { regular: { large: base64 }, trending: { large: base64 } },
-  //       { shouldValidate: true }
-  //     );
-  //   } catch (error) {
-  //     console.error("Error converting file:", error);
-  //   }
-  // };
+  const isTrending = watch("isTrending");
+  const thumbnail = watch("thumbnail");
 
   useEffect(() => {
     if (title) {
-      const { title, year, category, rating, isTrending } = title;
+      const { title,thumbnail, year, category, rating, isTrending } = title;
       setValue("title", title);
+      setValue("thumbnail", thumbnail.regular.large)
       setValue("year", year);
       setValue("category", category);
       setValue("rating", rating);
@@ -52,24 +33,34 @@ function Form({ title, setFormOpen }) {
     }
   }, [title, setValue]);
 
+  useEffect(() => {
+    if (isTrending) {
+      if (!thumbnail?.trending?.large && thumbnail?.regular?.large) {
+        setValue("thumbnail", {
+          ...thumbnail,
+          trending: { large: thumbnail.regular?.large },
+        });
+      }
+    } else {
+      if (thumbnail?.trending) {
+      const { trending, ...updatedThumbnail } = thumbnail || {};
+      setValue("thumbnail", updatedThumbnail);
+      }
+    }
+  }, [isTrending, thumbnail, setValue]);
+
   const formSubmitHandler = async (data) => {
     try {
-      const file = data.thumbnail?.[0];
-      if (!file) {
-        setError("Thumbnail is required");
-        return;
-      }
-
-      const base64 = await convertToBase64(file);
-
       const formattedData = {
         ...data,
+        isTrending: data.isTrending === "true",
         thumbnail: {
-          regular: { large: base64 },
-          trending: { large: base64 },
+          regular: { large: data.thumbnail },
+          trending: data.isTrending === "true" ? { large: data.thumbnail } : undefined,
         },
         isBookmarked: false,
       };
+
       if (title) {
         await updateOne(title.id, formattedData);
         setFormOpen(false);
@@ -103,22 +94,27 @@ function Form({ title, setFormOpen }) {
           />
           <div className="text-red">{errors.title?.message}</div>
         </div>
-        {!title && (
-          <div className="p-3">
-            <label htmlFor="thumbnail">Thumbnail:</label>
-            <input
-              type="file"
-              accept="image/*"
-              id="thumbnail"
-              {...register("thumbnail", {
-                required: "Thumbnail is required",
-                validate: (fileList) =>
-                  (fileList && fileList.length > 0) || "Please select a file",
-              })}
-            />
-            <div className="text-red">{errors.thumbnail?.message}</div>
-          </div>
-        )}
+        <div className="p-3">
+          <label htmlFor="thumbnail">Thumbnail:</label>
+          <input
+            type="url"
+            id="thumbnail"
+            {...register("thumbnail", {
+              required: "Thumbnail URL is required",
+              maxLength: {
+                value: 300,
+                message: "URL is too long (maximum is 500 characters)",
+              },
+              pattern: {
+                value:
+                  /^(https?:\/\/[^\s/$.?#].[^\s]*)(\/[^.\s]*|\/.*\.(?:png|jpg|jpeg|gif|svg|webp|bmp))?$/i,
+                message:
+                  "Please enter a valid image URL or check your image file extension",
+              },
+            })}
+          />
+          <div className="text-red">{errors.thumbnail?.message}</div>
+        </div>
         <div className="p-3">
           <label htmlFor="year">Year:</label>
           <input
