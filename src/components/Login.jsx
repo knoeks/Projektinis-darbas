@@ -8,6 +8,8 @@ const LoginForm = ({ setRole }) => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
+  const allowedRoles = ["user", "admin"];
+
   const handleChange = (e) => {
     let { name, value } = e.target;
     if (name === "email") setEmail(value);
@@ -71,24 +73,15 @@ const LoginForm = ({ setRole }) => {
         return;
       }
 
-      // Fetching the role
-      console.log(`Logged in as ${user.role}`);
-
       // Redirect based on user role
-      switch (user.role) {
-        case "admin":
-          setRole(user.role);
-          navigate("/home");
-          break;
-
-        case "user":
-          setRole(user.role);
-          navigate("/home");
-          break;
-        default:
-          console.warn("Unrecognized role:", user.role);
-          break;
+      if (allowedRoles.includes(user.role)) {
+        // setRole(user.role);
+        sessionStorage.setItem("currentRole", JSON.stringify(user.role));
+        navigate("/home");
+      } else {
+        console.warn("Unrecognized role:", user.role);
       }
+
     } catch (err) {
       console.error("Error during login:", err);
       setErrors({ general: "An error occurred. Please try again later." });

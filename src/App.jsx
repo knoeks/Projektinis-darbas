@@ -18,7 +18,12 @@ function App() {
   const [error, setError] = useState("");
   const [allFilms, setAllFilms] = useState([]);
   const [filteredFilms, setFilteredFilms] = useState([]);
-  const [role, setRole] = useState("user");
+
+  const [role, setRole] = useState(() => {
+    const savedRole = sessionStorage.getItem('currentRole');
+    console.log(savedRole);
+    return JSON.parse(savedRole);
+  });
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get("search") || "";
   const [searchResults, setSearchResults] = useState(searchQuery);
