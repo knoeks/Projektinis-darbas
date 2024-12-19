@@ -201,7 +201,7 @@
   }
 
   .create-icon {
-    @apply w-16 h-10 bg-dark z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-white;
+    @apply w-fit px-2 gap-2 h-10 bg-dark text-white z-10 bg-opacity-75 rounded-full flex justify-center items-center hover:bg-white hover:text-dark;
   }
 
   .film-container {

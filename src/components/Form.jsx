@@ -78,7 +78,7 @@ function Form({ film }) {
       <form
         onSubmit={handleSubmit(formSubmitHandler)}
         noValidate
-        className="text-center p-3"
+        className="text-center p-3 text-black"
       >
         <div className="p-3">
           <label htmlFor="title">Title:</label>

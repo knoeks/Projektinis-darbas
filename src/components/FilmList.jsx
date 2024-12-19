@@ -1,8 +1,10 @@
 import { useLocation, useOutletContext } from "react-router";
 import Film from "./Film";
 import { v4 as uuidv4 } from 'uuid';
+import { useState } from "react";
 
 function FilmList({ category }) {
+  const [modalID, setModalID] = useState("");
   const location = useLocation();
   const { filteredFilms, searchResults } = useOutletContext();
 
@@ -61,7 +63,7 @@ function FilmList({ category }) {
       </div>
       <div className="films-row">
         {newFilteredFilms.map((film) => {
-          return <Film key={uuidv4()} film={film}/>
+          return <Film key={uuidv4()} film={film} setModalID={setModalID} modalID={modalID}/>
         })}
       </div>
     </div>
