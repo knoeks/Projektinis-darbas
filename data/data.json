@@ -440,8 +440,6 @@
       "title": "Darker",
       "thumbnail": {
         "regular": {
-          "small": "./assets/thumbnails/darker/regular/small.jpg",
-          "medium": "./assets/thumbnails/darker/regular/medium.jpg",
           "large": "./assets/thumbnails/darker/regular/large.jpg"
         }
       },
@@ -486,19 +484,16 @@
     },
     {
       "id": "f2a1",
-      "title": "Dzin",
+      "title": "DzinDzin",
       "thumbnail": {
         "regular": {
-          "large": "https://fastly.picsum.photos/id/1/560/348.jpg?hmac=OsNWKzvElgkCn7NrLzbfrjgwiGb-7Iu53nFyK81CNkQ"
-        },
-        "trending": {
           "large": "https://fastly.picsum.photos/id/1/560/348.jpg?hmac=OsNWKzvElgkCn7NrLzbfrjgwiGb-7Iu53nFyK81CNkQ"
         }
       },
       "year": "1998",
       "category": "Movie",
       "rating": "PG",
-      "isTrending": true,
+      "isTrending": false,
       "isBookmarked": false
     }
   ],

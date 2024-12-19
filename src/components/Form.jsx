@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { post } from "../helpers/post";
 import { updateOne } from "../helpers/update";
+import { useOutletContext } from "react-router";
 
 function Form({ film }) {
+  const {allFilms, setAllFilms} = useOutletContext();
   const [error, setError] = useState("");
 
   const {
@@ -53,6 +55,7 @@ function Form({ film }) {
 
   const formSubmitHandler = async (data) => {
     try {
+      
       const formattedData = {
         ...data,
         isTrending: data.isTrending === "true",
@@ -68,6 +71,7 @@ function Form({ film }) {
         await updateOne(film.id, formattedData);
       } else {
         await post(formattedData);
+        setAllFilms([...allFilms, formattedData])
       }
       reset();
     } catch (error) {
@@ -79,7 +83,7 @@ function Form({ film }) {
       <form
         onSubmit={handleSubmit(formSubmitHandler)}
         noValidate
-        className="text-center p-3 text-black"
+        className="text-center p-3"
       >
         <div className="p-3">
           <div className="flex flex-row justify-between pb-3 text-center">
@@ -101,7 +105,7 @@ function Form({ film }) {
             })}
           />
         </div>
-        <div className="p-3">
+         {!film && <div className="p-3">
           <div className="flex flex-row justify-between pb-3 text-center">
             <label htmlFor="thumbnail" className="text-heading-xs font-outfit">Thumbnail:</label>
             <div className="text-red text-heading-xs font-outfit">{errors.thumbnail?.message}</div>
@@ -125,7 +129,7 @@ function Form({ film }) {
               },
             })}
           />
-        </div>
+        </div>}
         <div className="p-3">
           <div className="flex flex-row justify-between pb-3 text-center">
             <label htmlFor="year" className="text-heading-xs font-outfit">Year:</label>
