@@ -3,8 +3,8 @@ import oval from "../assets/oval.svg";
 import Bookmark from "./Bookmark";
 import Category from "./Category";
 import PlayButton from "./PlayButton";
-import DeleteButton from "./DeleteButton";
-import EditButton from "./EditButton";
+//import DeleteButton from "./DeleteButton";
+//import EditButton from "./EditButton";
 import ControlPanel from "./ControlPanel";
 
 function Film({ film }) {

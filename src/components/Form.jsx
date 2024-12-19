@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { post } from "../helpers/post";
 import { updateOne } from "../helpers/update";
 
-function Form({ title, setFormOpen }) {
+function Form({ film }) {
   const [error, setError] = useState("");
 
   const {
@@ -22,8 +22,10 @@ function Form({ title, setFormOpen }) {
   const thumbnail = watch("thumbnail");
 
   useEffect(() => {
-    if (title) {
-      const { title,thumbnail, year, category, rating, isTrending } = title;
+    if (film) {
+      const { title,thumbnail, year, category, rating, isTrending } = film;
+      console.log(title);
+      
       setValue("title", title);
       setValue("thumbnail", thumbnail.regular.large)
       setValue("year", year);
@@ -31,7 +33,7 @@ function Form({ title, setFormOpen }) {
       setValue("rating", rating);
       setValue("isTrending", isTrending);
     }
-  }, [title, setValue]);
+  }, [film, setValue]);
 
   useEffect(() => {
     if (isTrending) {
@@ -61,9 +63,8 @@ function Form({ title, setFormOpen }) {
         isBookmarked: false,
       };
 
-      if (title) {
-        await updateOne(title.id, formattedData);
-        setFormOpen(false);
+      if (film) {
+        await updateOne(film.id, formattedData);
       } else {
         await post(formattedData);
       }
@@ -86,9 +87,10 @@ function Form({ title, setFormOpen }) {
             id="title"
             {...register("title", {
               required: "This field is required",
+              maxLength: 60,
               pattern: {
-                value: /^[a-zA-Z0-9/\-,.?=]+$/,
-                message: "Invalid symbol(s) in the field",
+                value: /^(?!\s)(?!.*\s$)[\x20-\x7E]*$/,
+                message: "Remove whitespaces at the start or the end",
               },
             })}
           />

@@ -485,20 +485,6 @@
       "id": "84fa"
     },
     {
-      "id": "95a4",
-      "title": "45678",
-      "thumbnail": {
-        "regular": {
-          "large": "https://fastly.picsum.photos/id/1/560/348.jpg?hmac=OsNWKzvElgkCn7NrLzbfrjgwiGb-7Iu53nFyK81CNkQ"
-        }
-      },
-      "year": "1999",
-      "category": "Movie",
-      "rating": "PG",
-      "isTrending": false,
-      "isBookmarked": false
-    },
-    {
       "id": "f2a1",
       "title": "Dzin",
       "thumbnail": {
