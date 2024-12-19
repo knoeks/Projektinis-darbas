@@ -118,6 +118,16 @@
   .search-results {
     @apply text-white px-[1rem] md:px-[25px] xl:px-[2.25rem] text-specific_search-results md:text-heading-l;
   }
+  .form-text-select {
+    @apply text-specific_search md:text-heading-m caret-red text-white pb-[14px] focus:outline-none bg-transparent w-full border-b border-transparent;
+
+    &:focus {
+      @apply border-b border-white bg-transparent;
+    }
+    option {
+      @apply text-white bg-dark
+    }
+  }
   .signup--button {
     @apply w-full h-[2.5rem] bg-red text-white rounded-[0.25rem] font-light text-[0.875rem] 
     tracking-[0.01em] mt-[1.2rem] mb-[0.5rem] hover:bg-white hover:text-black transition;

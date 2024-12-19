@@ -23,11 +23,11 @@ function Form({ film }) {
 
   useEffect(() => {
     if (film) {
-      const { title,thumbnail, year, category, rating, isTrending } = film;
+      const { title, thumbnail, year, category, rating, isTrending } = film;
       console.log(title);
-      
+
       setValue("title", title);
-      setValue("thumbnail", thumbnail.regular.large)
+      setValue("thumbnail", thumbnail.regular.large);
       setValue("year", year);
       setValue("category", category);
       setValue("rating", rating);
@@ -45,8 +45,8 @@ function Form({ film }) {
       }
     } else {
       if (thumbnail?.trending) {
-      const { trending, ...updatedThumbnail } = thumbnail || {};
-      setValue("thumbnail", updatedThumbnail);
+        const { trending, ...updatedThumbnail } = thumbnail || {};
+        setValue("thumbnail", updatedThumbnail);
       }
     }
   }, [isTrending, thumbnail, setValue]);
@@ -58,7 +58,8 @@ function Form({ film }) {
         isTrending: data.isTrending === "true",
         thumbnail: {
           regular: { large: data.thumbnail },
-          trending: data.isTrending === "true" ? { large: data.thumbnail } : undefined,
+          trending:
+            data.isTrending === "true" ? { large: data.thumbnail } : undefined,
         },
         isBookmarked: false,
       };
@@ -81,10 +82,15 @@ function Form({ film }) {
         className="text-center p-3"
       >
         <div className="p-3">
-          <label htmlFor="title">Title:</label>
+          <div className="flex flex-row justify-between pb-3 text-center">
+            <label htmlFor="title" className="text-heading-xs font-outfit">Title:</label>
+            <div className="text-red text-heading-xs font-outfit">{errors.title?.message}</div>
+          </div>
           <input
             type="text"
             id="title"
+            className="form-text-select"
+            placeholder="Enter title name"
             {...register("title", {
               required: "This field is required",
               maxLength: 60,
@@ -94,13 +100,17 @@ function Form({ film }) {
               },
             })}
           />
-          <div className="text-red">{errors.title?.message}</div>
         </div>
         <div className="p-3">
-          <label htmlFor="thumbnail">Thumbnail:</label>
+          <div className="flex flex-row justify-between pb-3 text-center">
+            <label htmlFor="thumbnail" className="text-heading-xs font-outfit">Thumbnail:</label>
+            <div className="text-red text-heading-xs font-outfit">{errors.thumbnail?.message}</div>
+          </div>
           <input
             type="url"
             id="thumbnail"
+            className="form-text-select"
+            placeholder="Enter image URL"
             {...register("thumbnail", {
               required: "Thumbnail URL is required",
               maxLength: {
@@ -115,13 +125,17 @@ function Form({ film }) {
               },
             })}
           />
-          <div className="text-red">{errors.thumbnail?.message}</div>
         </div>
         <div className="p-3">
-          <label htmlFor="year">Year:</label>
+          <div className="flex flex-row justify-between pb-3 text-center">
+            <label htmlFor="year" className="text-heading-xs font-outfit">Year:</label>
+            <div className="text-red text-heading-xs font-outfit">{errors.year?.message}</div>
+          </div>
           <input
             type="number"
             id="year"
+            className="form-text-select"
+            placeholder="Enter release year"
             {...register("year", {
               required: "This field is required",
               validate: {
@@ -133,63 +147,70 @@ function Form({ film }) {
               },
             })}
           />
-          <div className="text-red">{errors.year?.message}</div>
         </div>
         <div className="p-3">
-          <label htmlFor="category">Category:</label>
+          <div className="flex flex-row justify-between pb-3 text-center">
+            <label htmlFor="category" className="text-heading-xs font-outfit">Category:</label>
+            <div className="text-red text-heading-xs font-outfit">{errors.category?.message}</div>
+          </div>
           <select
             id="category"
+            className="form-text-select"
             {...register("category", {
               required: "This field is required",
               validate: (value) =>
                 value !== "Select category" || "Please select a valid category",
             })}
           >
-            <option>Select category</option>
-            <option value="Movie">Movie</option>
-            <option value="TV Series">TV Series</option>
+            <option className="font-outfit">Select category</option>
+            <option className="font-outfit" value="Movie">Movie</option>
+            <option className="font-outfit" value="TV Series">TV Series</option>
           </select>
-          <div className="text-red">{errors.category?.message}</div>
         </div>
         <div className="p-3">
-          <label htmlFor="rating">Rating:</label>
+          <div className="flex flex-row justify-between pb-3 text-center">
+            <label htmlFor="rating" className="text-heading-xs">Rating:</label>
+            <div className="text-red text-heading-xs">{errors.rating?.message}</div>
+          </div>
           <select
             id="rating"
+            className="form-text-select"
             {...register("rating", {
               required: "This field is required",
               validate: (value) =>
                 value !== "Select age rating" || "Please select a valid rating",
             })}
           >
-            <option>Select age rating</option>
-            <option value="E">General Audiences</option>
-            <option value="PG">Parental Guidance Suggested</option>
-            <option value="18+">Adults Only</option>
+            <option className="font-outfit">Select age rating</option>
+            <option className="font-outfit" value="E">General Audiences - E</option>
+            <option className="font-outfit" value="PG">Parental Guidance Suggested - PG</option>
+            <option className="font-outfit" value="18+">Adults Only - 18+</option>
           </select>
-          <div className="text-red">{errors.rating?.message}</div>
         </div>
         <div className="p-3">
-          <label>Is Trending?</label>
+          <div className="flex flex-row justify-between pb-3 text-center">
+            <label className="text-heading-xs font-outfit">Is Trending?</label>
+            <div className="text-red text-heading-xs font-outfit">{errors.isTrending?.message}</div>
+          </div>
           <input
             type="radio"
             id="isTrendingTrue"
             value={true}
             {...register("isTrending", { required: "Field is required" })}
           />
-          <label htmlFor="isTrendingTrue">Yes</label>
+          <label htmlFor="isTrendingTrue" className="py-5 pr-5 pl-2 text-heading-xs font-outfit">Yes</label>
           <input
             type="radio"
             id="isTrendingFalse"
             value={false}
             {...register("isTrending", { required: "Field is required" })}
           />
-          <label htmlFor="isTrendingFalse">No</label>
-          <div className="text-red">{errors.isTrending?.message}</div>
+          <label htmlFor="isTrendingFalse" className="py-5 pr-5 pl-2 text-heading-xs font-outfit">No</label>
         </div>
         <input
           type="submit"
           value="Submit"
-          className="bg-yellow-300 p-3 rounded border border-black shadow-slate-600 shadow"
+          className="bg-accent px-6 py-3 m-4 rounded border border-black shadow-slate-600 shadow"
         />
       </form>
       {error && <p className="text-red-600">{error}</p>}
