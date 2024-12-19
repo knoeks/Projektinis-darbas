@@ -5,9 +5,10 @@ import Category from "./Category";
 import PlayButton from "./PlayButton";
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
+import ControlPanel from "./ControlPanel";
 
-function Film({ film}) {
-  const { title, year, category, rating, thumbnail} = film;
+function Film({ film }) {
+  const { title, year, category, rating, thumbnail } = film;
   const location = useLocation();
 
   let str = "";
@@ -21,13 +22,17 @@ function Film({ film}) {
   return (
     <div className="film-card">
       <div className="film-container">
-        <Bookmark film={film}/>
-        { location.pathname === "/admin"
-                  ? <DeleteButton film={film}/>
-                  : "" }
-        { location.pathname === "/admin"
-                  ? <EditButton film={film}/>
-                  : "" }
+        <Bookmark film={film} />
+        {location.pathname === "/admin" ? (
+          <>
+            <ControlPanel />
+            <DeleteButton film={film} />
+            <EditButton film={film} />{" "}
+          </>
+        ) : (
+          ""
+        )}
+
         <img className="film-thumbnail" src={str} alt={title} />
         <PlayButton />
       </div>
