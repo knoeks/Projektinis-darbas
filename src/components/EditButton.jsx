@@ -1,12 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Edit from "../assets/icon-edit.svg?react";
 import Form from "./Form";
 import { ThemeContext } from "../helpers/themeContext";
 
 function EditButton({ film }) {
   const { editModalID, setEditModalID } = useContext(ThemeContext);
-  console.log(editModalID);
-  
   return (
     <>
       <div className="edit-button">
@@ -28,7 +26,7 @@ function EditButton({ film }) {
               <button
                 className="btn bg-[#5A698F] w-32"
                 onClick={() => {
-                  SetEditModalID("");
+                  setEditModalID("");
                 }}
               >
                 Close

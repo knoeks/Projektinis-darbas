@@ -13,13 +13,17 @@ function DeleteButton({ film }) {
   const { deleteModalID, setDeleteModalID } = useContext(ThemeContext);
 
   const handleDelete = async () => {
-    if (!deleteModalID) {
+    if (deleteModalID !== id) {
       return;
     }
 
-    try {
-      await deleteOne(deleteModalID);
-      setAllFilms((prevFilms) => prevFilms.filter((film) => film.id !== deleteModalID));
+    try {   
+      setDeleteModalID("");
+
+      await deleteOne(id);
+      setAllFilms((prevFilms) => prevFilms.filter((film) => film.id !== id));
+
+
       toast.success("Film deleted successfully!", {
         position: "top-center",
         autoClose: 3000,
@@ -28,7 +32,6 @@ function DeleteButton({ film }) {
         pauseOnHover: false,
         draggable: false,
       });
-      setIsModalOpen(false);
     } catch (error) {
       console.error("Error during deletion:", error);
       toast.error("An error occurred while deleting the film. Please try again.", {
