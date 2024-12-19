@@ -43,7 +43,7 @@ function SearchBar() {
     }
   };
 
-  const pattern = /^[a-zA-Z0-9/\-,.?=]+$/;
+  const pattern = /^(?!\s)(?!.*\s$)[\x20-\x7E]*$/;
   let isValid = pattern.test(searchQuery);
 
   if (searchQuery && !isValid) {

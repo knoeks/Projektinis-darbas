@@ -3,8 +3,8 @@ import oval from "../assets/oval.svg";
 import Bookmark from "./Bookmark";
 import Category from "./Category";
 import PlayButton from "./PlayButton";
-import DeleteButton from "./DeleteButton";
-import EditButton from "./EditButton";
+//import DeleteButton from "./DeleteButton";
+//import EditButton from "./EditButton";
 import ControlPanel from "./ControlPanel";
 
 function Film({ film }) {
@@ -13,7 +13,7 @@ function Film({ film }) {
 
   let str = "";
 
-  if (thumbnail.regular.large.startsWith("data:image")) {
+  if (thumbnail.regular.large.startsWith("https")) { 
     str = thumbnail.regular.large;
   } else {
     str = "src/" + thumbnail.regular.large.slice(2);

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { post } from "../helpers/post";
 import { updateOne } from "../helpers/update";
 
-function Form({ title, setFormOpen }) {
+function Form({ film }) {
   const [error, setError] = useState("");
 
   const {
@@ -12,60 +12,59 @@ function Form({ title, setFormOpen }) {
     formState: { errors },
     reset,
     setValue,
+    watch,
   } = useForm({
     mode: "onBlur",
     reValidateMode: "onChange",
   });
 
-  const convertToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
-  };
-
-  const handleFileChange = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    try {
-      const base64 = await convertToBase64(file);
-      setValue(
-        "thumbnail",
-        { regular: { large: base64 }, trending: { large: base64 } },
-        { shouldValidate: true }
-      );
-    } catch (error) {
-      console.error("Error converting file:", error);
-    }
-  };
+  const isTrending = watch("isTrending");
+  const thumbnail = watch("thumbnail");
 
   useEffect(() => {
-    if (title) {
-      const { title, year, category, rating, isTrending } = title;
+    if (film) {
+      const { title,thumbnail, year, category, rating, isTrending } = film;
+      console.log(title);
+      
       setValue("title", title);
+      setValue("thumbnail", thumbnail.regular.large)
       setValue("year", year);
       setValue("category", category);
       setValue("rating", rating);
       setValue("isTrending", isTrending);
     }
-  }, [title, setValue]);
+  }, [film, setValue]);
+
+  useEffect(() => {
+    if (isTrending) {
+      if (!thumbnail?.trending?.large && thumbnail?.regular?.large) {
+        setValue("thumbnail", {
+          ...thumbnail,
+          trending: { large: thumbnail.regular?.large },
+        });
+      }
+    } else {
+      if (thumbnail?.trending) {
+      const { trending, ...updatedThumbnail } = thumbnail || {};
+      setValue("thumbnail", updatedThumbnail);
+      }
+    }
+  }, [isTrending, thumbnail, setValue]);
 
   const formSubmitHandler = async (data) => {
     try {
-      if (!data.thumbnail?.regular?.large) {
-        setError("Thumbnail is required");
-        return;
-      }
-
       const formattedData = {
         ...data,
+        isTrending: data.isTrending === "true",
+        thumbnail: {
+          regular: { large: data.thumbnail },
+          trending: data.isTrending === "true" ? { large: data.thumbnail } : undefined,
+        },
         isBookmarked: false,
       };
-      if (title) {
-        await updateOne(title.id, formattedData);
-        setFormOpen(false);
+
+      if (film) {
+        await updateOne(film.id, formattedData);
       } else {
         await post(formattedData);
       }
@@ -88,34 +87,36 @@ function Form({ title, setFormOpen }) {
             id="title"
             {...register("title", {
               required: "This field is required",
+              maxLength: 60,
               pattern: {
-                value: /^[a-zA-Z0-9/\-,.?=]+$/,
-                message: "Invalid symbol(s) in the field",
+                value: /^(?!\s)(?!.*\s$)[\x20-\x7E]*$/,
+                message: "Remove whitespaces at the start or the end",
               },
             })}
           />
           <div className="text-red">{errors.title?.message}</div>
         </div>
-        {!title && (
-          <div className="p-3">
-            <label htmlFor="thumbnail">Thumbnail:</label>
-            <input
-              type="file"
-              accept="image/*"
-              id="thumbnail"
-              {...register("thumbnail", {
-                required: "This field is required",
-                validate: (fileList) =>
-                  fileList?.length > 0 || "File is required",
-              })}
-              onChange={(e) => {
-                handleFileChange(e);
-                setValue("thumbnail", e.target.files, { shouldValidate: true });
-              }}
-            />
-            <div className="text-red">{errors.thumbnail?.message}</div>
-          </div>
-        )}
+        <div className="p-3">
+          <label htmlFor="thumbnail">Thumbnail:</label>
+          <input
+            type="url"
+            id="thumbnail"
+            {...register("thumbnail", {
+              required: "Thumbnail URL is required",
+              maxLength: {
+                value: 300,
+                message: "URL is too long (maximum is 500 characters)",
+              },
+              pattern: {
+                value:
+                  /^(https?:\/\/[^\s/$.?#].[^\s]*)(\/[^.\s]*|\/.*\.(?:png|jpg|jpeg|gif|svg|webp|bmp))?$/i,
+                message:
+                  "Please enter a valid image URL or check your image file extension",
+              },
+            })}
+          />
+          <div className="text-red">{errors.thumbnail?.message}</div>
+        </div>
         <div className="p-3">
           <label htmlFor="year">Year:</label>
           <input
