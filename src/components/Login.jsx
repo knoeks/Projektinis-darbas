@@ -75,7 +75,7 @@ const LoginForm = ({ setRole }) => {
 
       // Redirect based on user role
       if (allowedRoles.includes(user.role)) {
-        // setRole(user.role);
+        setRole(user.role);
         sessionStorage.setItem("currentRole", JSON.stringify(user.role));
         navigate("/home");
       } else {
