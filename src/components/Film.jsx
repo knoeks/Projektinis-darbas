@@ -1,5 +1,5 @@
 import { useLocation } from "react-router";
-import oval from "../assets/oval.svg";
+import oval from "../assets/Oval.svg";
 import Bookmark from "./Bookmark";
 import Category from "./Category";
 import PlayButton from "./PlayButton";
