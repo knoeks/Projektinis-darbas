@@ -1,5 +1,6 @@
 React.js group project
 together with colleagues we made a functioning and fairly efficient React.js project for a movie rental website. 
+
 ✅ Prop drilling
 ✅ useContext
 ✅ Dynamic rendering
@@ -7,6 +8,7 @@ together with colleagues we made a functioning and fairly efficient React.js pro
 ✅ Tailwind integration
 ✅ React Hook Forms
 
+⚠️⚠️CURRENTLY NOT READY FOR DEPLOYMENT⚠️⚠️
 setup:
 1) npm i
 2) npx json-server data/data.json --port=5001 --watch
