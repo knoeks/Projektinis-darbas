@@ -30,15 +30,15 @@ Ardrej Titkov:
   - movie update form using React Hook Forms
     
 Gytė Maslinskienė:
-  -Navigation bar implementation
-  -team coordination
-  -popup implementation for registering
+  - Navigation bar implementation
+  - team coordination
+  - popup implementation for registering
   
 Jaroslav Paškel:
-  -Trending carousel
+  - Trending carousel
 
 Karolis Rožan: 
-  -Login form creation
+  - Login form creation
   
 Kristina Šneiderytė:
-  -Register form implementation
+  - Register form implementation
