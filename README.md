@@ -8,13 +8,13 @@ together with colleagues we made a functioning and fairly efficient React.js pro
 ✅ Tailwind integration
 ✅ React Hook Forms
 
-⚠️⚠️CURRENTLY NOT READY FOR DEPLOYMENT⚠️⚠️__
+⚠️⚠️CURRENTLY NOT READY FOR DEPLOYMENT⚠️⚠️<br />
 setup:
 1) npm i
 2) npx json-server data/data.json --port=5001 --watch
 3) npm run dev
 
-**RESPONSIBILITIES**__
+**RESPONSIBILITIES**<br />
 Povilas Gegužis (knoeks):
   - Routes and useContext impelemntation
   - project optimization
