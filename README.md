@@ -15,7 +15,8 @@ setup:
 3) npm run dev
 
 **RESPONSIBILITIES**
-Povilas Gegužis:
+
+Povilas Gegužis (knoeks):
   - Routes and useContext impelemntation
   - project optimization
   - film cards and main content rendering
@@ -24,23 +25,23 @@ Povilas Gegužis:
   - team coordination
   - creation of reusable tailwing components and utilities
 
-Ardrej Titkov:
+Ardrej Titkov (Denulion):
   - Routes and useContext impelemntation
   - Merging and integrating everyones components to main code branch
   - fixing different bugs
   - Searchbar and filtering
   - movie update form using React Hook Forms
     
-Gytė Maslinskienė:
+Gytė Maslinskienė (GyteMas):
   - Navigation bar implementation
   - team coordination
   - popup implementation for registering
   
-Jaroslav Paškel:
+Jaroslav Paškel (Jaronimo1337):
   - Trending carousel
 
-Karolis Rožan: 
+Karolis Rožan (KarolisRZN): 
   - Login form creation
   
-Kristina Šneiderytė:
+Kristina Šneiderytė (KrisSneid963):
   - Register form implementation
