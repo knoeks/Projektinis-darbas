@@ -1,20 +1,20 @@
 React.js group project
 together with colleagues we made a functioning and fairly efficient React.js project for a movie rental website. 
 
-✅ Prop drilling
-✅ useContext
-✅ Dynamic rendering
-✅ React Route implementation
-✅ Tailwind integration
-✅ React Hook Forms
+✅ Prop drilling<br />
+✅ useContext<br />
+✅ Dynamic rendering<br />
+✅ React Route implementation<br />
+✅ Tailwind integration<br />
+✅ React Hook Forms<br />
 
-⚠️⚠️CURRENTLY NOT READY FOR DEPLOYMENT⚠️⚠️<br />
+⚠️⚠️CURRENTLY NOT READY FOR DEPLOYMENT⚠️⚠️<br /><br />
 setup:
 1) npm i
 2) npx json-server data/data.json --port=5001 --watch
 3) npm run dev
 
-**RESPONSIBILITIES**<br />
+**RESPONSIBILITIES:**<br /><br />
 Povilas Gegužis (knoeks):
   - Routes and useContext impelemntation
   - project optimization
